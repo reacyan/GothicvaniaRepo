@@ -1,0 +1,106 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\program\\gothicvania game\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{81153EC5-199D-056A-2585-31A5CD292206}|Assembly-CSharp.csproj|E:\\program\\gothicvania game\\assets\\scripts\\skill\\skill_controllers\\blackhole_hotkey_controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81153EC5-199D-056A-2585-31A5CD292206}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\skill\\skill_controllers\\blackhole_hotkey_controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81153EC5-199D-056A-2585-31A5CD292206}|Assembly-CSharp.csproj|e:\\program\\gothicvania game\\assets\\scripts\\skill\\skill_controllers\\blackhole_skill_controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81153EC5-199D-056A-2585-31A5CD292206}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\skill\\skill_controllers\\blackhole_skill_controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81153EC5-199D-056A-2585-31A5CD292206}|Assembly-CSharp.csproj|E:\\program\\gothicvania game\\assets\\scripts\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81153EC5-199D-056A-2585-31A5CD292206}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81153EC5-199D-056A-2585-31A5CD292206}|Assembly-CSharp.csproj|E:\\program\\gothicvania game\\assets\\scripts\\player\\playerblackholestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81153EC5-199D-056A-2585-31A5CD292206}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playerblackholestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81153EC5-199D-056A-2585-31A5CD292206}|Assembly-CSharp.csproj|E:\\program\\gothicvania game\\assets\\scripts\\skill\\blackhole_skill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81153EC5-199D-056A-2585-31A5CD292206}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\skill\\blackhole_skill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Player.cs",
+              "DocumentMoniker": "E:\\program\\gothicvania game\\Assets\\Scripts\\Player\\Player.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\Player.cs",
+              "ToolTip": "E:\\program\\gothicvania game\\Assets\\Scripts\\Player\\Player.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\Player.cs",
+              "ViewState": "AQIAAHIAAAAAAAAAAAAuwIsAAABWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-03T11:22:49.325Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Blackhole_HotKey_Controller.cs",
+              "DocumentMoniker": "E:\\program\\gothicvania game\\Assets\\Scripts\\Skill\\Skill_Controllers\\Blackhole_HotKey_Controller.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Skill\\Skill_Controllers\\Blackhole_HotKey_Controller.cs",
+              "ToolTip": "E:\\program\\gothicvania game\\Assets\\Scripts\\Skill\\Skill_Controllers\\Blackhole_HotKey_Controller.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Skill\\Skill_Controllers\\Blackhole_HotKey_Controller.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAYwCgAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-05T10:10:59.82Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PlayerBlackholeState.cs",
+              "DocumentMoniker": "E:\\program\\gothicvania game\\Assets\\Scripts\\Player\\PlayerBlackholeState.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerBlackholeState.cs",
+              "ToolTip": "E:\\program\\gothicvania game\\Assets\\Scripts\\Player\\PlayerBlackholeState.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerBlackholeState.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-03T11:22:38.983Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Blackhole_Skill.cs",
+              "DocumentMoniker": "E:\\program\\gothicvania game\\Assets\\Scripts\\Skill\\Blackhole_Skill.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Skill\\Blackhole_Skill.cs",
+              "ToolTip": "E:\\program\\gothicvania game\\Assets\\Scripts\\Skill\\Blackhole_Skill.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Skill\\Blackhole_Skill.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAA3wCwAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-04T04:19:43.384Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Blackhole_Skill_Controller.cs",
+              "DocumentMoniker": "E:\\program\\gothicvania game\\Assets\\Scripts\\Skill\\Skill_Controllers\\Blackhole_Skill_Controller.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Skill\\Skill_Controllers\\Blackhole_Skill_Controller.cs",
+              "ToolTip": "E:\\program\\gothicvania game\\Assets\\Scripts\\Skill\\Skill_Controllers\\Blackhole_Skill_Controller.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Skill\\Skill_Controllers\\Blackhole_Skill_Controller.cs",
+              "ViewState": "AQIAAC4AAAAAAAAAAAAUwE8AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-03T07:21:44.523Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
