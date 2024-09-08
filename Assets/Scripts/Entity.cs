@@ -29,18 +29,18 @@ public class Entity : MonoBehaviour
 
     public int facingDir { get; private set; } = 1;
     protected bool facingRight = true;
-     
+
 
     protected virtual void Awake()
     {
-        
+
     }
 
     protected virtual void Start()
     {
         //获取组件
         anim = GetComponentInChildren<Animator>();
-        sr=GetComponentInChildren<SpriteRenderer>();
+        sr = GetComponentInChildren<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         fx = GetComponent<EntityFX>();
     }
@@ -48,10 +48,10 @@ public class Entity : MonoBehaviour
     public virtual void Damage(bool _ishitKonckbback)
     {
         fx.StartCoroutine("FlashFX");
-        StartCoroutine("HitKnockback",_ishitKonckbback);
+        StartCoroutine("HitKnockback", _ishitKonckbback);
     }
 
-    protected virtual IEnumerator HitKnockback( bool _ishitKonckbback)
+    protected virtual IEnumerator HitKnockback(bool _ishitKonckbback)
     {
         isKnocked = true;
 
@@ -67,7 +67,7 @@ public class Entity : MonoBehaviour
 
     protected virtual void Update()
     {
-        
+
     }
 
     #region Collision
@@ -130,7 +130,7 @@ public class Entity : MonoBehaviour
 
     public void MakeTransprent(bool _transprent)
     {
-        CapsuleCollider2D ca=GetComponent<CapsuleCollider2D>();
+        CapsuleCollider2D ca = GetComponent<CapsuleCollider2D>();
         if (_transprent)
         {
             sr.color = Color.clear;

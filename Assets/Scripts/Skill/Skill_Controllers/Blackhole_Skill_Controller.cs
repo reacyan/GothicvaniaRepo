@@ -13,7 +13,7 @@ public class Blackhole_Skill_Controller : MonoBehaviour
     private float growSpeed;
     private float shrinkSpeed;
 
-    private bool canGrow=true;
+    private bool canGrow = true;
     private bool canShrink;
 
     private bool canCreateHotKey = true;
@@ -24,8 +24,8 @@ public class Blackhole_Skill_Controller : MonoBehaviour
     private float blackholeTimer;
     private float cloneAttackCooldown;
     private float cloneAttackTimer;
-    private float delayTime=.3f;
-    private float delayReleaseTime = 8;
+    //private float delayTime = .3f;
+    //private float delayReleaseTime = 8;
 
     private List<Transform> targets = new List<Transform>();
     private List<GameObject> createdHotKey = new List<GameObject>();
@@ -39,8 +39,7 @@ public class Blackhole_Skill_Controller : MonoBehaviour
         shrinkSpeed = _shrinkSpeed;
         cloneAttackCooldown = _cloneAttackCooldown;
         amountOfAttacks = _amountOfAttacks;
-
-        blackholeTimer = _blackholeDuration; 
+        blackholeTimer = _blackholeDuration;
     }
 
 
@@ -56,10 +55,9 @@ public class Blackhole_Skill_Controller : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.R) && !canShrink)
-        {   
+        {
             ReleaseClonaAttack();
         }
-
 
         CloneAttackLogic();
 
@@ -75,7 +73,7 @@ public class Blackhole_Skill_Controller : MonoBehaviour
             if (transform.localScale.x < 0)
             {
                 //PlayerManager.instance.player.ExitBlackholeAbility();
-                Destroy(gameObject);  
+                Destroy(gameObject);
             }
         }
 
@@ -96,7 +94,9 @@ public class Blackhole_Skill_Controller : MonoBehaviour
         if (cloneAttackTimer < 0 && cloneAttackReleased)
         {
             cloneAttackTimer = cloneAttackCooldown;
+
             amountOfAttacks--;
+
             if (amountOfAttacks <= 0)
             {
                 Invoke("FinishBlackHoleAbility", .3f);//延迟缩小黑洞
@@ -137,7 +137,7 @@ public class Blackhole_Skill_Controller : MonoBehaviour
             return;
         }
 
-        for (int i = 0; i <= createdHotKey.Count-1; i++)//销毁QTE按键
+        for (int i = 0; i <= createdHotKey.Count - 1; i++)//销毁QTE按键
         {
             Destroy(createdHotKey[i]);
         }
@@ -186,5 +186,5 @@ public class Blackhole_Skill_Controller : MonoBehaviour
         newHotKeyScrip.SetupHotKey(choosingKeyCode, collision.transform, this);
     }
 
-    public void AddEnemyToList(Transform _enemyTransform)=>targets.Add(_enemyTransform);//添加敌人列表
+    public void AddEnemyToList(Transform _enemyTransform) => targets.Add(_enemyTransform);//添加敌人列表
 }

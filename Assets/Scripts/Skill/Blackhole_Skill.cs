@@ -19,17 +19,12 @@ public class Blackhole_Skill : Skill
 
     Blackhole_Skill_Controller currentBlackhole;
 
-    public override bool CanUseSkill()
-    {
-        return base.CanUseSkill();
-    }
-
     public override void UseSkill()
     {
         base.UseSkill();
 
         GameObject newBlackhole = Instantiate(BlackholePrefab, player.transform.position, Quaternion.identity);
-        currentBlackhole=newBlackhole.GetComponent<Blackhole_Skill_Controller>();
+        currentBlackhole = newBlackhole.GetComponent<Blackhole_Skill_Controller>();
         currentBlackhole.SetupBlackhole(maxSize, growSpeed, shrinkSpeed, CloneAttackCooldown, amountOfAttack, blackholeDuration);
     }
 

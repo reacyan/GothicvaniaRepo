@@ -19,6 +19,7 @@ public class Skill : MonoBehaviour
         cooldown -= Time.deltaTime;
     }
 
+
     public virtual bool CanUseSkill()
     {
         if (cooldown < 0)

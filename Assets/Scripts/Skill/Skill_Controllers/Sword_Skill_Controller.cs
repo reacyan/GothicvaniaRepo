@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Sword_Skill_Controller : MonoBehaviour
 {
-    private float MaxTravelDistance=25;
+    private float MaxTravelDistance = 25;
 
-    private float returnSpeed=12;
+    private float returnSpeed = 12;
     private Animator anim;
     private Rigidbody2D rb;
     private CircleCollider2D cd;
@@ -17,14 +17,14 @@ public class Sword_Skill_Controller : MonoBehaviour
 
     private float freezeTimeDuartion;
 
-    
+
     [Header("Pierce info")]
     private float pierceAmount;
 
 
     [Header("Bounceing info")]
     private float bounceSpeed;
-    private bool isBouncing=false;
+    private bool isBouncing = false;
     public int BounceAmount;
     private List<Transform> enemyTarget;
     private int targetIndex;
@@ -57,10 +57,10 @@ public class Sword_Skill_Controller : MonoBehaviour
     }
 
 
-    public void SetupSword(Vector2 _dir,float _gravityScale,Player _player,float _freezeTimeDuration,float _returnSpeed)
+    public void SetupSword(Vector2 _dir, float _gravityScale, Player _player, float _freezeTimeDuration, float _returnSpeed)
     {
         player = _player;
-        freezeTimeDuartion= _freezeTimeDuration;
+        freezeTimeDuartion = _freezeTimeDuration;
         returnSpeed = _returnSpeed;
 
         rb.velocity = _dir;
@@ -86,13 +86,13 @@ public class Sword_Skill_Controller : MonoBehaviour
         MaxTravelDistance = _maxTravelDistance;
     }
 
-    public void setupPierce(int _pierceAmount,float _maxTravelDistance)
+    public void setupPierce(int _pierceAmount, float _maxTravelDistance)
     {
         pierceAmount = _pierceAmount;
         MaxTravelDistance = _maxTravelDistance;
     }
 
-    public void SetupSpin(bool _isSPainning,float _maxTravelDistance,float _spinDuration,float _hitCooldown,bool _isForward)
+    public void SetupSpin(bool _isSPainning, float _maxTravelDistance, float _spinDuration, float _hitCooldown, bool _isForward)
     {
         isSpinning = _isSPainning;
         SpinmaxTravelDistance = _maxTravelDistance;
@@ -130,9 +130,8 @@ public class Sword_Skill_Controller : MonoBehaviour
             }
         }
 
-        if(Vector2.Distance(player.transform.position, transform.position) > MaxTravelDistance)
+        if (Vector2.Distance(player.transform.position, transform.position) > MaxTravelDistance)
         {
-            Debug.Log("Destroy Me");
             DestroyMe();
         }
 
@@ -166,7 +165,7 @@ public class Sword_Skill_Controller : MonoBehaviour
             {
                 spinTimer -= Time.deltaTime;
 
-                transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x + spinDirection, transform.position.y),1.5f*Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x + spinDirection, transform.position.y), 1.5f * Time.deltaTime);
 
                 if (spinTimer < 0)
                 {
@@ -278,7 +277,7 @@ public class Sword_Skill_Controller : MonoBehaviour
 
     private void StuckInto(Collider2D collision)
     {
-        if(isSpinning)
+        if (isSpinning)
         {
             StopWhenSpinning();
             return;

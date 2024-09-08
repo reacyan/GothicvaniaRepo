@@ -33,8 +33,8 @@ public class playerstate
     public virtual void Enter()
     {
         //设置动画布尔值
-        player.anim.SetBool(animBoolName, true);   
-        rb=player.rb;
+        player.anim.SetBool(animBoolName, true);
+        rb = player.rb;
         triggerCalled = false;
     }
 

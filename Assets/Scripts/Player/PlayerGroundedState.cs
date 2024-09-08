@@ -52,7 +52,7 @@ public class PlayerGroundedState : playerstate
 
     private bool HasNoSword()
     {
-        if (player.sword==null)
+        if (player.sword == null)
         {
             return true;
         }

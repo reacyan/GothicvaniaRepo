@@ -56,7 +56,7 @@ public class Player : Entity
         idleState = new PlayerIdleState(this, stateMachine, "Idle");
         moveState = new PlayerMoveState(this, stateMachine, "Move");
         jumpState = new PlayerJumpState(this, stateMachine, "Jump");
-        airState  = new PlayerAirState(this, stateMachine, "Jump");
+        airState = new PlayerAirState(this, stateMachine, "Jump");
         dashState = new PlayerDashState(this, stateMachine, "Dash");
         wallSlideState = new PlayerWallSlideState(this, stateMachine, "WallSlide");
         wallJumpState = new PlayerWallJumpState(this, stateMachine, "Jump");
@@ -73,7 +73,7 @@ public class Player : Entity
     {
         base.Start();
 
-        
+
         skill = SkillManager.instance;
         stateMachine.Initialize(idleState);
     }
@@ -87,16 +87,16 @@ public class Player : Entity
         CheckForDashInput();
         CheckForBlackHoleInput();
 
-        if (!blackhole.skillUsed)
+        if (Input.GetKeyDown(KeyCode.T))
         {
-
+            skill.crystal.CanUseSkill();
         }
 
     }
 
     public void AssignNewSword(GameObject _newSword)
     {
-        sword= _newSword;
+        sword = _newSword;
     }
 
     public void CatchTheSword()
@@ -108,13 +108,13 @@ public class Player : Entity
 
     public IEnumerator BusyFor(float _seconds)
     {
-        isBusy= true;
+        isBusy = true;
         yield return new WaitForSeconds(_seconds);
         isBusy = false;
     }
 
 
-    public void AnimationTrigger()=>stateMachine.currentState.AnimationFinishTrigger();
+    public void AnimationTrigger() => stateMachine.currentState.AnimationFinishTrigger();
 
     public void CheckForDashInput()
     {
@@ -122,13 +122,13 @@ public class Player : Entity
         {
             return;
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift) && SkillManager.instance.dash.CanUseSkill() && rb.gravityScale == 3.5f) 
+        if (Input.GetKeyDown(KeyCode.LeftShift) && SkillManager.instance.dash.CanUseSkill() && rb.gravityScale == 3.5f)
         {
             dashDir = Input.GetAxisRaw("Horizontal");
 
             if (dashDir == 0)
             {
-                dashDir=facingDir;
+                dashDir = facingDir;
             }
             stateMachine.ChangeState(dashState);
         }

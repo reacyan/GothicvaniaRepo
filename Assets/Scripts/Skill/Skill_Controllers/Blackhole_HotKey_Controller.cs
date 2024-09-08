@@ -22,7 +22,7 @@ public class Blackhole_HotKey_Controller : MonoBehaviour
         myText = GetComponentInChildren<TextMeshProUGUI>();
 
         myHotKey = _myHotKey;
-        myText.text = myHotKey.ToString();//��ʾ��λ
+        myText.text = myHotKey.ToString();//设置热键键位
 
         myEnemy = _myEnemy.transform;
         blackHole = _myBlackhole;
