@@ -45,7 +45,7 @@ public class Entity : MonoBehaviour
         fx = GetComponent<EntityFX>();
     }
 
-    public virtual void Damage(bool _ishitKonckbback)
+    public virtual void Damage(bool _ishitKonckbback = true)
     {
         fx.StartCoroutine("FlashFX");
         StartCoroutine("HitKnockback", _ishitKonckbback);

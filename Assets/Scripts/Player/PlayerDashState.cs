@@ -12,7 +12,7 @@ public class PlayerDashState : playerstate
     {
         base.Enter();
 
-        player.skill.clone.CreateClone(player.transform, player.ishitKonckbback);
+        player.skill.clone.CreateClone(player.transform);
 
         stateTimer = player.dashDuration;
     }
@@ -28,7 +28,7 @@ public class PlayerDashState : playerstate
 
         player.SetVelocity(player.dashSpeed * player.dashDir, 0);
 
-        if (!player.IsGroundDetected()&&player.IsWallDetected())
+        if (!player.IsGroundDetected() && player.IsWallDetected())
         {
             stateMachine.ChangeState(player.wallSlideState);
         }

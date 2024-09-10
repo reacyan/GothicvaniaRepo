@@ -4597,7 +4597,6 @@ MonoBehaviour:
   - {x: 1, y: 1}
   - {x: 4, y: 3}
   counterAttackDuration: 0.1
-  ishitKonckbback: 1
   moveSpeed: 12
   jumpForce: 12
   swordReturnImpact: 5
@@ -4931,9 +4930,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1437aa493b332e64e886a9f0e5410ffe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownTimer: 2
+  cooldownTimer: 0
   CrystalExistDuration: 1.5
   crystalPerfab: {fileID: 1764682700534959292, guid: df2052d541c7bfa49a09808d7441e6de, type: 3}
+  canExplode: 1
+  canMoveToEnemy: 0
+  moveSpeed: 0
 --- !u!1 &1692621089
 GameObject:
   m_ObjectHideFlags: 0
@@ -5245,10 +5247,6 @@ PrefabInstance:
     - target: {fileID: 1764682700534959292, guid: df2052d541c7bfa49a09808d7441e6de, type: 3}
       propertyPath: m_Name
       value: Crystal
-      objectReference: {fileID: 0}
-    - target: {fileID: 1764682700534959292, guid: df2052d541c7bfa49a09808d7441e6de, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

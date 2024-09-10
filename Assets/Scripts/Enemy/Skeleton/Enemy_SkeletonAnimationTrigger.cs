@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy_SkeletonAnimationTrigger : MonoBehaviour
 {
-    private Enemy_Skeleton enemy=>GetComponentInParent<Enemy_Skeleton>();
+    private Enemy_Skeleton enemy => GetComponentInParent<Enemy_Skeleton>();
 
     private void AnimationTrigger()
     {
@@ -19,7 +19,7 @@ public class Enemy_SkeletonAnimationTrigger : MonoBehaviour
         {
             if (hit.GetComponent<Player>() != null)
             {
-                hit.GetComponent<Player>().Damage(enemy.isHitKonckbback);
+                hit.GetComponent<Player>().Damage();
             }
         }
     }

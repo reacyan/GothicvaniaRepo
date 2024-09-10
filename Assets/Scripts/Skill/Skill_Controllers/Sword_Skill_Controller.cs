@@ -185,7 +185,7 @@ public class Sword_Skill_Controller : MonoBehaviour
                     {
                         if (hit.GetComponent<Enemy>() != null)
                         {
-                            hit.GetComponent<Enemy>().Damage(player.ishitKonckbback);
+                            hit.GetComponent<Enemy>().Damage();
                         }
                     }
                 }
@@ -203,7 +203,7 @@ public class Sword_Skill_Controller : MonoBehaviour
             {
 
                 SwordSkillDamage(enemyTarget[targetIndex].GetComponent<Enemy>());
-                enemyTarget[targetIndex].GetComponent<Enemy>().Damage(player.ishitKonckbback);
+                enemyTarget[targetIndex].GetComponent<Enemy>().Damage();
                 enemyTarget[targetIndex].GetComponent<Enemy>().StartCoroutine("FreezeTimerFor", freezeTimeDuartion);
 
                 targetIndex++;
@@ -238,7 +238,7 @@ public class Sword_Skill_Controller : MonoBehaviour
             SwordSkillDamage(enemy);
         }
 
-        collision.GetComponent<Enemy>()?.Damage(player.ishitKonckbback);
+        collision.GetComponent<Enemy>()?.Damage();
 
         SetupTargetsForBounce(collision);
 
@@ -251,7 +251,7 @@ public class Sword_Skill_Controller : MonoBehaviour
     {
 
         enemy.StartCoroutine("FreezeTimerFor", freezeTimeDuartion);
-        enemy.Damage(player.ishitKonckbback);
+        enemy.Damage();
     }
 
     private void SetupTargetsForBounce(Collider2D collision)

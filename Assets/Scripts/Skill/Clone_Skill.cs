@@ -11,7 +11,7 @@ public class Clone_Skill : Skill
     [SerializeField] private float cloneDuration;
     [SerializeField] private bool canAttack;
 
-    public void CreateClone(Transform _clonePosition, bool _ishitKonckbback, Vector3 _offset = default(Vector3))
+    public void CreateClone(Transform _clonePosition, bool _ishitKonckbback = true, Vector3 _offset = default(Vector3))
     {
         GameObject newClone = Instantiate(clonePrefab);
 

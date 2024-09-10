@@ -1,4 +1,4 @@
- using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.TerrainTools;
 using UnityEngine;
@@ -6,8 +6,8 @@ using UnityEngine.UIElements;
 
 public class Enemy : Entity
 {
-    
-    [SerializeField]protected LayerMask whatIsPlayer;
+
+    [SerializeField] protected LayerMask whatIsPlayer;
 
     [Header("Stunned info")]
     public float stunDuration;
@@ -25,7 +25,6 @@ public class Enemy : Entity
     public float attackDistance;
     public float attackCooldown;
     [HideInInspector] public float lastTimeAttacked;
-    public bool isHitKonckbback = true;
 
     public EnemyStateMachine stateMachine { get; private set; }
 
@@ -33,7 +32,7 @@ public class Enemy : Entity
     {
         base.Awake();
 
-        stateMachine=new EnemyStateMachine();
+        stateMachine = new EnemyStateMachine();
 
         defaultMoveSpeed = moveSpeed;
     }
@@ -54,7 +53,7 @@ public class Enemy : Entity
         }
         else
         {
-            moveSpeed=defaultMoveSpeed;
+            moveSpeed = defaultMoveSpeed;
             anim.speed = 1;
         }
     }
@@ -101,7 +100,7 @@ public class Enemy : Entity
 
     public virtual void CloseCounterAttackWindow()
     {
-        canBeStunned=false;
+        canBeStunned = false;
         counterImage.SetActive(false);
     }
     #endregion
@@ -117,7 +116,7 @@ public class Enemy : Entity
         return false;
     }
 
-    public virtual void AnimationFinishTrigger()=>stateMachine.currentState.AnimationFinishTrigger();
+    public virtual void AnimationFinishTrigger() => stateMachine.currentState.AnimationFinishTrigger();
 
 
     public virtual RaycastHit2D IsPlayerDetected() => Physics2D.Raycast(wallCheck.position, Vector2.right * facingDir, 18, whatIsPlayer);
@@ -130,4 +129,3 @@ public class Enemy : Entity
         Gizmos.DrawLine(transform.position, new Vector3(transform.position.x + attackDistance * facingDir, transform.position.y));
     }
 }
- 
