@@ -4936,6 +4936,9 @@ MonoBehaviour:
   canExplode: 1
   canMoveToEnemy: 1
   moveSpeed: 6
+  amountOfStacks: 0
+  multiStackCooldown: 0
+  crystalLeft: []
 --- !u!1 &1692621089
 GameObject:
   m_ObjectHideFlags: 0

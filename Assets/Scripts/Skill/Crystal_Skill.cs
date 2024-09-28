@@ -13,12 +13,15 @@ public class Crystal_Skill : Skill
     [Header("Explosive crystal")]
     [SerializeField] private bool canExplode;
 
-
-
     [Header("Moving crystal")]
     [SerializeField] private bool canMoveToEnemy;
     [SerializeField] private float moveSpeed;
 
+
+    [Header("Multi stacking crystal")]
+    [SerializeField] private int amountOfStacks;
+    [SerializeField] private float multiStackCooldown;
+    private List<GameObject> crystalLeft = new List<GameObject>();
 
     public override void UseSkill()
     {
@@ -42,5 +45,10 @@ public class Crystal_Skill : Skill
 
             currentCrystal.GetComponent<Crystal_Skill_Controller>()?.FinishCrystal();
         }
+    }
+
+
+    private void RefilCrystal(){
+        
     }
 }
