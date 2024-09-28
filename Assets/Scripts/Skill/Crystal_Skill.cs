@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Crystal_Skill : Skill
@@ -18,6 +19,7 @@ public class Crystal_Skill : Skill
     [SerializeField] private bool canMoveToEnemy;
     [SerializeField] private float moveSpeed;
 
+
     public override void UseSkill()
     {
         base.UseSkill();
@@ -26,14 +28,17 @@ public class Crystal_Skill : Skill
         {
             currentCrystal = Instantiate(crystalPerfab, player.transform.position, Quaternion.identity);
             Crystal_Skill_Controller currentCrystalScript = currentCrystal.GetComponent<Crystal_Skill_Controller>();
-            currentCrystalScript.setCrystal(CrystalExistDuration, moveSpeed, canMoveToEnemy, canExplode);
+            currentCrystalScript.setCrystal(CrystalExistDuration, moveSpeed, canExplode, canMoveToEnemy, FindCloseEnemy(currentCrystal.transform));
         }
         else
         {
-            Vector2 playerPos = player.transform.position;
+            if (!canMoveToEnemy)
+            {
 
-            player.transform.position = currentCrystal.transform.position;
-            currentCrystal.transform.position = playerPos;
+                Vector2 playerPos = player.transform.position;
+                player.transform.position = currentCrystal.transform.position;
+                currentCrystal.transform.position = playerPos;
+            }
 
             currentCrystal.GetComponent<Crystal_Skill_Controller>()?.FinishCrystal();
         }

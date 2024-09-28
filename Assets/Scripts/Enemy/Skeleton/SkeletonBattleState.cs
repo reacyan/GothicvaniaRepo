@@ -25,22 +25,22 @@ public class SkeletonBattleState : EnemyState
     {
         base.Update();
 
-        if (player.position.x > enemy.transform.position.x)
+        if (player.position.x > enemy.transform.position.x && !(player.transform.position.y > 1.4))
         {
             moveDir = 1;
         }
-        else if (player.position.x < enemy.transform.position.x)
+        else if (player.position.x < enemy.transform.position.x && !(player.transform.position.y > 1.4))
         {
             moveDir = -1;
         }
 
-        if (enemy.IsPlayerDetected())//¼ì²âÍæ¼Ò¾àÀë
+        if (enemy.IsPlayerDetected())//æ£€æµ‹çŽ©å®¶
         {
             stateTimer = enemy.battleTime;
 
-            if (enemy.IsPlayerDetected().distance < enemy.attackDistance)//¼ì²âÍæ¼ÒÓë¹¥»÷¾àÀë
+            if (enemy.IsPlayerDetected().distance < enemy.attackDistance)//æ£€æµ‹è·ç¦»
             {
-                enemy.moveSpeed = 0;//Õ¾¶¨¹¥»÷
+                enemy.moveSpeed = 0;//åœæ­¢ç§»åŠ¨
                 if (CanAttack())
                 {
                     stateMachine.ChangeState(enemy.attackState);

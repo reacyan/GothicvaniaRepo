@@ -24,7 +24,7 @@ public class Player : Entity
     public SkillManager skill { get; private set; }
     public GameObject sword { get; private set; }
 
-    //ÉùÃ÷Íæ¼Ò×´Ì¬
+    //?????
     #region States
     public PlayerStateMachine stateMachine { get; private set; }
 
@@ -48,7 +48,7 @@ public class Player : Entity
     {
         base.Awake();
 
-        //¸³Öµ
+        //?????
         stateMachine = new PlayerStateMachine();
 
         idleState = new PlayerIdleState(this, stateMachine, "Idle");
@@ -85,11 +85,10 @@ public class Player : Entity
         CheckForDashInput();
         CheckForBlackHoleInput();
 
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.T)&&skill)
         {
             skill.crystal.CanUseSkill();
         }
-
     }
 
     public void AssignNewSword(GameObject _newSword)

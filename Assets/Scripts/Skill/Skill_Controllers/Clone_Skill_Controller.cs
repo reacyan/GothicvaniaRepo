@@ -18,15 +18,15 @@ public class Clone_Skill_Controller : MonoBehaviour
 
     private void Awake()
     {
-        sr=GetComponent<SpriteRenderer>();
-        anim=GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     public void Update()
     {
         cloneTimer -= Time.deltaTime;
 
-        if (cloneTimer < 0) 
+        if (cloneTimer < 0)
         {
             sr.color = new Color(1, 1, 1, sr.color.a - (Time.deltaTime * colorLoosingSpeed));
 
@@ -37,16 +37,17 @@ public class Clone_Skill_Controller : MonoBehaviour
         }
     }
 
-    public void SetupClone(Transform _newTransform, float _cloneDuration, bool _canAttack, bool _ishitKonckbback, Vector3 _offset = default(Vector3))
+    public void SetupClone(Transform _newTransform, float _cloneDuration, bool _canAttack, bool _ishitKonckbback, Transform _closestEnemy, Vector3 _offset = default(Vector3))
     {
         if (_canAttack)
         {
             anim.SetInteger("AttackNumber", Random.Range(1, 4));
         }
 
-        ishitKonckbback= _ishitKonckbback;
+        ishitKonckbback = _ishitKonckbback;
         transform.position = _newTransform.position + _offset;
         cloneTimer = _cloneDuration;
+        closestEnemy = _closestEnemy;
 
         FaceClosestTarget();
     }
@@ -72,23 +73,6 @@ public class Clone_Skill_Controller : MonoBehaviour
 
     private void FaceClosestTarget()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position,50);
-
-        float closestDistance=Mathf.Infinity;
-
-        foreach (var hit in colliders)
-        {
-            if (hit.GetComponent<Enemy>() != null)
-            {
-                float distanceToEnemy = Vector2.Distance(transform.position, hit.transform.position);
-
-                if (distanceToEnemy < closestDistance)
-                {
-                    closestDistance = distanceToEnemy;
-                    closestEnemy = hit.transform;
-                }
-            }
-        }
 
         if (closestEnemy != null)
         {

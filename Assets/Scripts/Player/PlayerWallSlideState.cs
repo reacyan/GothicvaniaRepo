@@ -28,13 +28,18 @@ public class PlayerWallSlideState : playerstate
             return;
         }
 
-        if (xInput != 0 && player.facingDir!=xInput)
+        if (xInput != 0 && player.facingDir != xInput)
         {
             stateMachine.ChangeState(player.idleState);
         }
 
+        if (!player.IsWallDetected())
+        {
+            stateMachine.ChangeState(player.airState);
+        }
+
         if (player.IsGroundDetected())
-        { 
+        {
             stateMachine.ChangeState(player.idleState);
         }
 
