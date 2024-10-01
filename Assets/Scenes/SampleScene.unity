@@ -4843,7 +4843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f017e01305a23be4ea89c04fc8539280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownTimer: 0.4
+  cooldown: 0
 --- !u!114 &1553546006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4856,7 +4856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b669f51634073d24ea90b6748f863754, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownTimer: 0
+  cooldown: 0
   clonePrefab: {fileID: 8630420191640041069, guid: bf95be55d61fbde41abda06ac691e453, type: 3}
   cloneDuration: 2
   canAttack: 1
@@ -4872,7 +4872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff7c00e04a45e684e958b6bcbcb76bee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownTimer: 0
+  cooldown: 0
   swordtype: 0
   bounceAmount: 4
   bounceGravity: 3
@@ -4908,7 +4908,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6068a223f57ceb849963b8d8b34ad022, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownTimer: 10
+  cooldown: 0
   BlackholePrefab: {fileID: 4005887288747556887, guid: 7419bc037ea1442449e948ae083fbc09, type: 3}
   maxSize: 15
   growSpeed: 1.5
@@ -4930,15 +4930,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1437aa493b332e64e886a9f0e5410ffe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownTimer: 0
+  cooldown: 0
   CrystalExistDuration: 1.5
   crystalPerfab: {fileID: 1764682700534959292, guid: df2052d541c7bfa49a09808d7441e6de, type: 3}
   canExplode: 1
   canMoveToEnemy: 1
   moveSpeed: 6
-  amountOfStacks: 0
-  multiStackCooldown: 0
-  crystalLeft: []
+  canUseMultiStacks: 1
+  amountOfStacks: 3
+  multiStackCooldown: 2
+  useTimeWindows: 1
+  crystalLeft:
+  - {fileID: 1764682700534959292, guid: df2052d541c7bfa49a09808d7441e6de, type: 3}
+  - {fileID: 1764682700534959292, guid: df2052d541c7bfa49a09808d7441e6de, type: 3}
+  - {fileID: 1764682700534959292, guid: df2052d541c7bfa49a09808d7441e6de, type: 3}
 --- !u!1 &1692621089
 GameObject:
   m_ObjectHideFlags: 0

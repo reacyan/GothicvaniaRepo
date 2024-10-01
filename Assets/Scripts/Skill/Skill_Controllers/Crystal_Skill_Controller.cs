@@ -31,7 +31,7 @@ public class Crystal_Skill_Controller : MonoBehaviour
     private void Update()
     {
         //追踪效果
-        if (canMove)
+        if (canMove && closestTarget != null)
         {
             transform.position = Vector2.MoveTowards(transform.position, closestTarget.position, moveSpeed * Time.deltaTime);
 
