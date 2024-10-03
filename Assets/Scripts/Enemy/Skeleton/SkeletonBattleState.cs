@@ -19,7 +19,7 @@ public class SkeletonBattleState : EnemyState
     {
         base.Enter();
         player = PlayerManager.instance.player.transform;
-        enemy.moveSpeed = enemy.defaultMoveSpeed;
+        enemy.moveSpeed = enemy.defaultMoveSpeed * 2;
     }
     public override void Update()
     {
@@ -62,6 +62,7 @@ public class SkeletonBattleState : EnemyState
     public override void Exit()
     {
         base.Exit();
+        enemy.moveSpeed = enemy.defaultMoveSpeed;
     }
 
     private bool CanAttack()

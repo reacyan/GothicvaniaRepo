@@ -16,6 +16,7 @@ public class Skill : MonoBehaviour
 
     protected virtual void Update()
     {
+
         cooldownTimer -= Time.deltaTime;
     }
 

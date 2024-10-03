@@ -301,9 +301,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   stunDuration: 1
-  stunDirection: {x: 5, y: 6}
+  stunDirection: {x: 8, y: 8}
   counterImage: {fileID: 2104930658890726872}
-  moveSpeed: 1.5
+  moveSpeed: 1.8
   idleTime: 0
   battleTime: 5
   defaultMoveSpeed: 0

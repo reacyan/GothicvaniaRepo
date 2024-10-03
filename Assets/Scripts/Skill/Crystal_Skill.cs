@@ -11,6 +11,9 @@ public class Crystal_Skill : Skill
 
     private GameObject currentCrystal;
 
+    [Header("Crystal mirage")]
+    [SerializeField] private bool cloneInsteadOfCrystal;
+
     [Header("Explosive crystal")]
     [SerializeField] private bool canExplode;
 
@@ -44,14 +47,24 @@ public class Crystal_Skill : Skill
         }
         else
         {
-            if (!canMoveToEnemy)
+            if (canMoveToEnemy)
             {
-                Vector2 playerPos = player.transform.position;
-                player.transform.position = currentCrystal.transform.position;
-                currentCrystal.transform.position = playerPos;
+                return;
             }
 
-            currentCrystal.GetComponent<Crystal_Skill_Controller>()?.FinishCrystal();
+            Vector2 playerPos = player.transform.position;
+            player.transform.position = currentCrystal.transform.position;
+            currentCrystal.transform.position = playerPos;
+
+            if (cloneInsteadOfCrystal)
+            {
+                SkillManager.instance.clone.CreateClone(currentCrystal.transform, true, Vector3.zero);
+                Destroy(currentCrystal);
+            }
+            else
+            {
+                currentCrystal.GetComponent<Crystal_Skill_Controller>()?.FinishCrystal();
+            }
         }
     }
 

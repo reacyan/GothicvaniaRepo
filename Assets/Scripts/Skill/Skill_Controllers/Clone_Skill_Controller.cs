@@ -7,12 +7,11 @@ public class Clone_Skill_Controller : MonoBehaviour
     private SpriteRenderer sr;
     private Animator anim;
     [SerializeField] private float colorLoosingSpeed;
-    [SerializeField] private bool ishitKonckbback;
-
+    [SerializeField] private bool ishitKonckback;
 
     private float cloneTimer;
     [SerializeField] private Transform attackCheck;
-    [SerializeField] private float attackCheckRadius = .8f;
+    [SerializeField] private float attackCheckRadius = 1;
     private Transform closestEnemy;
 
 
@@ -37,14 +36,14 @@ public class Clone_Skill_Controller : MonoBehaviour
         }
     }
 
-    public void SetupClone(Transform _newTransform, float _cloneDuration, bool _canAttack, bool _ishitKonckbback, Transform _closestEnemy, Vector3 _offset = default(Vector3))
+    public void SetupClone(Transform _newTransform, float _cloneDuration, bool _canAttack, bool _ishitKonckback, Transform _closestEnemy, Vector3 _offset = default(Vector3))
     {
         if (_canAttack)
         {
             anim.SetInteger("AttackNumber", Random.Range(1, 4));
         }
 
-        ishitKonckbback = _ishitKonckbback;
+        ishitKonckback = _ishitKonckback;
         transform.position = _newTransform.position + _offset;
         cloneTimer = _cloneDuration;
         closestEnemy = _closestEnemy;
@@ -66,7 +65,7 @@ public class Clone_Skill_Controller : MonoBehaviour
         {
             if (hit.GetComponent<Enemy>() != null)
             {
-                hit.GetComponent<Enemy>().Damage(ishitKonckbback);
+                hit.GetComponent<Enemy>().Damage(ishitKonckback);
             }
         }
     }
