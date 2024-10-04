@@ -45,18 +45,22 @@ public class Blackhole_Skill : Skill
 
     public bool SkillCompleted()
     {
-
-        if (!currentBlackhole)
-        {
-            return false;
-        }
-
         if (currentBlackhole.playerCanExitState)
         {
             currentBlackhole = null;
             return true;
         }
 
+        if (currentBlackhole == null)
+        {
+            return false;
+        }
+
         return false;
+    }
+
+    public float GetBlackholeRadius()
+    {
+        return maxSize / 2;
     }
 }

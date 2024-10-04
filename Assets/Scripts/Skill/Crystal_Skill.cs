@@ -41,9 +41,7 @@ public class Crystal_Skill : Skill
 
         if (currentCrystal == null)
         {
-            currentCrystal = Instantiate(crystalPerfab, player.transform.position, Quaternion.identity);
-            Crystal_Skill_Controller currentCrystalScript = currentCrystal.GetComponent<Crystal_Skill_Controller>();
-            currentCrystalScript.setCrystal(CrystalExistDuration, moveSpeed, canExplode, canMoveToEnemy, FindCloseEnemy(currentCrystal.transform));
+            CreateCrystal();
         }
         else
         {
@@ -67,6 +65,16 @@ public class Crystal_Skill : Skill
             }
         }
     }
+    //实例化水晶
+    public void CreateCrystal()
+    {
+        currentCrystal = Instantiate(crystalPerfab, player.transform.position, Quaternion.identity);
+        Crystal_Skill_Controller currentCrystalScript = currentCrystal.GetComponent<Crystal_Skill_Controller>();
+        currentCrystalScript.SetupCrystal(CrystalExistDuration, moveSpeed, canExplode, canMoveToEnemy, FindCloseEnemy(currentCrystal.transform));
+    }
+
+    //选择随机目标
+    public void CurrentCrystalChooseRandomTarget() => currentCrystal.GetComponent<Crystal_Skill_Controller>().ChooseRandomEnemy();
 
     private bool CanUseMultiCrystal()
     {
@@ -87,7 +95,7 @@ public class Crystal_Skill : Skill
                 crystalLeft.Remove(crystalToSpawn);
 
                 newCrystal.GetComponent<Crystal_Skill_Controller>().
-                setCrystal(CrystalExistDuration, moveSpeed, canExplode, canMoveToEnemy, FindCloseEnemy(newCrystal.transform));
+                SetupCrystal(CrystalExistDuration, moveSpeed, canExplode, canMoveToEnemy, FindCloseEnemy(newCrystal.transform));
 
                 if (crystalLeft.Count <= 0)
                 {

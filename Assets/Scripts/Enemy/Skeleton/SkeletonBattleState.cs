@@ -19,7 +19,7 @@ public class SkeletonBattleState : EnemyState
     {
         base.Enter();
         player = PlayerManager.instance.player.transform;
-        enemy.moveSpeed = enemy.defaultMoveSpeed * 2;
+        enemy.moveSpeed = enemy.defaultMoveSpeed * 1.5f;
     }
     public override void Update()
     {
@@ -44,6 +44,10 @@ public class SkeletonBattleState : EnemyState
                 if (CanAttack())
                 {
                     stateMachine.ChangeState(enemy.attackState);
+                }
+                else
+                {
+                    enemy.moveSpeed = enemy.defaultMoveSpeed;//继续移动
                 }
             }
         }

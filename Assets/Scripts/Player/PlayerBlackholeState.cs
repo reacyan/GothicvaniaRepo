@@ -41,7 +41,7 @@ public class PlayerBlackholeState : playerstate
 
         if (stateTimer > 0)
         {
-            rb.velocity = new Vector2(0, 15);//ЙэЦБїХЦР
+            rb.velocity = new Vector2(0, 15);//и…ѕз©є
         }
         else
         {

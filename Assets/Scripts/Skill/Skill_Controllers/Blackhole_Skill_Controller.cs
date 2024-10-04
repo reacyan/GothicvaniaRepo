@@ -87,7 +87,10 @@ public class Blackhole_Skill_Controller : MonoBehaviour
         DestroyHotKey();
         cloneAttackReleased = true;
 
-        PlayerManager.instance.player.MakeTransprent(true);
+        if (!SkillManager.instance.clone.crystalInsteadOfClone)
+        {
+            PlayerManager.instance.player.MakeTransprent(true);
+        }
     }
 
     private void CloneAttackLogic()//¹¥»÷Âß¼­
@@ -117,9 +120,14 @@ public class Blackhole_Skill_Controller : MonoBehaviour
             }
 
 
-            if (targets.Count > 0 && amountOfAttacks > 0)
+            if (targets.Count > 0 && amountOfAttacks > 0 && !SkillManager.instance.clone.crystalInsteadOfClone)
             {
                 SkillManager.instance.clone.CreateClone(targets[randomIndex], isHitKonckbback, new Vector3(xOffest, 0));//´´Ôì¿ËÂ¡¹¥»÷
+            }
+            else if (targets.Count > 0 && amountOfAttacks > 0 && SkillManager.instance.clone.crystalInsteadOfClone)
+            {
+                SkillManager.instance.crystal.CreateCrystal();
+                SkillManager.instance.crystal.CurrentCrystalChooseRandomTarget();
             }
         }
     }

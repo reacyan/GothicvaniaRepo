@@ -2925,7 +2925,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -28.867893, y: 4.2881365, z: -0.06937504}
+  m_LocalPosition: {x: -33.410534, y: 2.6399999, z: -0.06937504}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2976,6 +2976,14 @@ PrefabInstance:
     - target: {fileID: 4179795417169721274, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
       propertyPath: m_Name
       value: Enemy_Skeleton
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653507377851572109, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653507377851572109, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
+      propertyPath: maxHealth
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8262884987296968524, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3087,7 +3095,7 @@ Transform:
   m_GameObject: {fileID: 754723090}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -28.867893, y: 4.2881365, z: -0.06937504}
+  m_LocalPosition: {x: -33.410534, y: 2.64, z: -0.06937504}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4459,6 +4467,7 @@ GameObject:
   - component: {fileID: 1408091960}
   - component: {fileID: 1408091959}
   - component: {fileID: 1408091961}
+  - component: {fileID: 1408091962}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -4508,7 +4517,7 @@ Transform:
   m_GameObject: {fileID: 1408091956}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.8, y: 13.43, z: 0}
+  m_LocalPosition: {x: -30.3, y: 1.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4595,6 +4604,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashDuration: 0.1
   hitMat: {fileID: 2100000, guid: 22ed139f12526b94aaa54019d6caddd2, type: 2}
+--- !u!114 &1408091962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1408091956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68b4a29e38177ea48a5cc128179bf67c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
+  maxHealth: 100
+  currentHealth: 0
 --- !u!1 &1455959902
 GameObject:
   m_ObjectHideFlags: 0
@@ -4760,6 +4784,9 @@ MonoBehaviour:
   canCreateCloneOnDashStart: 1
   canCreateCloneOnDashOver: 1
   canCreateCloneOnCounterAttack: 1
+  canDuplicateClone: 1
+  chanceToDuplicate: 0
+  crystalInsteadOfClone: 0
 --- !u!114 &1553546007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4817,7 +4844,7 @@ MonoBehaviour:
   blackholeCooldown: 10
   blackholeCooldownTimer: 0
   CloneAttackCooldown: 0.4
-  amountOfAttack: 5
+  amountOfAttack: 6
 --- !u!114 &1553546009
 MonoBehaviour:
   m_ObjectHideFlags: 0
