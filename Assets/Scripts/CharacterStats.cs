@@ -4,21 +4,28 @@ using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
 {
-    public int damage;
-    public int maxHealth;
+    public Stat strength;
+    public Stat damage;
+    public Stat maxHealth;
+
     [SerializeField] private int currentHealth;
-    // Start is called before the first frame update
-    void Start()
+
+    protected virtual void Start()
     {
-        currentHealth = maxHealth;
+        //example equipt sword with 4 damage
+        currentHealth = maxHealth.GetValue();
     }
 
-    // Update is called once per frame
-    void Update()
+    //伤害计算
+    public virtual void DoDamage(CharacterStats _targetStats)
     {
+        int totalDamage = damage.GetValue() + strength.GetValue();
 
+        _targetStats.TakeDamage(totalDamage);
     }
-    public void TakeDamage(int _damage)
+
+    //造成伤害
+    public virtual void TakeDamage(int _damage)
     {
         currentHealth -= _damage;
 
@@ -26,9 +33,11 @@ public class CharacterStats : MonoBehaviour
         {
             Die();
         }
+
+        Debug.Log(_damage);
     }
 
-    private static void Die()
+    protected virtual void Die()
     {
 
     }

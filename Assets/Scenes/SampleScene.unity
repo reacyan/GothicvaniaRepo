@@ -2977,12 +2977,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Skeleton
       objectReference: {fileID: 0}
-    - target: {fileID: 4653507377851572109, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
-      propertyPath: damage
+    - target: {fileID: 5571769980766518855, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
+      propertyPath: damage.baseValue
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 4653507377851572109, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
-      propertyPath: maxHealth
+    - target: {fileID: 5571769980766518855, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
+      propertyPath: maxHealth.baseValue
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8262884987296968524, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
@@ -4613,11 +4613,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1408091956}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68b4a29e38177ea48a5cc128179bf67c, type: 3}
+  m_Script: {fileID: 11500000, guid: d20136c4b7bb1c440800b2a43e96967f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
-  maxHealth: 100
+  strength:
+    baseValue: 0
+    modifiers: 
+  damage:
+    baseValue: 5
+    modifiers: 
+  maxHealth:
+    baseValue: 100
+    modifiers: 
   currentHealth: 0
 --- !u!1 &1455959902
 GameObject:
