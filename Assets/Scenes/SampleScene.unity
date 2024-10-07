@@ -2977,14 +2977,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Skeleton
       objectReference: {fileID: 0}
-    - target: {fileID: 5571769980766518855, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
-      propertyPath: damage.baseValue
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5571769980766518855, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
-      propertyPath: maxHealth.baseValue
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 8262884987296968524, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.887107
