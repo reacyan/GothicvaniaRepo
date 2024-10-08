@@ -22,6 +22,11 @@ public class Stat
         return finalValue;
     }
 
+    public void SetDefaultValue(int _value)
+    {
+        baseValue = _value;
+    }
+
     //增删数值
     public void AddModifier(int _modifiers)
     {
