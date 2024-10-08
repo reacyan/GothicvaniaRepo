@@ -9,6 +9,7 @@ public class Player : Entity
     public Vector2[] attackmovement;
     public float counterAttackDuration = .2f;
     public bool isBusy { get; private set; }
+
     [Header("Move info")]
     public float moveSpeed;
     public float jumpForce;
@@ -24,7 +25,7 @@ public class Player : Entity
     public SkillManager skill { get; private set; }
     public GameObject sword { get; private set; }
 
-    //?????
+    //状态引用
     #region States
     public PlayerStateMachine stateMachine { get; private set; }
 
@@ -41,6 +42,7 @@ public class Player : Entity
     public PlayerAimSwordState aimSword { get; private set; }
     public PlayerCatchSwordState catchSword { get; private set; }
     public PlayerBlackholeState blackhole { get; private set; }
+    public PlayerDeadState deadState { get; private set; }
     #endregion
 
 
@@ -48,7 +50,7 @@ public class Player : Entity
     {
         base.Awake();
 
-        //?????
+        //构造状态机
         stateMachine = new PlayerStateMachine();
 
         idleState = new PlayerIdleState(this, stateMachine, "Idle");
@@ -65,6 +67,7 @@ public class Player : Entity
         aimSword = new PlayerAimSwordState(this, stateMachine, "AimSword");
         catchSword = new PlayerCatchSwordState(this, stateMachine, "CatchSword");
         blackhole = new PlayerBlackholeState(this, stateMachine, "Jump");
+        deadState = new PlayerDeadState(this, stateMachine, "Die");
     }
 
     protected override void Start()
@@ -85,7 +88,7 @@ public class Player : Entity
         CheckForDashInput();
         CheckForBlackHoleInput();
 
-        if (Input.GetKeyDown(KeyCode.T)&&skill)
+        if (Input.GetKeyDown(KeyCode.T) && skill)
         {
             skill.crystal.CanUseSkill();
         }
@@ -138,5 +141,12 @@ public class Player : Entity
         {
             stateMachine.ChangeState(blackhole);
         }
+    }
+
+    public override void Die()
+    {
+        base.Die();
+
+        stateMachine.ChangeState(deadState);
     }
 }

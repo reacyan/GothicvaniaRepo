@@ -24,7 +24,6 @@ public class SkeletonBattleState : EnemyState
     public override void Update()
     {
         base.Update();
-
         if (player.position.x > enemy.transform.position.x && !(player.transform.position.y > 1.4))
         {
             moveDir = 1;
@@ -45,10 +44,10 @@ public class SkeletonBattleState : EnemyState
                 {
                     stateMachine.ChangeState(enemy.attackState);
                 }
-                else
-                {
-                    enemy.moveSpeed = enemy.defaultMoveSpeed;//继续移动
-                }
+            }
+            else
+            {
+                enemy.moveSpeed = enemy.defaultMoveSpeed * 1.5f;//继续移动
             }
         }
         else
@@ -61,6 +60,7 @@ public class SkeletonBattleState : EnemyState
         }
 
         enemy.SetVelocity(enemy.moveSpeed * moveDir, rb.velocity.y);
+        Debug.Log(rb.velocity.x);
     }
 
     public override void Exit()

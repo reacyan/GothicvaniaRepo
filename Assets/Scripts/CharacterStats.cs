@@ -33,8 +33,6 @@ public class CharacterStats : MonoBehaviour
         {
             Die();
         }
-
-        Debug.Log(_damage);
     }
 
     protected virtual void Die()
