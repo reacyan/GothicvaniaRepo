@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
 {
+
+    private EntityFX fx;
+
     [Header("Major stats")]
     public Stat strength;// 1 point increase damage by 1 and crit.power by 1%
     public Stat agility;// 1 point increase evasion by 1% and crit.chance by 1%
@@ -26,6 +29,7 @@ public class CharacterStats : MonoBehaviour
     public Stat lightingDamage;
 
 
+    [SerializeField] private float ailmentsDuration = 4;
     public bool isIgnited;// 造成灼烧伤害（持续失去血量）
     public bool isChilled;// 减少5%的护甲
     public bool isShocked;// 增加20%闪避性能
@@ -47,6 +51,7 @@ public class CharacterStats : MonoBehaviour
     {
         critPower.SetDefaultValue(150);
         currentHealth = GetMaxHealthValue();
+        fx = GetComponent<EntityFX>();
     }
 
     protected virtual void Start()
@@ -184,19 +189,24 @@ public class CharacterStats : MonoBehaviour
         if (_isIgnite)
         {
             isIgnited = _isIgnite;
-            ignitedTimer = 2;
+            ignitedTimer = ailmentsDuration;
+            fx.IgniteFxFor(ailmentsDuration);
         }
 
         if (_isChill)
         {
             isChilled = _isChill;
-            chilledTimer = 2;
+            chilledTimer = ailmentsDuration;
+
+            fx.ChillFxFor(ailmentsDuration);
         }
 
         if (_isShock)
         {
-            shockedTimer = 2;
+            shockedTimer = ailmentsDuration;
             isShocked = _isShock;
+
+            fx.ShockFxFor(ailmentsDuration);
         }
 
     }

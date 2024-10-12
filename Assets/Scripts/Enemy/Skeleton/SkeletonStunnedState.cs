@@ -19,14 +19,14 @@ public class SkeletonStunnedState : EnemyState
 
         stateTimer = enemy.stunDuration;
 
-        rb.velocity=new Vector2(-enemy.facingDir * enemy.stunDirection.x, enemy.stunDirection.y);
+        rb.velocity = new Vector2(-enemy.facingDir * enemy.stunDirection.x, enemy.stunDirection.y);
     }
 
     public override void Exit()
     {
         base.Exit();
 
-        enemy.fx.Invoke("CancelRedBlink", 0);
+        enemy.fx.Invoke("CancelColorChange", 0);
     }
 
     public override void Update()
