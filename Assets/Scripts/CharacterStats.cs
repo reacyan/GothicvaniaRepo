@@ -83,7 +83,7 @@ public class CharacterStats : MonoBehaviour
             isShocked = false;
         }
 
-        if (igniteDamageTiemer < 0)
+        if (igniteDamageTiemer < 0 && isIgnited)
         {
             Debug.Log(igniteDamage);
 
@@ -116,7 +116,6 @@ public class CharacterStats : MonoBehaviour
         totalDamage = CheckTargetArmor(_targetStats, totalDamage);
         //_targetStats.TakeDamage(totalDamage);
         DoMagicDamage(_targetStats);
-
     }
 
     //造成魔法伤害
@@ -190,7 +189,7 @@ public class CharacterStats : MonoBehaviour
         {
             isIgnited = _isIgnite;
             ignitedTimer = ailmentsDuration;
-            fx.IgniteFxFor(ailmentsDuration);
+            fx.IgniteFxFor(ignitedTimer);
         }
 
         if (_isChill)
@@ -198,15 +197,16 @@ public class CharacterStats : MonoBehaviour
             isChilled = _isChill;
             chilledTimer = ailmentsDuration;
 
-            fx.ChillFxFor(ailmentsDuration);
+            float slowPercentage = .4f;
+            GetComponent<Entity>().SlowEntityBy(slowPercentage, ailmentsDuration);
+            fx.ChillFxFor(chilledTimer);
         }
 
         if (_isShock)
         {
-            shockedTimer = ailmentsDuration;
             isShocked = _isShock;
-
-            fx.ShockFxFor(ailmentsDuration);
+            shockedTimer = ailmentsDuration;
+            fx.ShockFxFor(shockedTimer);
         }
 
     }

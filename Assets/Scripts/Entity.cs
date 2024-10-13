@@ -60,10 +60,9 @@ public class Entity : MonoBehaviour
 
     protected virtual IEnumerator HitKnockback(bool _ishitKonckbback)
     {
-        isKnocked = true;
-
         if (_ishitKonckbback)//ÊÇ·ñ»÷ÍË
         {
+            isKnocked = true;
             rb.velocity = new Vector2(knockbackDirection.x * -facingDir, knockbackDirection.y);
         }
 
@@ -75,6 +74,16 @@ public class Entity : MonoBehaviour
     protected virtual void Update()
     {
 
+    }
+
+    public virtual void SlowEntityBy(float _slowPercentage, float slowDuration)
+    {
+
+    }
+
+    protected virtual void ReturnDefaultSpeed()
+    {
+        anim.speed = 1;
     }
 
     #region Collision

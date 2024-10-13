@@ -45,6 +45,20 @@ public class Enemy : Entity
         stateMachine.currentState.Update();
     }
 
+    public override void SlowEntityBy(float _slowPercentage, float _slowDuration)
+    {
+        moveSpeed = moveSpeed * (1 - _slowPercentage);
+        anim.speed = anim.speed * (1 - _slowPercentage);
+        Invoke("ReturnDefaultSpeed", _slowDuration);
+    }
+
+    protected override void ReturnDefaultSpeed()
+    {
+        base.ReturnDefaultSpeed();
+
+        moveSpeed = defaultMoveSpeed;
+    }
+
     public virtual void AssignLastAnimName(string _animBoolName)
     {
         lastAnimBoolName = _animBoolName;
@@ -63,30 +77,6 @@ public class Enemy : Entity
             anim.speed = 1;
         }
     }
-
-    //public virtual void SlowTime(bool _timeFrozen)
-    //{
-    //    if (_timeFrozen)
-    //    {
-    //        moveSpeed = .1f;
-    //        anim.speed = .1f;
-    //    }
-    //    else
-    //    {
-    //        moveSpeed = defaultMoveSpeed;
-    //        anim.speed = 1;
-    //    }
-    //}
-
-    //protected virtual IEnumerator SlowTimerFor(float _seconds)
-    //{
-    //    FreezeTime(true);
-
-    //    yield return StartCoroutine("BlackholeAttack");
-
-    //    FreezeTime(false);
-    //}
-
 
     protected virtual IEnumerator FreezeTimerFor(float _seconds)
     {

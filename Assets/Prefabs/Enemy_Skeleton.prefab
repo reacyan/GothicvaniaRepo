@@ -464,6 +464,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashDuration: 0.1
   hitMat: {fileID: 2100000, guid: 22ed139f12526b94aaa54019d6caddd2, type: 2}
+  chillColor:
+  - {r: 0.21568628, g: 0.7490196, b: 1, a: 1}
+  - {r: 0.21568628, g: 0.7490196, b: 1, a: 1}
+  igniteColor:
+  - {r: 0.8, g: 0.32156864, b: 0.32156864, a: 1}
+  - {r: 0.9716981, g: 0.7104397, b: 0.7104397, a: 1}
+  shockColor:
+  - {r: 0.64705884, g: 1, b: 0.6392157, a: 1}
+  - {r: 0.90588236, g: 1, b: 0.9019608, a: 1}
 --- !u!114 &5571769980766518855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -518,6 +527,7 @@ MonoBehaviour:
   lightingDamage:
     baseValue: 0
     modifiers: 
+  ailmentsDuration: 4
   isIgnited: 0
   isChilled: 0
   isShocked: 0
