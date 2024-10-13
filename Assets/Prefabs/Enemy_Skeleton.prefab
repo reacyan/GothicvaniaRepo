@@ -525,12 +525,13 @@ MonoBehaviour:
     baseValue: 0
     modifiers: 
   lightingDamage:
-    baseValue: 0
+    baseValue: 10
     modifiers: 
   ailmentsDuration: 4
   isIgnited: 0
   isChilled: 0
   isShocked: 0
+  ShockStrikePrefab: {fileID: 7942421999799409351, guid: c97e0904922f91841af775d6b91ddb75, type: 3}
   currentHealth: 0
 --- !u!70 &2163843216836743848
 CapsuleCollider2D:

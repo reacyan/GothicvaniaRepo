@@ -70,7 +70,7 @@ public class Crystal_Skill_Controller : MonoBehaviour
         }
     }
 
-    private void AnimationExplodeEvent()
+    private void AnimationExplodeEvent()//爆炸攻击
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, cd.radius);
 
