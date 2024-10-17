@@ -24,6 +24,21 @@ public class EntityFX : MonoBehaviour
         originalMat = sr.material;
     }
 
+    public void MakeTransprent(bool _transprent)
+    {
+        CapsuleCollider2D ca = GetComponent<CapsuleCollider2D>();
+        if (_transprent)
+        {
+            sr.color = Color.clear;
+            //ca.enabled = false;
+        }
+        else
+        {
+            sr.color = Color.white;
+            //ca.enabled = true;
+        }
+    }
+
     private IEnumerator FlashFX()
     {
         sr.material = hitMat;

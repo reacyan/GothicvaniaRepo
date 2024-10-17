@@ -31,7 +31,7 @@ public class PlayerBlackholeState : playerstate
 
         player.rb.gravityScale = defaultGravity;
 
-        player.MakeTransprent(false);
+        player.fx.MakeTransprent(false);
         //We exit in blackhole skills controller when all of the attacks are over
     }
 

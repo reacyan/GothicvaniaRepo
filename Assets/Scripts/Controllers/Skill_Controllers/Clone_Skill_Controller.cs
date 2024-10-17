@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Clone_Skill_Controller : MonoBehaviour
 {
+    private Player player;
     private SpriteRenderer sr;
     private Animator anim;
     [SerializeField] private float colorLoosingSpeed;
@@ -39,13 +40,14 @@ public class Clone_Skill_Controller : MonoBehaviour
         }
     }
 
-    public void SetupClone(Transform _newTransform, float _cloneDuration, bool _canAttack, bool _ishitKonckback, Transform _closestEnemy, bool canDuplicate, float _chanceToDuplicate, Vector3 _offset = default(Vector3))
+    public void SetupClone(Transform _newTransform, float _cloneDuration, bool _canAttack, bool _ishitKonckback, Transform _closestEnemy, bool canDuplicate, float _chanceToDuplicate, Player _player, Vector3 _offset = default(Vector3))
     {
         if (_canAttack)
         {
             anim.SetInteger("AttackNumber", Random.Range(1, 4));
         }
 
+        player = _player;
         ishitKonckback = _ishitKonckback;
         transform.position = _newTransform.position + _offset;
 
@@ -71,7 +73,7 @@ public class Clone_Skill_Controller : MonoBehaviour
         {
             if (hit.GetComponent<Enemy>() != null)
             {
-                hit.GetComponent<Enemy>().DamageEffect(ishitKonckback);
+                player.stats.DoDamage(hit.GetComponent<CharacterStats>());
 
                 if (canDuplicateClone)
                 {

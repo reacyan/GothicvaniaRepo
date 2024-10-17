@@ -89,7 +89,7 @@ public class Blackhole_Skill_Controller : MonoBehaviour
 
         if (!SkillManager.instance.clone.crystalInsteadOfClone)
         {
-            PlayerManager.instance.player.MakeTransprent(true);
+            PlayerManager.instance.player.fx.MakeTransprent(true);
         }
     }
 

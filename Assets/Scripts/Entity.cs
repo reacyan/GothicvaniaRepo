@@ -52,11 +52,7 @@ public class Entity : MonoBehaviour
         cd = GetComponent<CapsuleCollider2D>();
     }
 
-    public virtual void DamageEffect(bool _ishitKonckbback = true)
-    {
-        fx.StartCoroutine("FlashFX");
-        StartCoroutine("HitKnockback", _ishitKonckbback);
-    }
+    public virtual void DamageImpact(bool _ishitKonckbback = true) => StartCoroutine("HitKnockback", _ishitKonckbback);
 
     protected virtual IEnumerator HitKnockback(bool _ishitKonckbback)
     {
@@ -147,21 +143,6 @@ public class Entity : MonoBehaviour
     }
     #endregion
 
-
-    public void MakeTransprent(bool _transprent)
-    {
-        CapsuleCollider2D ca = GetComponent<CapsuleCollider2D>();
-        if (_transprent)
-        {
-            sr.color = Color.clear;
-            ca.enabled = false;
-        }
-        else
-        {
-            sr.color = Color.white;
-            ca.enabled = true;
-        }
-    }
 
     public virtual void Die()
     {

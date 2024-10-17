@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Sword_Skill_Controller : MonoBehaviour
 {
@@ -62,7 +63,6 @@ public class Sword_Skill_Controller : MonoBehaviour
         player = _player;
         freezeTimeDuartion = _freezeTimeDuration;
         returnSpeed = _returnSpeed;
-
         rb.velocity = _dir;
         rb.gravityScale = _gravityScale;
 
@@ -86,7 +86,7 @@ public class Sword_Skill_Controller : MonoBehaviour
         MaxTravelDistance = _maxTravelDistance;
     }
 
-    public void setupPierce(int _pierceAmount, float _maxTravelDistance)
+    public void SetupPierce(int _pierceAmount, float _maxTravelDistance)
     {
         pierceAmount = _pierceAmount;
         MaxTravelDistance = _maxTravelDistance;
@@ -185,7 +185,7 @@ public class Sword_Skill_Controller : MonoBehaviour
                     {
                         if (hit.GetComponent<Enemy>() != null)
                         {
-                            hit.GetComponent<Enemy>().DamageEffect();
+                            player.stats.DoDamage(hit.GetComponent<CharacterStats>());
                         }
                     }
                 }
@@ -203,7 +203,8 @@ public class Sword_Skill_Controller : MonoBehaviour
             {
 
                 SwordSkillDamage(enemyTarget[targetIndex].GetComponent<Enemy>());
-                enemyTarget[targetIndex].GetComponent<Enemy>().DamageEffect();
+                //enemyTarget[targetIndex].GetComponent<Enemy>().DamageEffect();
+                player.stats.DoDamage(enemyTarget[targetIndex].GetComponent<CharacterStats>());
                 enemyTarget[targetIndex].GetComponent<Enemy>().StartCoroutine("FreezeTimerFor", freezeTimeDuartion);
 
                 targetIndex++;
@@ -230,15 +231,12 @@ public class Sword_Skill_Controller : MonoBehaviour
             return;
         }
 
-
         if (collision.GetComponent<Enemy>() != null)
         {
             Enemy enemy = collision.GetComponent<Enemy>();
 
             SwordSkillDamage(enemy);
         }
-
-        collision.GetComponent<Enemy>()?.DamageEffect();
 
         SetupTargetsForBounce(collision);
 
@@ -251,26 +249,20 @@ public class Sword_Skill_Controller : MonoBehaviour
     {
 
         enemy.StartCoroutine("FreezeTimerFor", freezeTimeDuartion);
-        enemy.DamageEffect();
+        player.stats.DoDamage(enemy.GetComponent<CharacterStats>());
     }
 
     private void SetupTargetsForBounce(Collider2D collision)
     {
-
-
         if (collision.GetComponent<Enemy>() != null)
         {
             if (isBouncing && enemyTarget.Count <= 0)
             {
                 Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 10);
 
-                foreach (var hit in colliders)
-                {
-                    if (hit.GetComponent<Enemy>() != null)
-                    {
-                        enemyTarget.Add(hit.transform);
-                    }
-                }
+                enemyTarget.AddRange(colliders
+                           .Where(hit => hit.GetComponent<Enemy>() != null)
+                           .Select(hit => hit.transform));
             }
         }
     }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
+using System.Linq;
 
 public class Crystal_Skill_Controller : MonoBehaviour
 {
@@ -19,8 +20,12 @@ public class Crystal_Skill_Controller : MonoBehaviour
 
     private CircleCollider2D cd => GetComponent<CircleCollider2D>();
 
-    public void SetupCrystal(float _crystalExistDuration, float _moveSpeed, bool _canExplode, bool _canMove, Transform _closestTarget)
+    private Player player;
+
+
+    public void SetupCrystal(float _crystalExistDuration, float _moveSpeed, bool _canExplode, bool _canMove, Transform _closestTarget, Player _player)
     {
+        player = _player;
         crystalExistTimer = _crystalExistDuration;
         moveSpeed = _moveSpeed;
         canExplode = _canExplode;
@@ -78,9 +83,10 @@ public class Crystal_Skill_Controller : MonoBehaviour
         {
             if (hit.GetComponent<Enemy>() != null)
             {
-                hit.GetComponent<Enemy>().DamageEffect();
+                player.stats.DoMagicDamage(hit.GetComponent<CharacterStats>());
             }
         }
+
     }
 
 

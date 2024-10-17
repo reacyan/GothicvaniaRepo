@@ -13,7 +13,7 @@ public enum SwordType
 public class Sword_Skill : Skill
 {
 
-    public SwordType swordtype=SwordType.Regular;
+    public SwordType swordtype = SwordType.Regular;
 
     [Header("Bounce info")]
     [SerializeField] private int bounceAmount;
@@ -27,7 +27,7 @@ public class Sword_Skill : Skill
     [SerializeField] private float peirceMaxTravelDistance;
 
     [Header("Spin info")]
-    [SerializeField] private float hitCooldown=.3f;
+    [SerializeField] private float hitCooldown = .3f;
     [SerializeField] private float spinDuration = 2;
     [SerializeField] private float spinGravity = 1;
     [SerializeField] private bool isForward;
@@ -121,19 +121,17 @@ public class Sword_Skill : Skill
         switch (swordtype)
         {
             case SwordType.Bounce:
-                newSwordScript.SetupBounce(true, bounceAmount,bounceSpeed, maxTravelDistance);
+                newSwordScript.SetupBounce(true, bounceAmount, bounceSpeed, maxTravelDistance);
                 break;
             case SwordType.peirce:
-                newSwordScript.setupPierce(pierceAmount,maxTravelDistance);
+                newSwordScript.SetupPierce(pierceAmount, maxTravelDistance);
                 break;
             case SwordType.Spin:
-                newSwordScript.SetupSpin(true, maxTravelDistance, spinDuration,hitCooldown,true);
+                newSwordScript.SetupSpin(true, maxTravelDistance, spinDuration, hitCooldown, true);
                 break;
         }
 
-
-
-        newSwordScript.SetupSword(finalDir, swordGravity, player,freezeTimeDuration,returnSpeed);
+        newSwordScript.SetupSword(finalDir, swordGravity, player, freezeTimeDuration, returnSpeed);
 
         player.AssignNewSword(newSword);
 

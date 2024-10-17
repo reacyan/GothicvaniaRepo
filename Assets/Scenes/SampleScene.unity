@@ -2908,75 +2908,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!1001 &577018269
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 454778155712638722, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 454778155712638722, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4179795417169721274, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
-      propertyPath: m_Name
-      value: Enemy_Skeleton (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5571769980766518855, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
-      propertyPath: ShockStrikePrefab
-      value: 
-      objectReference: {fileID: 7942421999799409351, guid: c97e0904922f91841af775d6b91ddb75, type: 3}
-    - target: {fileID: 8262884987296968524, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -7.96
-      objectReference: {fileID: 0}
-    - target: {fileID: 8262884987296968524, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.41
-      objectReference: {fileID: 0}
-    - target: {fileID: 8262884987296968524, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8262884987296968524, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8262884987296968524, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8262884987296968524, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8262884987296968524, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8262884987296968524, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8262884987296968524, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8262884987296968524, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
 --- !u!1001 &704305872
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2997,13 +2928,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Skeleton
       objectReference: {fileID: 0}
+    - target: {fileID: 5222306715566102304, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
+      propertyPath: m_Value
+      value: 0.76
+      objectReference: {fileID: 0}
     - target: {fileID: 5571769980766518855, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
-      propertyPath: ShockStrikePrefab
-      value: 
-      objectReference: {fileID: 7942421999799409351, guid: c97e0904922f91841af775d6b91ddb75, type: 3}
+      propertyPath: isChilled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571769980766518855, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
+      propertyPath: isIgnited
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571769980766518855, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
+      propertyPath: isShocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571769980766518855, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
+      propertyPath: fireDamage.baseValue
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5571769980766518855, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
       propertyPath: lightingDamage.baseValue
-      value: 10
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7914579476040791760, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
+      propertyPath: m_Name
+      value: Health_UI
       objectReference: {fileID: 0}
     - target: {fileID: 8262884987296968524, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4920,16 +4871,16 @@ MonoBehaviour:
     baseValue: 0
     modifiers: 
   fireDamage:
-    baseValue: 0
+    baseValue: 10
     modifiers: 
   iceDamage:
     baseValue: 0
     modifiers: 
   lightingDamage:
-    baseValue: 10
+    baseValue: 0
     modifiers: 
   ailmentsDuration: 4
-  isIgnited: 0
+  isIgnited: 1
   isChilled: 0
   isShocked: 0
   ShockStrikePrefab: {fileID: 7942421999799409351, guid: c97e0904922f91841af775d6b91ddb75, type: 3}
@@ -5115,7 +5066,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 0
-  swordtype: 0
+  swordtype: 1
   bounceAmount: 4
   bounceGravity: 3
   bounceSpeed: 20
@@ -5329,7 +5280,7 @@ GameObject:
   - component: {fileID: 1913769488}
   - component: {fileID: 1913769489}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: Health_UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5403,7 +5354,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.726
+  m_Value: 0.821
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -5738,5 +5689,4 @@ SceneRoots:
   - {fileID: 4037751997002132487}
   - {fileID: 2311503168366661920}
   - {fileID: 704305872}
-  - {fileID: 577018269}
   - {fileID: 1370621451}
