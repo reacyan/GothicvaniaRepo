@@ -52,7 +52,7 @@ public class Crystal_Skill_Controller : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position, closestTarget.position, moveSpeed * Time.deltaTime);
 
-            if (Vector2.Distance(transform.position, closestTarget.position) < 1)
+            if (Vector2.Distance(transform.position, closestTarget.position) < .5f)
             {
                 FinishCrystal();
             }
@@ -68,7 +68,7 @@ public class Crystal_Skill_Controller : MonoBehaviour
             FinishCrystal();
         }
 
-        //爆炸动画
+        //爆炸效果
         if (canGrow)
         {
             transform.localScale = Vector2.Lerp(transform.localScale, new Vector2(3, 3), growSpeed * Time.deltaTime);

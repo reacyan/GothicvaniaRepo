@@ -1,4 +1,4 @@
- using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -40,7 +40,7 @@ public class Skill : MonoBehaviour
 
     protected virtual Transform FindCloseEnemy(Transform _checkTransform)
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(_checkTransform.position, 20);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(_checkTransform.position, 15);
 
         float closestDistance = Mathf.Infinity;
         Transform closestEnemy = null;
