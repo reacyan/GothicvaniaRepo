@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Inventory : MonoBehaviour
 {
@@ -9,6 +10,12 @@ public class Inventory : MonoBehaviour
     public List<InventoryItem> InventoryItems;
     public Dictionary<ItemData, InventoryItem> inventoryDictionary;
 
+
+    [Header("Inventory UI")]
+
+    [SerializeField] private Transform InventorySlotParent;
+
+    private UI_ItemSlot[] itemSlot;
     private void Awake()
     {
         if (instance == null)
@@ -25,16 +32,23 @@ public class Inventory : MonoBehaviour
     {
         InventoryItems = new List<InventoryItem>();
         inventoryDictionary = new Dictionary<ItemData, InventoryItem>();
+
+        itemSlot = InventorySlotParent.GetComponentsInChildren<UI_ItemSlot>();
+    }
+
+    private void UpdateSlotUI()
+    {
+        for (int i = 0; i < InventoryItems.Count; i++)
+        {
+            itemSlot[i].UpdateSlot(InventoryItems[i]);
+        }
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            ItemData newItem = InventoryItems[InventoryItems.Count - 1].data;
-            RemoveItem(newItem);
-        }
+
     }
+
     public void AddItem(ItemData _item)
     {
         if (inventoryDictionary.TryGetValue(_item, out InventoryItem value))
@@ -47,6 +61,8 @@ public class Inventory : MonoBehaviour
             InventoryItems.Add(newItem);
             inventoryDictionary.Add(_item, newItem);
         }
+
+        UpdateSlotUI();
     }
 
     public void RemoveItem(ItemData _item)
@@ -63,6 +79,8 @@ public class Inventory : MonoBehaviour
                 value.RemoveStack();
             }
         }
+
+        UpdateSlotUI();
     }
 
 }

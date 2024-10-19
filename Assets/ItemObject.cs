@@ -5,15 +5,17 @@ using UnityEngine;
 
 public class ItemObject : MonoBehaviour
 {
-    private SpriteRenderer sr;
-
     [SerializeField] private ItemData itemData;
-    // Start is called before the first frame update
+
+    private void OnValidate()
+    {
+        GetComponent<SpriteRenderer>().sprite = itemData.icon;
+        gameObject.name = "Item object - " + itemData.itemName;
+    }
+
     private void Start()
     {
-        sr = GetComponent<SpriteRenderer>();
 
-        sr.sprite = itemData.icon;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
