@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
-public class HeathBar_UI : MonoBehaviour
+public class UI_HeathBar : MonoBehaviour
 {
     private Entity entity;
     private CharacterStats myStats;
