@@ -48,16 +48,13 @@ public class CharacterStats : MonoBehaviour
 
     public System.Action onHealthChanged;
 
-    protected virtual void Awake()
+    protected virtual void Start()
     {
         critPower.SetDefaultValue(150);
         currentHealth = GetMaxHealthValue();
         fx = GetComponent<EntityFX>();
-    }
 
-    protected virtual void Start()
-    {
-
+        DecreaseHealth(0);
     }
 
     protected virtual void Update()
