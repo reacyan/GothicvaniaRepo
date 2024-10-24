@@ -200,6 +200,7 @@ public class Inventory : MonoBehaviour
             else
             {
                 value.RemoveStack();
+
             }
         }
     }
@@ -219,5 +220,43 @@ public class Inventory : MonoBehaviour
                 value.RemoveStack();
             }
         }
+    }
+
+    public bool CanCraft(ItemData_Equipment _ItemToCraft, List<InventoryItem> _requiredMaterial)
+    {
+
+        List<InventoryItem> MaterialToMove = new List<InventoryItem>();
+
+        for (int i = 0; i < _requiredMaterial.Count; i++)
+        {
+            if (stashDictionary.TryGetValue(_requiredMaterial[i].data, out InventoryItem stashValue))
+            {
+                if (stashValue.stackSize < _requiredMaterial[i].stackSize)
+                {
+                    Debug.Log("not enough" + stashValue.data.name);
+                    return false;
+                }
+                else
+                {
+                    MaterialToMove.Add(stashValue);
+                }
+            }
+            else
+            {
+                Debug.Log("not material");
+                return false;
+            }
+        }
+        for (int i = 0; i < MaterialToMove.Count; i++)
+        {
+            for (int J = 0; J < _requiredMaterial[i].stackSize; J++)
+            {
+                RemoveItem(MaterialToMove[i].data);
+            }
+        }
+
+        AddItem(_ItemToCraft);
+        Debug.Log("is your craft" + _ItemToCraft.name);
+        return true;
     }
 }
