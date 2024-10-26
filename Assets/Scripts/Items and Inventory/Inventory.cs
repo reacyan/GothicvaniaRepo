@@ -9,6 +9,7 @@ public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
 
+    public List<ItemData> startingItems;
 
     public List<InventoryItem> equipment;
     public Dictionary<ItemData_Equipment, InventoryItem> equipmentDictionary;
@@ -56,6 +57,16 @@ public class Inventory : MonoBehaviour
 
         stashItemSlot = stashSlotParent.GetComponentsInChildren<UI_ItemSlot>();
         equipmentSlot = equipmentSlotParent.GetComponentsInChildren<UI_EquipmentSlot>();
+
+        AddStartingItems();
+    }
+
+    private void AddStartingItems()
+    {
+        for (int i = 0; i < startingItems.Count; i++)
+        {
+            AddItem(startingItems[i]);
+        }
     }
 
     public void EquipItem(ItemData _item)//装备物品
@@ -167,7 +178,7 @@ public class Inventory : MonoBehaviour
         }
         else
         {
-            InventoryItem newItem = new InventoryItem(_item);
+            InventoryItem newItem = new InventoryItem(_item);//构造函数
             inventory.Add(newItem);
             inventoryDictionary.Add(_item, newItem);
         }
@@ -258,4 +269,7 @@ public class Inventory : MonoBehaviour
         Debug.Log("is your craft" + _ItemToCraft.name);
         return true;
     }
+
+    public List<InventoryItem> GetEquipmentList() => equipment;
+    public List<InventoryItem> GetStashList() => stash;
 }

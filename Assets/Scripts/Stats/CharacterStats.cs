@@ -5,7 +5,7 @@ public class CharacterStats : MonoBehaviour
 {
 
     private EntityFX fx;
-    private bool isDie = false;
+    public bool isDie = false;
 
     [Header("Major stats")]
     public Stat strength;// 1 point increase damage by 1 and crit.power by 1%
@@ -102,6 +102,7 @@ public class CharacterStats : MonoBehaviour
         isIgnited = false;
         isChilled = false;
         isShocked = false;
+        isDie = true;
     }
 
     public virtual void DoDamage(CharacterStats _targetStats)  //伤害计算
@@ -312,7 +313,6 @@ public class CharacterStats : MonoBehaviour
         if (currentHealth <= 0 && !isDie)
         {
             Die();
-            isDie = true;
         }
     }
 

@@ -10,9 +10,8 @@ public class ItemDrop : MonoBehaviour
 
 
     [SerializeField] private GameObject DropPrefab;
-    [SerializeField] private ItemData item;
 
-    public void GenerateDrop()//选取掉落物品
+    public virtual void GenerateDrop()//选取掉落物品
     {
         for (int i = 0; i < possibleDrop.Length; i++)
         {
@@ -31,7 +30,7 @@ public class ItemDrop : MonoBehaviour
     }
 
 
-    private void DropItem(ItemData _item)//生成掉落物品
+    protected void DropItem(ItemData _item)//生成掉落物品
     {
         GameObject newDrop = Instantiate(DropPrefab, transform.position, Quaternion.identity);
 
