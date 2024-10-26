@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class EnemyStats : CharacterStats
 {
+    private ItemDrop myDropSystem;
+
     private Enemy enemy;
 
     [Header("level details")]
@@ -20,6 +22,7 @@ public class EnemyStats : CharacterStats
         base.Start();
 
         enemy = GetComponent<Enemy>();
+        myDropSystem = GetComponent<ItemDrop>();
     }
 
     private void ApplyLevelModifiers()
@@ -59,7 +62,7 @@ public class EnemyStats : CharacterStats
     protected override void Die()
     {
         base.Die();
-
         enemy.Die();
+        myDropSystem.GenerateDrop();
     }
 }

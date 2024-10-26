@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum EquipmentType
+public enum EquipmentType//装备种类
 {
     weapon,
     Armor,
@@ -41,7 +41,7 @@ public class ItemData_Equipment : ItemData
     public List<InventoryItem> CraftingMaterial;
 
 
-    public void AddModifiers()
+    public void AddModifiers()//添加buff
     {
         PlayerStats playerStats = PlayerManager.instance.player.GetComponent<PlayerStats>();
 
@@ -65,7 +65,7 @@ public class ItemData_Equipment : ItemData
 
     }
 
-    public void RemoveModifiers()
+    public void RemoveModifiers()//移除buff
     {
         PlayerStats playerStats = PlayerManager.instance.player.GetComponent<PlayerStats>();
 

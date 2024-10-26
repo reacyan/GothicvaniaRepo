@@ -10,23 +10,23 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler
 
     public InventoryItem item;
 
-    public void UpdateSlot(InventoryItem _newitem)
+    public void UpdateSlot(InventoryItem _newitem)//更新物品
     {
         item = _newitem;
 
-        itemImage.color = Color.white;
+        itemImage.color = Color.white;//UI颜色恢复
 
         if (item != null)
         {
-            itemImage.sprite = item.data.icon;
+            itemImage.sprite = item.data.icon;//添加图标
 
             if (item.stackSize > 1)
             {
-                itemText.text = item.stackSize.ToString();
+                itemText.text = item.stackSize.ToString();//数量显示
             }
             else
             {
-                itemText.text = "";
+                itemText.text = "";//显示为空
             }
         }
     }

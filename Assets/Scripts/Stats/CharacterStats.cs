@@ -5,6 +5,7 @@ public class CharacterStats : MonoBehaviour
 {
 
     private EntityFX fx;
+    private bool isDie = false;
 
     [Header("Major stats")]
     public Stat strength;// 1 point increase damage by 1 and crit.power by 1%
@@ -308,9 +309,10 @@ public class CharacterStats : MonoBehaviour
         GetComponent<Entity>().DamageImpact();
         fx.StartCoroutine("FlashFX");
 
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && !isDie)
         {
             Die();
+            isDie = true;
         }
     }
 

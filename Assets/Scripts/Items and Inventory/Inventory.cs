@@ -58,16 +58,16 @@ public class Inventory : MonoBehaviour
         equipmentSlot = equipmentSlotParent.GetComponentsInChildren<UI_EquipmentSlot>();
     }
 
-    public void EquipItem(ItemData _item)
+    public void EquipItem(ItemData _item)//装备物品
     {
-        ItemData_Equipment newEquipment = _item as ItemData_Equipment;
+        ItemData_Equipment newEquipment = _item as ItemData_Equipment;//父类转换子类
         InventoryItem newItem = new InventoryItem(newEquipment);
 
         ItemData_Equipment oldEquipment = null;
 
-        foreach (KeyValuePair<ItemData_Equipment, InventoryItem> item in equipmentDictionary)
+        foreach (KeyValuePair<ItemData_Equipment, InventoryItem> item in equipmentDictionary)//遍历字典
         {
-            if (item.Key.equipmentType == newEquipment.equipmentType)
+            if (item.Key.equipmentType == newEquipment.equipmentType)//是否有相同物品
             {
                 oldEquipment = item.Key;
             }
@@ -75,19 +75,19 @@ public class Inventory : MonoBehaviour
 
         if (oldEquipment != null)
         {
-            UnequipItem(oldEquipment);
-            AddItem(oldEquipment);
+            UnequipItem(oldEquipment);//将已装备物品移除装备栏
+            AddItem(oldEquipment);//将已装备物品添加到物品栏
         }
 
         equipment.Add(newItem);
         equipmentDictionary.Add(newEquipment, newItem);
         newEquipment.AddModifiers();
-        RemoveItem(_item);
+        RemoveItem(_item);//将新物品从物品栏中移除
 
-        UpdateSlotUI();
+        UpdateSlotUI();//更新UI
     }
 
-    public void UnequipItem(ItemData_Equipment itemToRemove)
+    public void UnequipItem(ItemData_Equipment itemToRemove)//移除装备
     {
         if (equipmentDictionary.TryGetValue(itemToRemove, out InventoryItem value))
         {
@@ -97,42 +97,41 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    private void UpdateSlotUI()
+    private void UpdateSlotUI()//更新物品槽位UI
     {
         for (int i = 0; i < equipmentSlot.Length; i++)
         {
-            foreach (KeyValuePair<ItemData_Equipment, InventoryItem> item in equipmentDictionary)
+            foreach (KeyValuePair<ItemData_Equipment, InventoryItem> item in equipmentDictionary)//遍历字典
             {
-                Debug.Log(equipmentSlot[i].slotType);
-                if (item.Key.equipmentType == equipmentSlot[i].slotType)
+                if (item.Key.equipmentType == equipmentSlot[i].slotType)//对比字典的物品是否与装备槽位对应
                 {
-                    equipmentSlot[i].UpdateSlot(item.Value);
+                    equipmentSlot[i].UpdateSlot(item.Value);//更新装备槽位UI
                 }
             }
         }
 
         for (int i = 0; i < inventoryItemSlot.Length; i++)
         {
-            inventoryItemSlot[i].CleanUpSlot();
+            inventoryItemSlot[i].CleanUpSlot();//清空物品槽
         }
 
         for (int i = 0; i < stashItemSlot.Length; i++)
         {
-            stashItemSlot[i].CleanUpSlot();
+            stashItemSlot[i].CleanUpSlot();//清空仓库
         }
 
         for (int i = 0; i < inventory.Count; i++)
         {
-            inventoryItemSlot[i].UpdateSlot(inventory[i]);
+            inventoryItemSlot[i].UpdateSlot(inventory[i]);//更新物品槽
         }
 
         for (int i = 0; i < stash.Count; i++)
         {
-            stashItemSlot[i].UpdateSlot(stash[i]);
+            stashItemSlot[i].UpdateSlot(stash[i]);//更新仓库
         }
     }
 
-    public void AddItem(ItemData _item)
+    public void AddItem(ItemData _item)//添加物品
     {
         if (_item.itemType == ItemType.Equipment)
         {
@@ -146,7 +145,7 @@ public class Inventory : MonoBehaviour
         UpdateSlotUI();
     }
 
-    private void AddToStash(ItemData _item)
+    private void AddToStash(ItemData _item)//添加到仓库
     {
         if (stashDictionary.TryGetValue(_item, out InventoryItem value))
         {
@@ -160,7 +159,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    private void AddToInventory(ItemData _item)
+    private void AddToInventory(ItemData _item)//添加到物品栏
     {
         if (inventoryDictionary.TryGetValue(_item, out InventoryItem value))
         {
@@ -174,7 +173,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void RemoveItem(ItemData _item)
+    public void RemoveItem(ItemData _item)//移除物品
     {
         if (_item.itemType == ItemType.Equipment)
         {
@@ -188,7 +187,7 @@ public class Inventory : MonoBehaviour
         UpdateSlotUI();
     }
 
-    private void RemoveToInventory(ItemData _item)
+    private void RemoveToInventory(ItemData _item)//从物品栏中移除
     {
         if (inventoryDictionary.TryGetValue(_item, out InventoryItem value))
         {
@@ -205,7 +204,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    private void RemoveToStash(ItemData _item)
+    private void RemoveToStash(ItemData _item)//从仓库中移除
     {
         if (stashDictionary.TryGetValue(_item, out InventoryItem value))
         {
@@ -222,16 +221,16 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public bool CanCraft(ItemData_Equipment _ItemToCraft, List<InventoryItem> _requiredMaterial)
+    public bool CanCraft(ItemData_Equipment _ItemToCraft, List<InventoryItem> _requiredMaterial)//制作物品
     {
 
-        List<InventoryItem> MaterialToMove = new List<InventoryItem>();
+        List<InventoryItem> MaterialToMove = new List<InventoryItem>();//创建将被使用的材料的列表
 
-        for (int i = 0; i < _requiredMaterial.Count; i++)
+        for (int i = 0; i < _requiredMaterial.Count; i++)//制造材料种类数
         {
-            if (stashDictionary.TryGetValue(_requiredMaterial[i].data, out InventoryItem stashValue))
+            if (stashDictionary.TryGetValue(_requiredMaterial[i].data, out InventoryItem stashValue))//配对库存中是否存在对应材料
             {
-                if (stashValue.stackSize < _requiredMaterial[i].stackSize)
+                if (stashValue.stackSize < _requiredMaterial[i].stackSize)//对比材料数量是否足够
                 {
                     Debug.Log("not enough" + stashValue.data.name);
                     return false;
@@ -247,15 +246,15 @@ public class Inventory : MonoBehaviour
                 return false;
             }
         }
-        for (int i = 0; i < MaterialToMove.Count; i++)
+        for (int i = 0; i < MaterialToMove.Count; i++)//移除被使用的材料
         {
-            for (int J = 0; J < _requiredMaterial[i].stackSize; J++)
+            for (int J = 0; J < _requiredMaterial[i].stackSize; J++)//按照需求的材料数量移除
             {
                 RemoveItem(MaterialToMove[i].data);
             }
         }
 
-        AddItem(_ItemToCraft);
+        AddItem(_ItemToCraft);//添加制作后的物品
         Debug.Log("is your craft" + _ItemToCraft.name);
         return true;
     }
