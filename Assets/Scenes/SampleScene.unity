@@ -9550,7 +9550,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1c64d9f5caa848f4caf56b3a5814972a, type: 2}
   - {fileID: 11400000, guid: f4a2849dec32eb341a11f810cb60e643, type: 2}
   - {fileID: 11400000, guid: 247e6b76f6a43834bbbd0aa673d6caf6, type: 2}
-  AmountsOfItems: 3
+  possibleItemDrop: 3
   DropPrefab: {fileID: 6714971485426460044, guid: 190582154c97db940aa7348ff55bbb4f, type: 3}
   item: {fileID: 11400000, guid: f4a2849dec32eb341a11f810cb60e643, type: 2}
 --- !u!1 &1966223001
