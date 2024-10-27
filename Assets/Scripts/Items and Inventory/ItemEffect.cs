@@ -6,9 +6,6 @@ using UnityEngine;
 
 public class ItemEffect : ItemData_Equipment
 {
-
-    private GameObject ThunderStrike;
-
     public virtual void ExecuteEffect()
     {
 
