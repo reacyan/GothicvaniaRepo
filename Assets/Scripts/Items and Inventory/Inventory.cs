@@ -278,6 +278,20 @@ public class Inventory : MonoBehaviour
         return true;
     }
 
+    public ItemData_Equipment GetEquipment(EquipmentType _type)//获取装备
+    {
+        ItemData_Equipment equipedItem = null;
+
+        foreach (KeyValuePair<ItemData_Equipment, InventoryItem> item in equipmentDictionary)//遍历字典
+        {
+            if (item.Key.equipmentType == _type)//当字典中有与_type配对的类型时
+            {
+                equipedItem = item.Key;//赋值给装备
+            }
+        }
+        return equipedItem;
+    }
+
     public List<InventoryItem> GetEquipmentList() => equipment;
     public List<InventoryItem> GetStashList() => stash;
 

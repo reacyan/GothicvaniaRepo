@@ -37,7 +37,9 @@ public class ShockStrike_Controller : MonoBehaviour
         {
             return;
         }
+
         transform.position = Vector2.MoveTowards(transform.position, targetStats.transform.position, speed * Time.deltaTime);
+
         transform.right = transform.position - targetStats.transform.position;
 
         if (Vector2.Distance(transform.position, targetStats.transform.position) < 1)

@@ -13,6 +13,7 @@ public enum EquipmentType//装备种类
 
 public class ItemData_Equipment : ItemData
 {
+    public ItemEffect[] itemEffects;
     public EquipmentType equipmentType;
 
     [Header("Major stats")]
@@ -86,5 +87,13 @@ public class ItemData_Equipment : ItemData
         playerStats.fireDamage.RemoveModifier(fireDamage);
         playerStats.iceDamage.RemoveModifier(iceDamage);
         playerStats.lightingDamage.RemoveModifier(lightingDamage);
+    }
+
+    public void ExecuteItemEffect()
+    {
+        foreach (var item in itemEffects)
+        {
+            item.ExecuteEffect();//调用装备特效
+        }
     }
 }

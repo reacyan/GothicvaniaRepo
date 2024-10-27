@@ -279,10 +279,10 @@ public class CharacterStats : MonoBehaviour
                     closestEnemy = hit.transform;
                 }
             }
-            if (closestEnemy == null)  // delete if you don't want shocked target to be hit by shock strike
-            {
-                closestEnemy = transform;
-            }
+            // if (closestEnemy == null)  // delete if you don't want shocked target to be hit by shock strike
+            // {
+            //     closestEnemy = transform;
+            // }
         }
 
         if (closestEnemy != null)
