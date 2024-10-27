@@ -43,8 +43,8 @@ public class playerstate
     {
         stateTimer -= Time.deltaTime;
 
-        xInput = Input.GetAxisRaw("Horizontal");
-        yInput = Input.GetAxisRaw("Vertical");
+        xInput = Input.GetAxisRaw("Horizontal");//获取水平输入
+        yInput = Input.GetAxisRaw("Vertical");//获取垂直输入
         player.anim.SetFloat("yVelocity", rb.velocity.y);
     }
 

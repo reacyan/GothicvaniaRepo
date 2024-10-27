@@ -32,7 +32,7 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler
     }
 
 
-    public void CleanUpSlot()
+    public void CleanUpSlot()//清空槽位
     {
         item = null;
         itemImage.sprite = null;
@@ -45,6 +45,12 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler
     {
         if (item != null)
         {
+            if (Input.GetKey(KeyCode.LeftControl))
+            {
+                Inventory.instance.RemoveItem(item.data);
+                return;
+            }
+
             if (item.data.itemType == ItemType.Equipment)
             {
                 Inventory.instance.EquipItem(item.data);

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Player : Entity
 {
+
+    public bool isDead = false;
     [Header("Attack details")]
     public Vector2[] attackmovement;
     public float counterAttackDuration = .2f;
@@ -95,13 +97,13 @@ public class Player : Entity
         CheckForDashInput();
         CheckForBlackHoleInput();
 
-        if (Input.GetKeyDown(KeyCode.T) && skill)
+        if (Input.GetKeyDown(KeyCode.T) && !isDead)
         {
             skill.crystal.CanUseSkill();
         }
     }
 
-    public override void SlowEntityBy(float _slowPercentage, float _slowDuration)
+    public override void SlowEntityBy(float _slowPercentage, float _slowDuration)//减缓动作
     {
         moveSpeed = moveSpeed * (1 - _slowPercentage);
         jumpForce = jumpForce * (1 - _slowPercentage);
@@ -111,7 +113,7 @@ public class Player : Entity
         Invoke("ReturnDefaultSpeed", _slowDuration);
     }
 
-    protected override void ReturnDefaultSpeed()
+    protected override void ReturnDefaultSpeed()//恢复动作
     {
         base.ReturnDefaultSpeed();
 
@@ -125,7 +127,7 @@ public class Player : Entity
         sword = _newSword;
     }
 
-    public void CatchTheSword()
+    public void CatchTheSword()//抓住剑
     {
         stateMachine.ChangeState(catchSword);
         Destroy(sword);
@@ -148,7 +150,7 @@ public class Player : Entity
         {
             return;
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift) && SkillManager.instance.dash.CanUseSkill() && rb.gravityScale == 3.5f)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && SkillManager.instance.dash.CanUseSkill() && rb.gravityScale == 3.5f && !isDead)
         {
             dashDir = Input.GetAxisRaw("Horizontal");
 
@@ -163,7 +165,7 @@ public class Player : Entity
 
     public void CheckForBlackHoleInput()
     {
-        if (Input.GetKeyDown(KeyCode.R) && skill.blackhole.blackholeCooldownTimer < 0)
+        if (Input.GetKeyDown(KeyCode.R) && skill.blackhole.blackholeCooldownTimer < 0 && !isDead)
         {
             stateMachine.ChangeState(blackhole);
         }

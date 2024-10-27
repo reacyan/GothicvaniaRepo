@@ -85,7 +85,7 @@ public class Crystal_Skill : Skill
             {
                 if (crystalLeft.Count == amountOfStacks)
                 {
-                    Invoke("ResetAbility", useTimeWindows);
+                    Invoke("ResetAbility", useTimeWindows);//延时补充
                 }
 
                 cooldown = 0;
@@ -113,7 +113,7 @@ public class Crystal_Skill : Skill
     }
 
 
-    private void RefilCrystal()
+    private void RefilCrystal()//补充水晶
     {
         int amountToAdd = amountOfStacks - crystalLeft.Count;
 
@@ -123,14 +123,14 @@ public class Crystal_Skill : Skill
         }
     }
 
-    private void ResetAbility()
+    private void ResetAbility()//重置技能
     {
         if (cooldown > 0)
         {
             return;
         }
 
-        cooldownTimer = multiStackCooldown;
+        cooldownTimer = multiStackCooldown;//重置cd
         RefilCrystal();
     }
 }

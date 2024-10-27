@@ -7836,6 +7836,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
+  isDead: 0
   attackmovement:
   - {x: 2, y: 2}
   - {x: 1, y: 1}

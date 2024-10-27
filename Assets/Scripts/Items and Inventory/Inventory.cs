@@ -105,20 +105,17 @@ public class Inventory : MonoBehaviour
             itemToRemove.RemoveModifiers();
             equipment.Remove(value);
             equipmentDictionary.Remove(itemToRemove);
+
+            UpdateSlotUI();
         }
     }
 
     private void UpdateSlotUI()//更新物品槽位UI
     {
+
         for (int i = 0; i < equipmentSlot.Length; i++)
         {
-            foreach (KeyValuePair<ItemData_Equipment, InventoryItem> item in equipmentDictionary)//遍历字典
-            {
-                if (item.Key.equipmentType == equipmentSlot[i].slotType)//对比字典的物品是否与装备槽位对应
-                {
-                    equipmentSlot[i].UpdateSlot(item.Value);//更新装备槽位UI
-                }
-            }
+            equipmentSlot[i].CleanUpSlot();//清空装备槽
         }
 
         for (int i = 0; i < inventoryItemSlot.Length; i++)
@@ -129,6 +126,17 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < stashItemSlot.Length; i++)
         {
             stashItemSlot[i].CleanUpSlot();//清空仓库
+        }
+
+        for (int i = 0; i < equipmentSlot.Length; i++)
+        {
+            foreach (KeyValuePair<ItemData_Equipment, InventoryItem> item in equipmentDictionary)//遍历字典
+            {
+                if (item.Key.equipmentType == equipmentSlot[i].slotType)//对比字典的物品是否与装备槽位对应
+                {
+                    equipmentSlot[i].UpdateSlot(item.Value);//更新装备槽位UI
+                }
+            }
         }
 
         for (int i = 0; i < inventory.Count; i++)
@@ -272,4 +280,5 @@ public class Inventory : MonoBehaviour
 
     public List<InventoryItem> GetEquipmentList() => equipment;
     public List<InventoryItem> GetStashList() => stash;
+
 }

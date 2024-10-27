@@ -31,7 +31,7 @@ public class PlayerPrimaryAttackState : playerstate
 
         if (xInput != 0)
         {
-            attackDir= xInput;
+            attackDir = xInput;
         }
 
         player.SetVelocity(player.attackmovement[comboCounter].x * attackDir, player.attackmovement[comboCounter].y);
@@ -46,7 +46,7 @@ public class PlayerPrimaryAttackState : playerstate
         player.StartCoroutine("BusyFor", .15f);
 
         comboCounter++;
-        lastTimeAttacked=Time.time;
+        lastTimeAttacked = Time.time;
     }
 
     public override void Update()
@@ -56,7 +56,7 @@ public class PlayerPrimaryAttackState : playerstate
         {
             stateMachine.ChangeState(player.idleState);
         }
-        if (stateTimer < 0) 
+        if (stateTimer < 0)
         {
             player.SetZeroVelocity();
         }

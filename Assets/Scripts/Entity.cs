@@ -96,7 +96,7 @@ public class Entity : MonoBehaviour
     #endregion
 
     #region Flip
-    public virtual void Flip()
+    public virtual void Flip()//反转
     {
         facingDir = facingDir * -1;
         facingRight = !facingRight;
@@ -107,7 +107,7 @@ public class Entity : MonoBehaviour
         }
     }
 
-    public virtual void FlipController(float _x)
+    public virtual void FlipController(float _x)//控制输入反转
     {
         if (_x > 0 && !facingRight)
         {
@@ -121,7 +121,7 @@ public class Entity : MonoBehaviour
     #endregion
 
     #region Velocity
-    public void SetZeroVelocity()
+    public void SetZeroVelocity()//设置零向量
     {
         if (isKnocked)
         {
@@ -131,7 +131,7 @@ public class Entity : MonoBehaviour
         rb.velocity = new Vector2(0, 0);
     }
 
-    public void SetVelocity(float _xVelocity, float _yVelocity)
+    public void SetVelocity(float _xVelocity, float _yVelocity)//设置速度和反转
     {
         if (isKnocked)
         {

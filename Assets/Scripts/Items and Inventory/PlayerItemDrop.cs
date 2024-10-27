@@ -33,6 +33,7 @@ public class PlayerItemDrop : ItemDrop
             }
         }
 
+
         for (int i = 0; i < itemToUnequipment.Count; i++)
         {
             inventory.UnequipItem(itemToUnequipment[i].data as ItemData_Equipment);

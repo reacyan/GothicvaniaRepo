@@ -38,7 +38,7 @@ public class Skill : MonoBehaviour
 
     }
 
-    protected virtual Transform FindCloseEnemy(Transform _checkTransform)
+    protected virtual Transform FindCloseEnemy(Transform _checkTransform)//选择最近的目标
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(_checkTransform.position, 15);
 

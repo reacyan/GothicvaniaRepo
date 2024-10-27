@@ -58,7 +58,7 @@ public class Clone_Skill : Skill
         }
     }
 
-    public void CreateCloneOnCounterAttack(Transform _enemyTransform)
+    public void CreateCloneOnCounterAttack(Transform _enemyTransform)//生成反击clone攻击
     {
         if (canCreateCloneOnCounterAttack)
         {
@@ -66,7 +66,7 @@ public class Clone_Skill : Skill
         }
     }
 
-    private IEnumerator CreateCloneWithDelay(Transform _transform, Vector3 _offset)
+    private IEnumerator CreateCloneWithDelay(Transform _transform, Vector3 _offset)//延迟生成clone
     {
         yield return new WaitForSeconds(.4f);
         CreateClone(_transform, true, _offset);

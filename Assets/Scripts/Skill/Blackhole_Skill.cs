@@ -6,10 +6,10 @@ public class Blackhole_Skill : Skill
 {
     [SerializeField] private GameObject BlackholePrefab;
 
-    [SerializeField] private float maxSize;
-    [SerializeField] private float growSpeed;
-    [SerializeField] private float shrinkSpeed;
-    [SerializeField] private float blackholeDuration;
+    [SerializeField] private float maxSize;//黑洞大小
+    [SerializeField] private float growSpeed;//生成速度
+    [SerializeField] private float shrinkSpeed;//缩小速度
+    [SerializeField] private float blackholeDuration;//持续时间
     public float blackholeCooldown;
     public float blackholeCooldownTimer;
 
@@ -24,7 +24,9 @@ public class Blackhole_Skill : Skill
         base.UseSkill();
 
         GameObject newBlackhole = Instantiate(BlackholePrefab, player.transform.position, Quaternion.identity);
+
         currentBlackhole = newBlackhole.GetComponent<Blackhole_Skill_Controller>();
+
         currentBlackhole.SetupBlackhole(maxSize, growSpeed, shrinkSpeed, CloneAttackCooldown, amountOfAttack, blackholeDuration);
     }
 
@@ -43,9 +45,9 @@ public class Blackhole_Skill : Skill
         }
     }
 
-    public bool SkillCompleted()
+    public bool SkillCompleted()//技能结束
     {
-        if (currentBlackhole.playerCanExitState)
+        if (currentBlackhole.playerCanExitState)//有报错，黑洞在判断之前被销毁
         {
             currentBlackhole = null;
             return true;
