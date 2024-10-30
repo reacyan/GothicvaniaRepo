@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ShockStrike_Controller : MonoBehaviour
 {
-    [SerializeField] private CharacterStats targetStats;
-    [SerializeField] private float speed;
-    private int damage;
+    [SerializeField] private CharacterStats targetStats;//目标状态
+    [SerializeField] private float speed;//速度
+    private int damage;//伤害
 
     private Animator anim;
 
@@ -38,9 +38,9 @@ public class ShockStrike_Controller : MonoBehaviour
             return;
         }
 
-        transform.position = Vector2.MoveTowards(transform.position, targetStats.transform.position, speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, targetStats.transform.position, speed * Time.deltaTime);//移动到目标位置
 
-        transform.right = transform.position - targetStats.transform.position;
+        transform.right = transform.position - targetStats.transform.position;//朝向目标
 
         if (Vector2.Distance(transform.position, targetStats.transform.position) < 1)
         {

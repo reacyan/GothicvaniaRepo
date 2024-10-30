@@ -7,31 +7,31 @@ using UnityEngine;
 public class Blackhole_Skill_Controller : MonoBehaviour
 {
 
-    [SerializeField] private GameObject hotKeyPrefab;
-    [SerializeField] private List<KeyCode> hotKeyList;
+    [SerializeField] private GameObject hotKeyPrefab;//QTE按键预设
+    [SerializeField] private List<KeyCode> hotKeyList;//QTE按键列表
 
-    private float maxSize;
-    private float growSpeed;
-    private float shrinkSpeed;
+    private float maxSize;//最大大小
+    private float growSpeed;//扩大速度      
+    private float shrinkSpeed;//缩小速度
 
-    private bool canGrow = true;
-    private bool canShrink;
+    private bool canGrow = true;//是否可以扩大  
+    private bool canShrink;//是否可以缩小
 
-    private bool canCreateHotKey = true;
-    private bool isHitKonckbback = false;
-    private bool cloneAttackReleased;
+    private bool canCreateHotKey = true;//是否可以创建QTE按键   
+    private bool isHitKonckbback = false;//是否击退
+    private bool cloneAttackReleased;//克隆攻击释放
 
-    private int amountOfAttacks;
-    private float blackholeTimer;
-    private float cloneAttackCooldown;
-    private float cloneAttackTimer;
+    private int amountOfAttacks;//攻击次数  
+    private float blackholeTimer;//黑洞计时器
+    private float cloneAttackCooldown;//克隆攻击冷却时间
+    private float cloneAttackTimer;//克隆攻击计时器
     //private float delayTime = .3f;
     //private float delayReleaseTime = 8;
 
-    private List<Transform> targets = new List<Transform>();
-    private List<GameObject> createdHotKey = new List<GameObject>();
+    private List<Transform> targets = new List<Transform>();//敌人列表
+    private List<GameObject> createdHotKey = new List<GameObject>();//创建的QTE按键列表
 
-    public bool playerCanExitState { get; private set; }
+    public bool playerCanExitState { get; private set; }//玩家是否可以退出状态
 
     public void SetupBlackhole(float _maxSize, float _growSpeed, float _shrinkSpeed, float _cloneAttackCooldown, int _amountOfAttacks, float _blackholeDuration)
     {
@@ -167,11 +167,11 @@ public class Blackhole_Skill_Controller : MonoBehaviour
         {
             collision.GetComponent<Enemy>().FreezeTime(true);//暂停敌人动作
 
-            CreateHotKey(collision);//为敌人创建QTE按键
+            CreateHotKey(collision);
         }
     }
 
-    private void CreateHotKey(Collider2D collision)
+    private void CreateHotKey(Collider2D collision)//为敌人创建QTE按键
     {
         if (hotKeyList.Count <= 0)
         {

@@ -43,12 +43,12 @@ public class EnemyStats : CharacterStats
         modify(magicResistance);
     }
 
-    public override void TakeDamage(int _damage)
+    public override void TakeDamage(int _damage)//受到伤害
     {
         base.TakeDamage(_damage);
     }
 
-    public void modify(Stat _stat)
+    public void modify(Stat _stat)//修改属性
     {
         for (int i = 1; i < level; i++)
         {

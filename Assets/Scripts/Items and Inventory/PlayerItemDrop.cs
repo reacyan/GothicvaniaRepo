@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerItemDrop : ItemDrop
 {
     [Header("Player's drop")]
-    [SerializeField] private float chanceToLooseItmes;
-    [SerializeField] private float chanceToLooseItems;
+    [SerializeField] private float chanceToLooseEqiupments;
+    [SerializeField] private float chanceToLooseStashes;
 
     public override void GenerateDrop()
     {
@@ -17,7 +17,7 @@ public class PlayerItemDrop : ItemDrop
 
         foreach (InventoryItem item in inventory.GetEquipmentList())
         {
-            if (Random.Range(0, 100) <= chanceToLooseItmes)
+            if (Random.Range(0, 100) <= chanceToLooseEqiupments)
             {
                 DropItem(item.data);
                 itemToUnequipment.Add(item);
@@ -26,7 +26,7 @@ public class PlayerItemDrop : ItemDrop
 
         foreach (InventoryItem item in inventory.GetStashList())
         {
-            if (Random.Range(0, 100) <= chanceToLooseItems)
+            if (Random.Range(0, 100) <= chanceToLooseStashes)
             {
                 DropItem(item.data);
                 itemToRemove.Add(item);

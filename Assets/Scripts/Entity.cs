@@ -33,7 +33,7 @@ public class Entity : MonoBehaviour
     public int facingDir { get; private set; } = 1;
     protected bool facingRight = true;
 
-    public System.Action onFlipped;
+    public System.Action onFlipped;//Î¯ÍÐ
 
 
     protected virtual void Awake()

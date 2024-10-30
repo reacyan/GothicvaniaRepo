@@ -89,11 +89,11 @@ public class ItemData_Equipment : ItemData
         playerStats.lightingDamage.RemoveModifier(lightingDamage);
     }
 
-    public void ExecuteItemEffect()
+    public void Effect(Transform _targetPosition)
     {
         foreach (var item in itemEffects)
         {
-            item.ExecuteEffect();//调用装备特效
+            item.ExecuteEffect(_targetPosition);//调用装备特效
         }
     }
 }

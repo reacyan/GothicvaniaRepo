@@ -23,7 +23,12 @@ public class PlayerAnimationTriggers : MonoBehaviour
 
                 player.stats.DoDamage(_target);
 
-                Inventory.instance.GetEquipment(EquipmentType.weapon).ExecuteItemEffect();
+                ItemData_Equipment equipmentEffect = Inventory.instance.GetEquipment(EquipmentType.weapon);
+
+                if (equipmentEffect != null)
+                {
+                    equipmentEffect.Effect(_target.transform);//enable attack of effect for weapon
+                }
             }
         }
     }

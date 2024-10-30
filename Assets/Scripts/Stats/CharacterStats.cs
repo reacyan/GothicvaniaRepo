@@ -224,7 +224,14 @@ public class CharacterStats : MonoBehaviour
                     return;
                 }
 
-                HitNearsTargetWithShockStrike();
+                Transform closestEnemy = HitNearsTarget();
+
+                if (closestEnemy != null)
+                {
+                    GameObject newShockStrike = Instantiate(ShockStrikePrefab, transform.position, Quaternion.identity);
+
+                    newShockStrike.GetComponent<ShockStrike_Controller>().Setup(shockDamage, closestEnemy.GetComponent<CharacterStats>());
+                }
             }
             //find closest target , only among the enemies
             //instanitate thunder strike
@@ -260,9 +267,11 @@ public class CharacterStats : MonoBehaviour
         fx.ShockFxFor(shockedTimer);
     }
 
-    private void HitNearsTargetWithShockStrike()  //打击附近的目标
+    public Transform HitNearsTarget()  //打击附近的目标
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 20);
+        Player player = PlayerManager.instance.player;
+        //Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 10);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(player.attackCheck.transform.position, 10);
 
         float closestDistance = Mathf.Infinity;
         Transform closestEnemy = null;
@@ -285,12 +294,7 @@ public class CharacterStats : MonoBehaviour
             // }
         }
 
-        if (closestEnemy != null)
-        {
-            GameObject newShockStrike = Instantiate(ShockStrikePrefab, transform.position, Quaternion.identity);
-
-            newShockStrike.GetComponent<ShockStrike_Controller>().Setup(shockDamage, closestEnemy.GetComponent<CharacterStats>());
-        }
+        return closestEnemy;
     }
 
     //设置灼伤伤害

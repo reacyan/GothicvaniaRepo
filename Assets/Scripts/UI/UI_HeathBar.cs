@@ -19,6 +19,7 @@ public class UI_HeathBar : MonoBehaviour
         slider = GetComponentInChildren<Slider>();
         myStats = GetComponentInParent<CharacterStats>();
 
+        //储存方法引用
         entity.onFlipped += FlipUI;
         myStats.onHealthChanged += UpdateHealthUI;
 

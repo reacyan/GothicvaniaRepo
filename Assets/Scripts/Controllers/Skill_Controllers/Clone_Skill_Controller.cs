@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class Clone_Skill_Controller : MonoBehaviour
 {
-    private Player player;
-    private SpriteRenderer sr;
-    private Animator anim;
-    [SerializeField] private float colorLoosingSpeed;
-    [SerializeField] private bool ishitKonckback;
+    private Player player;//玩家
+    private SpriteRenderer sr;//精灵渲染器
+    private Animator anim;//动画器
+    [SerializeField] private float colorLoosingSpeed;//颜色丢失速度
+    [SerializeField] private bool ishitKonckback;//是否击退
 
-    private float cloneTimer;
-    [SerializeField] private Transform attackCheck;
-    [SerializeField] private float attackCheckRadius = 1;
-    private Transform closestEnemy;
-    private int facingDir = 1;
+    private float cloneTimer;//克隆体计时器
+    [SerializeField] private Transform attackCheck;//攻击检查
+    [SerializeField] private float attackCheckRadius = 1;//攻击检查半径
+    private Transform closestEnemy;//最近的敌人
+    private int facingDir = 1;//朝向
 
     private bool canDuplicateClone;
     private float chanceToDuplicate;
@@ -71,30 +71,30 @@ public class Clone_Skill_Controller : MonoBehaviour
 
         foreach (var hit in colliders)
         {
-            if (hit.GetComponent<Enemy>() != null)
+            if (hit.GetComponent<Enemy>() != null)//如果击中的物体是敌人
             {
-                player.stats.DoDamage(hit.GetComponent<CharacterStats>());
+                player.stats.DoDamage(hit.GetComponent<CharacterStats>());//对敌人造成伤害  
 
-                if (canDuplicateClone)
+                if (canDuplicateClone)//如果可以复制克隆体  
                 {
-                    if (Random.Range(0, 100) < chanceToDuplicate)
+                    if (Random.Range(0, 100) < chanceToDuplicate)//如果随机数小于复制克隆体的几率   
                     {
-                        SkillManager.instance.clone.CreateClone(hit.transform, ishitKonckback, new Vector3(.5f * facingDir, 0));
+                        SkillManager.instance.clone.CreateClone(hit.transform, ishitKonckback, new Vector3(.5f * facingDir, 0));//创建克隆体    
                     }
                 }
             }
         }
     }
 
-    private void FaceClosestTarget()
+    private void FaceClosestTarget()//朝最近的敌人
     {
 
-        if (closestEnemy != null)
+        if (closestEnemy != null)//如果最近的敌人不为空
         {
-            if (transform.position.x > closestEnemy.position.x)
+            if (transform.position.x > closestEnemy.position.x)//如果克隆体的位置在敌人的右边
             {
-                facingDir = -1;
-                transform.Rotate(0, 180, 0);
+                facingDir = -1;//朝左   
+                transform.Rotate(0, 180, 0);//旋转180度
             }
         }
     }

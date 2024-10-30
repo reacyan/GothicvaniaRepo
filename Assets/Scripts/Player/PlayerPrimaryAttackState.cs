@@ -18,11 +18,22 @@ public class PlayerPrimaryAttackState : playerstate
     {
         base.Enter();
 
+        ItemData_Equipment equipmentEffect = Inventory.instance.GetEquipment(EquipmentType.weapon);
+
+        //Debug.Log(equipmentEffect.itemName);
         xInput = 0;
 
         if (comboCounter > 2 || Time.time >= lastTimeAttacked + comboWindow)
         {
             comboCounter = 0;
+        }
+
+        else if (comboCounter == 2 && equipmentEffect != null)//当攻击连段达到第三段时
+        {
+            if (equipmentEffect.itemName == "IceAndFire Swrod")
+            {
+                equipmentEffect.Effect(player.GetComponent<CharacterStats>().HitNearsTarget());//调用装备特效
+            }
         }
 
         player.anim.SetInteger("ComboCounter", comboCounter);

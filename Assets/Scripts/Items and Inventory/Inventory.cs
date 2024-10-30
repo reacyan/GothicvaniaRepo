@@ -286,7 +286,7 @@ public class Inventory : MonoBehaviour
         {
             if (item.Key.equipmentType == _type)//当字典中有与_type配对的类型时
             {
-                equipedItem = item.Key;//赋值给装备
+                equipedItem = item.Key;//赋值
             }
         }
         return equipedItem;

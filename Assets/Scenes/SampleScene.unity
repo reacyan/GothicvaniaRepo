@@ -4212,7 +4212,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -33.410534, y: 2.6399999, z: -0.06937504}
+  m_LocalPosition: {x: -33.249245, y: 2.6399999, z: -0.06937504}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4392,6 +4392,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f4a2849dec32eb341a11f810cb60e643, type: 2}
   - {fileID: 11400000, guid: 247e6b76f6a43834bbbd0aa673d6caf6, type: 2}
   - {fileID: 11400000, guid: 40bb919829ca5c1419a9b33e660739ae, type: 2}
+  - {fileID: 11400000, guid: b74301c4d946c7a448a3a2d827ff4aff, type: 2}
   equipment: []
   inventory: []
   stash: []
@@ -4918,7 +4919,7 @@ Transform:
   m_GameObject: {fileID: 754723090}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -33.410534, y: 2.64, z: -0.06937504}
+  m_LocalPosition: {x: -33.249245, y: 2.6399999, z: -0.06937504}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7180,6 +7181,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3559908209497734422, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
+      propertyPath: attackDistance
+      value: 1.94
+      objectReference: {fileID: 0}
     - target: {fileID: 4179795417169721274, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
       propertyPath: m_Name
       value: Enemy_Skeleton (1)
@@ -7189,16 +7194,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5571769980766518855, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
+      propertyPath: maxHealth.baseValue
+      value: 1000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571769980766518855, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
       propertyPath: fireDamage.baseValue
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8262884987296968524, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.887107
+      value: -16.21
       objectReference: {fileID: 0}
     - target: {fileID: 8262884987296968524, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.060488224
+      value: 1.09
       objectReference: {fileID: 0}
     - target: {fileID: 8262884987296968524, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7860,7 +7869,7 @@ Transform:
   m_GameObject: {fileID: 1408091956}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30.3, y: 1.49, z: 0}
+  m_LocalPosition: {x: -27.08, y: 1.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7992,7 +8001,7 @@ MonoBehaviour:
     baseValue: 0
     modifiers: 
   maxHealth:
-    baseValue: 100
+    baseValue: 100000
     modifiers: 
   armor:
     baseValue: 0
@@ -8007,12 +8016,12 @@ MonoBehaviour:
     baseValue: 0
     modifiers: 
   iceDamage:
-    baseValue: 5
+    baseValue: 1
     modifiers: 
   lightingDamage:
     baseValue: 0
     modifiers: 
-  ailmentsDuration: 4
+  ailmentsDuration: 1
   isIgnited: 1
   isChilled: 0
   isShocked: 0
@@ -8031,10 +8040,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   possibleDrop: []
-  possibleItemDrop: 0
+  possibleItemDropCount: 0
   DropPrefab: {fileID: 6714971485426460044, guid: 190582154c97db940aa7348ff55bbb4f, type: 3}
-  chanceToLooseItmes: 99
-  chanceToLooseItems: 99
+  chanceToLooseEqiupments: 0
+  chanceToLooseStashes: 0
 --- !u!1001 &1437118533
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9583,7 +9592,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1c64d9f5caa848f4caf56b3a5814972a, type: 2}
   - {fileID: 11400000, guid: f4a2849dec32eb341a11f810cb60e643, type: 2}
   - {fileID: 11400000, guid: 247e6b76f6a43834bbbd0aa673d6caf6, type: 2}
-  possibleItemDrop: 3
+  possibleItemDropCount: 0
   DropPrefab: {fileID: 6714971485426460044, guid: 190582154c97db940aa7348ff55bbb4f, type: 3}
 --- !u!1 &1966223001
 GameObject:

@@ -5,7 +5,7 @@ using UnityEngine;
 public class ItemDrop : MonoBehaviour
 {
     [SerializeField] private ItemData[] possibleDrop;
-    [SerializeField] private int possibleItemDrop;
+    [SerializeField] private int possibleItemDropCount;
     private List<ItemData> dropList = new List<ItemData>();
 
 
@@ -21,7 +21,7 @@ public class ItemDrop : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < possibleItemDrop; i++)//限制掉落数量
+        for (int i = 0; i < possibleItemDropCount; i++)//限制掉落数量
         {
             ItemData randomItem = dropList[Random.Range(0, dropList.Count - 1)];
             dropList.Remove(randomItem);
