@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Player : Entity
 {
+    [Header("Skill details")]
+    public Transform skillCheck;
+    public float skillCheckRadius;
 
     public bool isDead = false;
     [Header("Attack details")]
@@ -169,6 +172,11 @@ public class Player : Entity
         {
             stateMachine.ChangeState(blackhole);
         }
+    }
+
+    protected override void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(skillCheck.position, skillCheckRadius);
     }
 
     public override void Die()

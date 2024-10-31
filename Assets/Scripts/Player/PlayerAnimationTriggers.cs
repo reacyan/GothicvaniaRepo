@@ -25,7 +25,7 @@ public class PlayerAnimationTriggers : MonoBehaviour
 
                 ItemData_Equipment equipmentEffect = Inventory.instance.GetEquipment(EquipmentType.weapon);
 
-                if (equipmentEffect != null)
+                if (equipmentEffect != null && !(equipmentEffect.itemName == "IceAndFire Swrod"))
                 {
                     equipmentEffect.Effect(_target.transform);//enable attack of effect for weapon
                 }

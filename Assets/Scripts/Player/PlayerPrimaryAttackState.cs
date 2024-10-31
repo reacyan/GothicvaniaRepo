@@ -32,7 +32,7 @@ public class PlayerPrimaryAttackState : playerstate
         {
             if (equipmentEffect.itemName == "IceAndFire Swrod")
             {
-                equipmentEffect.Effect(player.GetComponent<CharacterStats>().HitNearsTarget());//调用装备特效
+                equipmentEffect.Effect(player.GetComponent<CharacterStats>().SkillHitNearsTarget(player.skillCheckRadius / 5));//调用装备特效
             }
         }
 

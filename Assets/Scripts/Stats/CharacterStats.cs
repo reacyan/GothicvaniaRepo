@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
 {
-
     private EntityFX fx;
+    public Player player;
     public bool isDie = false;
 
     [Header("Major stats")]
@@ -54,6 +54,7 @@ public class CharacterStats : MonoBehaviour
         critPower.SetDefaultValue(150);
         currentHealth = GetMaxHealthValue();
         fx = GetComponent<EntityFX>();
+        player = PlayerManager.instance.player;
 
         DecreaseHealth(0);
     }
@@ -224,7 +225,7 @@ public class CharacterStats : MonoBehaviour
                     return;
                 }
 
-                Transform closestEnemy = HitNearsTarget();
+                Transform closestEnemy = SkillHitNearsTarget(player.skillCheckRadius);
 
                 if (closestEnemy != null)
                 {
@@ -267,11 +268,10 @@ public class CharacterStats : MonoBehaviour
         fx.ShockFxFor(shockedTimer);
     }
 
-    public Transform HitNearsTarget()  //打击附近的目标
+    public Transform SkillHitNearsTarget(float _skillCheckRadius)  //打击附近的目标
     {
-        Player player = PlayerManager.instance.player;
         //Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 10);
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(player.attackCheck.transform.position, 10);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(player.skillCheck.transform.position, _skillCheckRadius);//检测正前方一个圆形范围内的敌人
 
         float closestDistance = Mathf.Infinity;
         Transform closestEnemy = null;

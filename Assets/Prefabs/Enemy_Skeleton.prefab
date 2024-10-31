@@ -359,6 +359,7 @@ GameObject:
   - component: {fileID: 2210896767755820817}
   - component: {fileID: 5571769980766518855}
   - component: {fileID: 2163843216836743848}
+  - component: {fileID: 7008837543158009744}
   m_Layer: 7
   m_Name: Enemy_Skeleton
   m_TagString: Untagged
@@ -420,7 +421,7 @@ MonoBehaviour:
   idleTime: 0
   battleTime: 5
   defaultMoveSpeed: 0
-  attackDistance: 1.83
+  attackDistance: 1.94
   attackCooldown: 0.2
   lastTimeAttacked: 0
 --- !u!50 &7768503547213091563
@@ -485,6 +486,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3179925dc5fae5045b3bf0f9e61c31f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  isDie: 0
   strength:
     baseValue: 0
     modifiers: 
@@ -507,7 +510,7 @@ MonoBehaviour:
     baseValue: 0
     modifiers: 
   maxHealth:
-    baseValue: 100
+    baseValue: 1000000
     modifiers: 
   armor:
     baseValue: 0
@@ -519,7 +522,7 @@ MonoBehaviour:
     baseValue: 0
     modifiers: 
   fireDamage:
-    baseValue: 10
+    baseValue: 20
     modifiers: 
   iceDamage:
     baseValue: 0
@@ -533,7 +536,7 @@ MonoBehaviour:
   isShocked: 1
   ShockStrikePrefab: {fileID: 7942421999799409351, guid: c97e0904922f91841af775d6b91ddb75, type: 3}
   currentHealth: 0
-  level: 0
+  level: 1
   percentageModifier: 0
 --- !u!70 &2163843216836743848
 CapsuleCollider2D:
@@ -570,6 +573,26 @@ CapsuleCollider2D:
   m_Offset: {x: -0.068661146, y: -0.09395704}
   m_Size: {x: 0.7095964, y: 1.534833}
   m_Direction: 0
+--- !u!114 &7008837543158009744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4179795417169721274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6e36d1695a7efd4e8784367efb7d7b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  possibleDrop:
+  - {fileID: 11400000, guid: e9dccc5e2bed7a049bdbc5076372bdb1, type: 2}
+  - {fileID: 11400000, guid: dc23dd1e1511c8f40bac80c8513f2cf3, type: 2}
+  - {fileID: 11400000, guid: 1c64d9f5caa848f4caf56b3a5814972a, type: 2}
+  - {fileID: 11400000, guid: f4a2849dec32eb341a11f810cb60e643, type: 2}
+  - {fileID: 11400000, guid: 247e6b76f6a43834bbbd0aa673d6caf6, type: 2}
+  possibleItemDropCount: 0
+  DropPrefab: {fileID: 6714971485426460044, guid: 190582154c97db940aa7348ff55bbb4f, type: 3}
 --- !u!1 &5258036557623458246
 GameObject:
   m_ObjectHideFlags: 0
