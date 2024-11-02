@@ -16,6 +16,10 @@ public class ItemData_Equipment : ItemData
     public ItemEffect[] itemEffects;
     public EquipmentType equipmentType;
 
+    [Header("Item Cooldown")]
+    public float itemLastTime;
+    public float itemCooldown;
+
     [Header("Major stats")]
     public int strength;
     public int agility;

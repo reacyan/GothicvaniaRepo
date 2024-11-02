@@ -47,6 +47,8 @@ public class CharacterStats : MonoBehaviour
     private int shockDamage;
     public int currentHealth;
 
+    public int finalDamage;
+
     public System.Action onHealthChanged;
 
     protected virtual void Start()
@@ -92,6 +94,21 @@ public class CharacterStats : MonoBehaviour
     public void DecreaseHealth(int _damage)  //减少hp
     {
         currentHealth -= _damage;
+        if (onHealthChanged != null)
+        {
+            onHealthChanged();
+        }
+    }
+
+    public void IncreaseHealth(int _Health)
+    {
+        currentHealth += _Health;
+
+        if (currentHealth > GetMaxHealthValue())
+        {
+            currentHealth = GetMaxHealthValue();
+        }
+
         if (onHealthChanged != null)
         {
             onHealthChanged();
@@ -309,7 +326,9 @@ public class CharacterStats : MonoBehaviour
     #region Stat calculations
     public virtual void TakeDamage(int _damage) //造成伤害
     {
-        DecreaseHealth(_damage);
+        finalDamage = _damage;
+
+        DecreaseHealth(finalDamage);
 
         GetComponent<Entity>().DamageImpact();
         fx.StartCoroutine("FlashFX");

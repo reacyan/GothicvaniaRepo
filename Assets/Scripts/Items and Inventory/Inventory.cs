@@ -295,4 +295,20 @@ public class Inventory : MonoBehaviour
     public List<InventoryItem> GetEquipmentList() => equipment;
     public List<InventoryItem> GetStashList() => stash;
 
+    public void UseFlask()
+    {
+        ItemData_Equipment currentFlask = GetEquipment(EquipmentType.flask);
+
+        if (currentFlask == null)
+        {
+            return;
+        }
+
+        if (Time.time > currentFlask.itemLastTime + currentFlask.itemCooldown)
+        {
+            currentFlask.itemLastTime = Time.time;
+            currentFlask.Effect(null);
+        }
+    }
+
 }
