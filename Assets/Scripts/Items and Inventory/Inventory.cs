@@ -309,6 +309,10 @@ public class Inventory : MonoBehaviour
             currentFlask.itemLastTime = Time.time;
             currentFlask.Effect(null);
         }
+        else
+        {
+            Debug.Log("flask cooldown");
+        }
     }
 
 }

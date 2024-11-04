@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71c4415b7ba89fe41a995ad891f2d89f, type: 3}
-  m_Name: Health Flask
+  m_Script: {fileID: 11500000, guid: 4be50205542457847a06a4beba5c4173, type: 3}
+  m_Name: Armor buff
   m_EditorClassIdentifier: 
-  healthValue: 20
-  healthPrecent: 0
+  buffType: 8
+  buffAmount: 50
+  buffDuration: 0

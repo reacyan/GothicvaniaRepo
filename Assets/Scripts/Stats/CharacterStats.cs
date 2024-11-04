@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
@@ -114,6 +115,22 @@ public class CharacterStats : MonoBehaviour
             onHealthChanged();
         }
     }
+
+    public void IncreaseStatsBy(int _modifier, float _duration, Stat _statsToModify)
+    {
+        StartCoroutine(StatsModCoroutine(_modifier, _duration, _statsToModify));
+    }
+
+    private IEnumerator StatsModCoroutine(int _modifier, float _duration, Stat _statsToModify)
+    {
+        _statsToModify.AddModifier(_modifier);
+
+        yield return new WaitForSeconds(_duration);
+
+        _statsToModify.RemoveModifier(_modifier);
+    }
+
+
 
     protected virtual void Die()  //死亡调用
     {

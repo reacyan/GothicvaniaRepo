@@ -16,8 +16,9 @@ public class UI_EquipmentSlot : UI_ItemSlot
     {
         if (item != null)
         {
-            Inventory.instance.UnequipItem(item.data as ItemData_Equipment);
+            Debug.Log(item.data);
             Inventory.instance.AddItem(item.data as ItemData_Equipment);
+            Inventory.instance.UnequipItem(item.data as ItemData_Equipment);
             CleanUpSlot();
         }
     }
