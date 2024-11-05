@@ -4398,6 +4398,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 58112ec80ed7ac14a80b14ee5ce29250, type: 2}
   - {fileID: 11400000, guid: 62220f3aff2efbd41b46822d1f137df0, type: 2}
   - {fileID: 11400000, guid: b74301c4d946c7a448a3a2d827ff4aff, type: 2}
+  - {fileID: 11400000, guid: fda470a9f7dbc8a4bb8a211aa69f825d, type: 2}
   equipment: []
   inventory: []
   stash: []
@@ -8051,7 +8052,7 @@ MonoBehaviour:
   isChilled: 0
   isShocked: 0
   ShockStrikePrefab: {fileID: 7942421999799409351, guid: c97e0904922f91841af775d6b91ddb75, type: 3}
-  currentHealth: 100
+  currentHealth: 50
   finalDamage: 0
 --- !u!114 &1408091963
 MonoBehaviour:

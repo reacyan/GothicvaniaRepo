@@ -92,9 +92,10 @@ public class CharacterStats : MonoBehaviour
         }
     }
 
-    public void DecreaseHealth(int _damage)  //减少hp
+    public virtual void DecreaseHealth(int _damage)  //减少hp
     {
         currentHealth -= _damage;
+
         if (onHealthChanged != null)
         {
             onHealthChanged();

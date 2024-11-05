@@ -10,27 +10,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cd5565b0515a8542a9b038b344bcd80, type: 3}
-  m_Name: Plate armor
+  m_Name: Blue wolf armor
   m_EditorClassIdentifier: 
   itemType: 1
-  itemName: Plate armor
-  icon: {fileID: -1581127718, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
-  dropChance: 54.5
-  itemEffects: []
+  itemName: Blue wolf armor
+  icon: {fileID: 288293509, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
+  dropChance: 0
+  itemEffects:
+  - {fileID: 11400000, guid: a3d56d85071c40246b45cb5d50954063, type: 2}
   equipmentType: 1
-  itemLastTime: 0
-  itemCooldown: 0
+  itemLastTime: 11.827765
+  itemCooldown: 5
   strength: 0
   agility: 0
   intelligence: 0
-  vitality: 15
+  vitality: 0
   damage: 0
   critChance: 0
   critPower: 0
   maxHealth: 0
-  armor: 0
-  evasion: 0
-  magicResistance: 0
+  armor: 15
+  evasion: 5
+  magicResistance: 5
   fireDamage: 0
   iceDamage: 0
   lightingDamage: 0

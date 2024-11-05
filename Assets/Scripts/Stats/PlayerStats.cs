@@ -15,6 +15,32 @@ public class PlayerStats : CharacterStats
         base.TakeDamage(_damage);
     }
 
+    public override void DecreaseHealth(int _damage)
+    {
+        base.DecreaseHealth(_damage);
+
+        UseFreezeEffect();
+    }
+
+    private void UseFreezeEffect()
+    {
+        ItemData_Equipment currentArmor = Inventory.instance.GetEquipment(EquipmentType.Armor);
+        if (currentArmor == null)
+        {
+            return;
+        }
+
+        if (Time.time > currentArmor.itemLastTime + currentArmor.itemCooldown)
+        {
+            currentArmor.itemLastTime = Time.time;
+            currentArmor.Effect(player.transform);
+        }
+        else
+        {
+            Debug.Log("Armor cooldown");
+        }
+    }
+
     protected override void Die()
     {
         base.Die();

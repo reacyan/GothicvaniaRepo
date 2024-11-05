@@ -314,5 +314,4 @@ public class Inventory : MonoBehaviour
             Debug.Log("flask cooldown");
         }
     }
-
 }
