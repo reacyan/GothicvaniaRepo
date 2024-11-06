@@ -19,25 +19,11 @@ public class PlayerStats : CharacterStats
     {
         base.DecreaseHealth(_damage);
 
-        UseFreezeEffect();
-    }
-
-    private void UseFreezeEffect()
-    {
         ItemData_Equipment currentArmor = Inventory.instance.GetEquipment(EquipmentType.Armor);
-        if (currentArmor == null)
-        {
-            return;
-        }
 
-        if (Time.time > currentArmor.itemLastTime + currentArmor.itemCooldown)
+        if (Inventory.instance.UseArmorEffect())
         {
-            currentArmor.itemLastTime = Time.time;
-            currentArmor.Effect(player.transform);
-        }
-        else
-        {
-            Debug.Log("Armor cooldown");
+            currentArmor.Effect(transform);
         }
     }
 

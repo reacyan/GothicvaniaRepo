@@ -16,7 +16,7 @@ public class FreezeEnemies_Effect : ItemEffect
 
         if (player.currentHealth <= 30)
         {
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(player.transform.position, freezeScope);
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(_targetPosition.position, freezeScope);
 
             foreach (var hit in colliders)
             {

@@ -314,4 +314,21 @@ public class Inventory : MonoBehaviour
             Debug.Log("flask cooldown");
         }
     }
+
+    public bool UseArmorEffect()
+    {
+        ItemData_Equipment currentArmor = Inventory.instance.GetEquipment(EquipmentType.Armor);
+        if (currentArmor == null)
+        {
+            return false;
+        }
+
+        if (Time.time > currentArmor.itemLastTime + currentArmor.itemCooldownTimer)
+        {
+            currentArmor.itemCooldownTimer = currentArmor.itemCooldown;
+            currentArmor.itemLastTime = Time.time;
+            return true;
+        }
+        return false;
+    }
 }

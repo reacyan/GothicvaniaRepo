@@ -19,6 +19,7 @@ public class ItemData_Equipment : ItemData
     [Header("Item Cooldown")]
     public float itemLastTime;
     public float itemCooldown;
+    public float itemCooldownTimer;
 
     [Header("Major stats")]
     public int strength;
