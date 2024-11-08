@@ -25,8 +25,6 @@ public class IceAndFire_Controller : ThunderBoom_Controller
 
     private void Update()
     {
-        Debug.Log(moveFacing);
-        Debug.Log(targetTransfrom);
         if (targetTransfrom != null)
         {
             transform.right = targetTransfrom.transform.position - transform.position;//朝向目标

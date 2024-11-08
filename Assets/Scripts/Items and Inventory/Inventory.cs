@@ -26,10 +26,13 @@ public class Inventory : MonoBehaviour
     [SerializeField] private Transform InventorySlotParent;
     [SerializeField] private Transform stashSlotParent;
     [SerializeField] private Transform equipmentSlotParent;
+    [SerializeField] private Transform statSlotParent;
 
     private UI_ItemSlot[] inventoryItemSlot;
     private UI_ItemSlot[] stashItemSlot;
     private UI_EquipmentSlot[] equipmentSlot;
+    private UI_StatSlot[] StatSlot;
+
     private void Awake()
     {
         if (instance == null)
@@ -57,6 +60,7 @@ public class Inventory : MonoBehaviour
 
         stashItemSlot = stashSlotParent.GetComponentsInChildren<UI_ItemSlot>();
         equipmentSlot = equipmentSlotParent.GetComponentsInChildren<UI_EquipmentSlot>();
+        StatSlot = statSlotParent.GetComponentsInChildren<UI_StatSlot>();
 
         AddStartingItems();
     }
@@ -148,6 +152,12 @@ public class Inventory : MonoBehaviour
         {
             stashItemSlot[i].UpdateSlot(stash[i]);//更新仓库
         }
+
+        for (int i = 0; i < StatSlot.Length; i++)
+        {
+            StatSlot[i].UpdateStatValueUI();
+        }
+
     }
 
     public void AddItem(ItemData _item)//添加物品

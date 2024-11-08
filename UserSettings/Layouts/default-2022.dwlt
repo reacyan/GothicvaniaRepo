@@ -192,8 +192,8 @@ MonoBehaviour:
     y: 0
     width: 490
     height: 617
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -298,8 +298,8 @@ MonoBehaviour:
     y: 0
     width: 647
     height: 690
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 102, y: 121}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 23}
   m_Panes:
   - {fileID: 23}
@@ -351,8 +351,8 @@ MonoBehaviour:
     y: 0
     width: 678
     height: 879
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 25}
   m_Panes:
   - {fileID: 25}
@@ -379,13 +379,13 @@ MonoBehaviour:
     height: 428
   m_MinSize: {x: 231, y: 271}
   m_MaxSize: {x: 10001, y: 10021}
-  m_ActualView: {fileID: 17}
+  m_ActualView: {fileID: 26}
   m_Panes:
   - {fileID: 26}
   - {fileID: 17}
   - {fileID: 16}
-  m_Selected: 1
-  m_LastSelected: 0
+  m_Selected: 0
+  m_LastSelected: 2
 --- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -407,9 +407,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 1882
-    y: 953
+    y: 952
     width: 677
-    height: 406
+    height: 407
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -431,7 +431,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Items and Inventory
+    - Assets/Graphics/Graphics/UI
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -439,16 +439,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 72
   m_LastFolders:
-  - Assets/Scripts/Items and Inventory
+  - Assets/Graphics/Graphics/UI
   m_LastFoldersGridSize: 72
   m_LastProjectPath: E:\program\gothicvania game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 746f0000
-    m_LastClickedID: 28532
-    m_ExpandedIDs: 00000000806f0000826f0000846f0000866f0000
+    scrollPos: {x: 0, y: 1}
+    m_SelectedIDs: 4a720000
+    m_LastClickedID: 29258
+    m_ExpandedIDs: 00000000f8700000fa700000fc700000b47100004c720000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -476,7 +476,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000806f0000826f0000846f0000866f0000
+    m_ExpandedIDs: 00000000f8700000fa700000fc700000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -501,10 +501,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: e2670000
-    m_LastClickedInstanceID: 26594
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: ea700000
+    m_ExpandedInstanceIDs: ea700000fc700000f4700000806d000060720000346e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -520,7 +520,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 0}
+      m_ClientGUIView: {fileID: 12}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -577,7 +577,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Data/Equipment/Armor
+    - Assets/Prefabs
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -585,16 +585,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 67
   m_LastFolders:
-  - Assets/Data/Equipment/Armor
+  - Assets/Prefabs
   m_LastFoldersGridSize: 67
   m_LastProjectPath: E:\program\gothicvania game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 2}
-    m_SelectedIDs: 58700000
-    m_LastClickedID: 28760
-    m_ExpandedIDs: 00000000806f0000826f0000846f0000866f000038700000
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: b8710000
+    m_LastClickedID: 29112
+    m_ExpandedIDs: 00000000f8700000fa700000fc700000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -622,7 +622,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000806f0000826f0000846f0000866f0000
+    m_ExpandedIDs: 00000000f8700000fa700000fc700000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -647,9 +647,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_SelectedInstanceIDs: 806d0000
+    m_LastClickedInstanceID: 28032
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: 
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -714,24 +714,24 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 1c680000
-      m_LastClickedID: 0
-      m_ExpandedIDs: d2faffff
+      scrollPos: {x: 0, y: 97}
+      m_SelectedIDs: 24d4feff
+      m_LastClickedID: -76764
+      m_ExpandedIDs: 1c55ffff228effffa4a0ffff82f6fffffcfaffffe26a0000206b0000686b0000aa6b0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: ItemSlot (1)
+        m_OriginalName: ItemSlot (1)
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -1508
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 8}
       m_SearchString: 
@@ -1110,9 +1110,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -25.996843, y: 6.873192, z: -0.058133096}
+    m_Target: {x: 817.80066, y: 232.94673, z: -1.3438467}
     speed: 2
-    m_Value: {x: -25.996843, y: 6.873192, z: -0.058133096}
+    m_Value: {x: 817.80066, y: 232.94673, z: -1.3438467}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1162,9 +1162,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 9.198396
+    m_Target: 188.46796
     speed: 2
-    m_Value: 9.198396
+    m_Value: 188.46796
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1599,7 +1599,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 27298
+  m_LastSelectedObjectID: -1914
 --- !u!114 &25
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1641,7 +1641,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 35
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
@@ -1668,9 +1668,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 1882
-    y: 953
+    y: 952
     width: 677
-    height: 406
+    height: 407
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1692,7 +1692,7 @@ MonoBehaviour:
     m_SkipHidden: 1
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Items and Inventory
+    - Assets/Scripts/UI
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1700,16 +1700,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 68
   m_LastFolders:
-  - Assets/Scripts/Items and Inventory
+  - Assets/Scripts/UI
   m_LastFoldersGridSize: 68
   m_LastProjectPath: E:\program\gothicvania game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 2}
-    m_SelectedIDs: 746f0000
-    m_LastClickedID: 28532
-    m_ExpandedIDs: 00000000806f0000826f0000846f0000866f0000
+    scrollPos: {x: 0, y: 1}
+    m_SelectedIDs: c2710000
+    m_LastClickedID: 29122
+    m_ExpandedIDs: 00000000f8700000fa700000fc700000bc710000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1737,7 +1737,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000806f0000826f0000846f0000866f0000
+    m_ExpandedIDs: 00000000f8700000fa700000fc700000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1762,8 +1762,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 3ef2ffff
-    m_LastClickedInstanceID: -3522
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 4e8100004862000068620000766200008462000086620000926200008864000050710000126e0000b4740000766c0000fe6900001a6a0000f86c0000206a0000426e0000126f0000206f0000246f0000946a000000000000ce6f0000faae0000566c00006070000046700000a07000006e6c000004890000008900003689000042890000222d0000
     m_RenameOverlay:

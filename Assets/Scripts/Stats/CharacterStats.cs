@@ -2,6 +2,25 @@ using System.Collections;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
+
+public enum StatType
+{
+    strength,
+    agility,
+    intelligence,
+    vitality,
+    damage,
+    critChance,
+    critPower,
+    maxHealth,
+    armor,
+    evasion,
+    magicResistance,
+    fireDamage,
+    iceDamage,
+    lightingDamage
+}
+
 public class CharacterStats : MonoBehaviour
 {
     private EntityFX fx;
@@ -419,4 +438,58 @@ public class CharacterStats : MonoBehaviour
     }
 
     #endregion
+
+
+    public Stat GetStat(StatType buffType)
+    {
+        Stat stat = null;
+
+        switch (buffType)
+        {
+            case StatType.strength:
+                stat = strength;
+                break;
+            case StatType.agility:
+                stat = agility;
+                break;
+            case StatType.intelligence:
+                stat = intelligence;
+                break;
+            case StatType.vitality:
+                stat = vitality;
+                break;
+            case StatType.damage:
+                stat = damage;
+                break;
+            case StatType.critChance:
+                stat = critChance;
+                break;
+            case StatType.critPower:
+                stat = critPower;
+                break;
+            case StatType.maxHealth:
+                stat = maxHealth;
+                break;
+            case StatType.armor:
+                stat = armor;
+                break;
+            case StatType.evasion:
+                stat = evasion;
+                break;
+            case StatType.magicResistance:
+                stat = magicResistance;
+                break;
+            case StatType.fireDamage:
+                stat = fireDamage;
+                break;
+            case StatType.iceDamage:
+                stat = iceDamage;
+                break;
+            case StatType.lightingDamage:
+                stat = lightingDamage;
+                break;
+        }
+
+        return stat;
+    }
 }
