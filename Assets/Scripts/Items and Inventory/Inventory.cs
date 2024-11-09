@@ -162,7 +162,7 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(ItemData _item)//添加物品
     {
-        if (_item.itemType == ItemType.Equipment)
+        if (_item.itemType == ItemType.Equipment && CanAddItem(_item))
         {
             AddToInventory(_item);
         }
@@ -172,6 +172,22 @@ public class Inventory : MonoBehaviour
         }
 
         UpdateSlotUI();
+    }
+
+    public bool CanAddItem(ItemData _item)
+    {
+        if (inventory.Count >= inventoryItemSlot.Length)
+        {
+            if (inventoryDictionary.TryGetValue(_item, out InventoryItem value))
+            {
+                Debug.Log("stash item");
+                return true;
+            }
+
+            Debug.Log("No More Slot");
+            return false;
+        }
+        return true;
     }
 
     private void AddToStash(ItemData _item)//添加到仓库

@@ -15,6 +15,7 @@ public class ItemData_Equipment : ItemData
 {
     public ItemEffect[] itemEffects;
     public EquipmentType equipmentType;
+    private int descripLine;
 
     [Header("Item Cooldown")]
     public float itemLastTime;
@@ -45,7 +46,6 @@ public class ItemData_Equipment : ItemData
 
     [Header("Craft requipments")]
     public List<InventoryItem> CraftingMaterial;
-
 
     public void AddModifiers()//添加buff
     {
@@ -99,6 +99,55 @@ public class ItemData_Equipment : ItemData
         foreach (var item in itemEffects)
         {
             item.ExecuteEffect(_targetPosition);//调用装备特效
+        }
+    }
+
+    public override string GetDescription()
+    {
+        sb.Length = 0;
+
+        AddItemDescription(strength, "strength");
+        AddItemDescription(agility, "agility");
+        AddItemDescription(intelligence, "intelligence");
+        AddItemDescription(vitality, "vitality");
+
+        AddItemDescription(damage, "damage");
+        AddItemDescription(critChance, "critChance");
+        AddItemDescription(critPower, "critPower");
+
+        AddItemDescription(maxHealth, "maxHealth");
+        AddItemDescription(armor, "armor");
+        AddItemDescription(evasion, "evasion");
+        AddItemDescription(magicResistance, "magicResistance");
+
+        AddItemDescription(fireDamage, "fireDamage");
+        AddItemDescription(iceDamage, "iceDamage");
+        AddItemDescription(lightingDamage, "lightingDamage");
+
+
+        if (descripLine < 5)
+        {
+            for (int i = 0; i < descripLine; i++)
+            {
+                sb.AppendLine();
+                sb.Append("");
+            }
+        }
+
+        return sb.ToString();
+    }
+
+    private void AddItemDescription(int _value, string _name)
+    {
+        if (_value != 0)
+        {
+            if (sb.Length > 0)
+            {
+                sb.AppendLine();
+            }
+
+            sb.Append("+ " + _value + " " + _name);
+            descripLine++;
         }
     }
 }
