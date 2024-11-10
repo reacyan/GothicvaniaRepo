@@ -31,7 +31,7 @@ public class CharacterStats : MonoBehaviour
     public Stat strength;// 1 point increase damage by 1 and crit.power by 1%
     public Stat agility;// 1 point increase evasion by 1% and crit.chance by 1%
     public Stat intelligence;//1 point increase magic damage 1 and magic resiestance by 3
-    public Stat vitality;// 1 point increase health by 3 and 5 point
+    public Stat vitality;// 1 point increase health by 5 point
 
     [Header("Offensive stats")]
     public Stat damage;
@@ -121,7 +121,7 @@ public class CharacterStats : MonoBehaviour
         }
     }
 
-    public void IncreaseHealth(int _Health)
+    public void IncreaseHealth(int _Health)  //增加hp
     {
         currentHealth += _Health;
 
@@ -136,9 +136,9 @@ public class CharacterStats : MonoBehaviour
         }
     }
 
-    public void IncreaseStatsBy(int _modifier, float _duration, Stat _statsToModify)
+    public void IncreaseStatsBy(int _modifier, float _duration, Stat _statsToModify)  //增加属性
     {
-        StartCoroutine(StatsModCoroutine(_modifier, _duration, _statsToModify));
+        StartCoroutine(StatsModCoroutine(_modifier, _duration, _statsToModify));  //启用一条线程
     }
 
     private IEnumerator StatsModCoroutine(int _modifier, float _duration, Stat _statsToModify)
@@ -176,24 +176,24 @@ public class CharacterStats : MonoBehaviour
 
         totalDamage = CheckTargetArmor(_targetStats, totalDamage);
         //_targetStats.TakeDamage(totalDamage);
-        DoMagicDamage(_targetStats);
+        DoMagicDamage(_targetStats, totalDamage);
     }
 
 
     #region Magical damage and ailments
-    public virtual void DoMagicDamage(CharacterStats _targetStats)  //造成魔法伤害
+    public virtual void DoMagicDamage(CharacterStats _targetStats, int _totalDamage = 0)  //造成魔法伤害
     {
         //获取数值
         int _fireDamage = fireDamage.GetValue();
         int _iceDamage = iceDamage.GetValue();
         int _lightingDamage = lightingDamage.GetValue();
 
-        //魔法伤害计算
+        //魔法总伤计算
         int totalMagicDamage = _fireDamage + _iceDamage + _lightingDamage + intelligence.GetValue();
 
         totalMagicDamage = CheckTargetResistance(_targetStats, totalMagicDamage);
 
-        _targetStats.TakeDamage(totalMagicDamage);
+        _targetStats.TakeDamage(totalMagicDamage + _totalDamage);
 
         if (Mathf.Max(_fireDamage, _iceDamage, _lightingDamage) <= 0)
         {
@@ -246,7 +246,7 @@ public class CharacterStats : MonoBehaviour
     {
         bool canApplyIgnite = _isIgnite && !_isChill && !_isShock;
         bool canApplyChill = !_isIgnite && _isChill && !_isShock;
-        bool canApplyShock = !_isIgnite && !_isChill;
+        bool canApplyShock = !_isIgnite && !_isChill && _isShock;
 
         if (_isIgnite && canApplyIgnite)
         {
@@ -432,7 +432,7 @@ public class CharacterStats : MonoBehaviour
         return Mathf.RoundToInt(critDamage);
     }
 
-    public int GetMaxHealthValue()  //初始hp值计算
+    public int GetMaxHealthValue()  //MaxHp值计算
     {
         return maxHealth.GetValue() + vitality.GetValue() * 5;
     }

@@ -7,6 +7,7 @@ public class UI : MonoBehaviour
     [SerializeField] private GameObject characterUI;
 
     public UI_ItemToolTip itemToolTip;
+    public UI_StatToolTip statToolTip;
 
     public void SwitchTo(GameObject _menu)
     {
@@ -20,4 +21,6 @@ public class UI : MonoBehaviour
             _menu.SetActive(true);
         }
     }
+
+    
 }

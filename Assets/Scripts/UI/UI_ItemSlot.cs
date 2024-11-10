@@ -9,7 +9,7 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
     [SerializeField] private TextMeshProUGUI itemText;
 
     public InventoryItem item;
-    public UI ui;
+    private UI ui;
 
     private void Start()
     {
