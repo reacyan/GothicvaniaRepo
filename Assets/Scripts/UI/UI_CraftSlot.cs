@@ -1,21 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class UI_CraftSlot : UI_ItemSlot
 {
-    private void OnEnable()
+    [SerializeField] protected UI_CraftWindows craftWindows;
+
+    public void Setup(UI_CraftWindows _craftField)
     {
-        UpdateSlot(item);
+        craftWindows = _craftField;
     }
 
     public override void OnPointerDown(PointerEventData eventData)
     {
         //dectetion the craft can be create 
-        ItemData_Equipment craftItem = item.data as ItemData_Equipment;
-
-        Inventory.instance.CanCraft(craftItem, craftItem.CraftingMaterial);
+        if (item.data != null)
+        {
+            craftWindows.ShowCraftInformation(item.data as ItemData_Equipment);
+        }
     }
-
 }

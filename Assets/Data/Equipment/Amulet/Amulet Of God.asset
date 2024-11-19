@@ -15,10 +15,14 @@ MonoBehaviour:
   itemType: 1
   itemName: Amulet Of God
   icon: {fileID: -245851270, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
+  itemDescription: Made by the hands of the gods
   dropChance: 0
   itemEffects:
   - {fileID: 11400000, guid: 37bf681429cb059409b73c6d3b75df59, type: 2}
   equipmentType: 2
+  itemLastTime: 0
+  itemCooldown: 0
+  itemCooldownTimer: 0
   strength: 0
   agility: 0
   intelligence: 0
@@ -33,4 +37,6 @@ MonoBehaviour:
   fireDamage: 3
   iceDamage: 3
   lightingDamage: 5
-  CraftingMaterial: []
+  CraftingMaterial:
+  - data: {fileID: 11400000, guid: dc23dd1e1511c8f40bac80c8513f2cf3, type: 2}
+    stackSize: 3

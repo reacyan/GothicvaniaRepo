@@ -11,6 +11,8 @@ public class Inventory : MonoBehaviour
 
     public List<ItemData> startingItems;
 
+    public List<ItemData_Equipment> allCraftItem;
+
     public List<InventoryItem> equipment;
     public Dictionary<ItemData_Equipment, InventoryItem> equipmentDictionary;
 
@@ -20,14 +22,24 @@ public class Inventory : MonoBehaviour
     public List<InventoryItem> stash;
     public Dictionary<ItemData, InventoryItem> stashDictionary;
 
+    public List<InventoryItem> craft;
+    public Dictionary<ItemData_Equipment, InventoryItem> craftDictionary;
+
 
     [Header("Inventory UI")]
 
-    [SerializeField] private Transform InventorySlotParent;
+    [SerializeField] private Transform inventorySlotParent;
     [SerializeField] private Transform stashSlotParent;
     [SerializeField] private Transform equipmentSlotParent;
     [SerializeField] private Transform statSlotParent;
+    [SerializeField] private GameObject itemSlotPrefab;
+    [SerializeField] private GameObject craftSlotPrefab;
+    [SerializeField] private UI_StashWindows stashWindows;
+    [SerializeField] private UI_CraftWindows craftWindows;
 
+
+
+    private UI_CraftSlot[] craftItemSlot;
     private UI_ItemSlot[] inventoryItemSlot;
     private UI_ItemSlot[] stashItemSlot;
     private UI_EquipmentSlot[] equipmentSlot;
@@ -56,8 +68,10 @@ public class Inventory : MonoBehaviour
         equipment = new List<InventoryItem>();
         equipmentDictionary = new Dictionary<ItemData_Equipment, InventoryItem>();
 
-        inventoryItemSlot = InventorySlotParent.GetComponentsInChildren<UI_ItemSlot>();
-
+        craft = new List<InventoryItem>();
+        craftDictionary = new Dictionary<ItemData_Equipment, InventoryItem>();
+        craftItemSlot = new UI_CraftSlot[0];
+        inventoryItemSlot = inventorySlotParent.GetComponentsInChildren<UI_ItemSlot>();
         stashItemSlot = stashSlotParent.GetComponentsInChildren<UI_ItemSlot>();
         equipmentSlot = equipmentSlotParent.GetComponentsInChildren<UI_EquipmentSlot>();
         StatSlot = statSlotParent.GetComponentsInChildren<UI_StatSlot>();
@@ -158,35 +172,116 @@ public class Inventory : MonoBehaviour
             StatSlot[i].UpdateStatValueUI();
         }
 
+        for (int i = 0; i < craft.Count; i++)
+        {
+            craftItemSlot[i].UpdateSlot(craft[i]);
+        }
     }
 
     public void AddItem(ItemData _item)//添加物品
     {
-        if (_item.itemType == ItemType.Equipment && CanAddItem(_item))
+
+        if (CanAddItem(_item))
         {
-            AddToInventory(_item);
-        }
-        else if (_item.itemType == ItemType.material)
-        {
-            AddToStash(_item);
+            if (_item.itemType == ItemType.Equipment)
+            {
+                AddToInventory(_item);
+            }
+            else if (_item.itemType == ItemType.Material)
+            {
+                AddToStash(_item);
+            }
         }
 
         UpdateSlotUI();
     }
 
+
+    public void EnableCraft(GameObject _menu)
+    {
+        UI_CraftSlot[] newSlot = _menu.GetComponentsInChildren<UI_CraftSlot>();
+
+        ItemData_Equipment newCraft = newSlot[0].item.data as ItemData_Equipment;//获取菜单类型
+
+        Transform newTransform = _menu.transform.Find("Craft panel/Viewport/Content");//获取父节点
+
+        ResetCraftSlot(newTransform);
+
+        StartCoroutine(UpdateCraftSlot(newCraft, _menu, newTransform));
+    }
+
+    private void ResetCraftSlot(Transform newTransform)
+    {
+        craftItemSlot = new UI_CraftSlot[0];//重置craftItemSlot
+        craft.Clear();//清空craft
+        craftDictionary.Clear();//清空craftDictionary
+
+        for (int i = 0; i < newTransform.childCount; i++)
+        {
+            Destroy(newTransform.GetChild(i).gameObject);
+        }
+    }
+
+
+    private IEnumerator UpdateCraftSlot(ItemData_Equipment _craft, GameObject _menu, Transform CraftParent)
+    {
+        yield return null;
+
+        craftItemSlot = _menu.GetComponentsInChildren<UI_CraftSlot>();//获取清空后的slot长度
+
+        for (int i = 0; i < allCraftItem.Count; i++)//从所有的craft中选取对应类型的craft
+        {
+            if (allCraftItem[i].equipmentType == _craft.equipmentType)
+            {
+                InventoryItem newItem = new InventoryItem(allCraftItem[i]);//构造函数
+                craft.Add(newItem);
+                craftDictionary.Add(allCraftItem[i], newItem);
+
+                if (craft.Count > craftItemSlot.Length)//当craft长度超出slot长度，进行扩展
+                {
+                    GameObject newCraftSlot = Instantiate(craftSlotPrefab, CraftParent);//将实例化的slot挂载至父节点
+                    newCraftSlot.GetComponent<UI_CraftSlot>().Setup(craftWindows);//并设置窗口
+                    craftItemSlot = _menu.GetComponentsInChildren<UI_CraftSlot>();//获取当前slot长度
+                }
+            }
+        }
+
+        UpdateSlotUI();
+    }
+
+
     public bool CanAddItem(ItemData _item)
     {
-        if (inventory.Count >= inventoryItemSlot.Length)
+        if (_item == null)
         {
-            if (inventoryDictionary.TryGetValue(_item, out InventoryItem value))
+            return false;
+        }
+
+        if (inventory.Count >= inventoryItemSlot.Length || stash.Count >= stashItemSlot.Length)
+        {
+            if (stashDictionary.TryGetValue(_item, out InventoryItem stash) || inventoryDictionary.TryGetValue(_item, out InventoryItem inventory))
             {
-                Debug.Log("stash item");
                 return true;
             }
 
-            Debug.Log("No More Slot");
-            return false;
+            if (_item.itemType == ItemType.Equipment)
+            {
+                GameObject newItemSlot = Instantiate(itemSlotPrefab, inventorySlotParent);
+                inventoryItemSlot = inventorySlotParent.GetComponentsInChildren<UI_ItemSlot>();
+
+                return true;
+            }
+
+            else if (_item.itemType == ItemType.Material)
+            {
+                GameObject newStashSlot = Instantiate(itemSlotPrefab, stashSlotParent);
+                newStashSlot.GetComponent<UI_ItemSlot>().Setup(stashWindows);
+
+                stashItemSlot = stashSlotParent.GetComponentsInChildren<UI_ItemSlot>();
+                return true;
+            }
         }
+
         return true;
     }
 
@@ -224,7 +319,7 @@ public class Inventory : MonoBehaviour
         {
             RemoveToInventory(_item);
         }
-        else if (_item.itemType == ItemType.material)
+        else if (_item.itemType == ItemType.Material)
         {
             RemoveToStash(_item);
         }
@@ -273,16 +368,16 @@ public class Inventory : MonoBehaviour
 
         for (int i = 0; i < _requiredMaterial.Count; i++)//制造材料种类数
         {
-            if (stashDictionary.TryGetValue(_requiredMaterial[i].data, out InventoryItem stashValue))//配对库存中是否存在对应材料
+            if (stashDictionary.TryGetValue(_requiredMaterial[i].data, out InventoryItem stash))//配对库存中是否存在对应材料
             {
-                if (stashValue.stackSize < _requiredMaterial[i].stackSize)//对比材料数量是否足够
+                if (stash.stackSize < _requiredMaterial[i].stackSize)//对比材料数量是否足够
                 {
-                    Debug.Log("not enough" + stashValue.data.name);
+                    Debug.Log("not enough " + stash.data.name);
                     return false;
                 }
                 else
                 {
-                    MaterialToMove.Add(stashValue);
+                    MaterialToMove.Add(stash);
                 }
             }
             else
@@ -291,6 +386,7 @@ public class Inventory : MonoBehaviour
                 return false;
             }
         }
+
         for (int i = 0; i < MaterialToMove.Count; i++)//移除被使用的材料
         {
             for (int J = 0; J < _requiredMaterial[i].stackSize; J++)//按照需求的材料数量移除

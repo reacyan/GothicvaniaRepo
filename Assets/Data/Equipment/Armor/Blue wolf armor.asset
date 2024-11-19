@@ -15,12 +15,14 @@ MonoBehaviour:
   itemType: 1
   itemName: Blue wolf armor
   icon: {fileID: 288293509, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
+  itemDescription: 'Make of the Skin of the Fierce Direwolf '
   dropChance: 0
   itemEffects:
   - {fileID: 11400000, guid: a3d56d85071c40246b45cb5d50954063, type: 2}
   equipmentType: 1
   itemLastTime: 11.827765
   itemCooldown: 5
+  itemCooldownTimer: 0
   strength: 0
   agility: 0
   intelligence: 0
@@ -35,4 +37,8 @@ MonoBehaviour:
   fireDamage: 0
   iceDamage: 0
   lightingDamage: 0
-  CraftingMaterial: []
+  CraftingMaterial:
+  - data: {fileID: 11400000, guid: dc23dd1e1511c8f40bac80c8513f2cf3, type: 2}
+    stackSize: 4
+  - data: {fileID: 11400000, guid: e9dccc5e2bed7a049bdbc5076372bdb1, type: 2}
+    stackSize: 4

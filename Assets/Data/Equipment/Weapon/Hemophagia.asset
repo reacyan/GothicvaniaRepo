@@ -15,10 +15,14 @@ MonoBehaviour:
   itemType: 1
   itemName: Hemophagia
   icon: {fileID: -1944902997, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
+  itemDescription: 
   dropChance: 0
   itemEffects:
   - {fileID: 11400000, guid: 9a27fbbe3b6fa914ea2a6d9ef76a6a04, type: 2}
   equipmentType: 0
+  itemLastTime: 0
+  itemCooldown: 0
+  itemCooldownTimer: 0
   strength: 0
   agility: 0
   intelligence: 0

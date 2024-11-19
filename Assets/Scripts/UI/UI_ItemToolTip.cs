@@ -11,6 +11,7 @@ public class UI_ItemToolTip : MonoBehaviour
 
     public void ShowToolTip(ItemData_Equipment item)
     {
+        Debug.Log("showToolTip");
         if (item == null)
         {
             return;

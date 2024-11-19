@@ -15,12 +15,14 @@ MonoBehaviour:
   itemType: 1
   itemName: Fire flask
   icon: {fileID: -770765129, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
+  itemDescription: Can increase firedamage for the moment
   dropChance: 0
   itemEffects:
   - {fileID: 11400000, guid: 33f0d36324d653344bb42675acadfa14, type: 2}
   equipmentType: 3
   itemLastTime: 0
   itemCooldown: 5
+  itemCooldownTimer: 0
   strength: 0
   agility: 0
   intelligence: 0
@@ -35,4 +37,6 @@ MonoBehaviour:
   fireDamage: 0
   iceDamage: 0
   lightingDamage: 0
-  CraftingMaterial: []
+  CraftingMaterial:
+  - data: {fileID: 11400000, guid: dc23dd1e1511c8f40bac80c8513f2cf3, type: 2}
+    stackSize: 1

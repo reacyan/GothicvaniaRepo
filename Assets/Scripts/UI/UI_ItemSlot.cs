@@ -5,15 +5,22 @@ using UnityEngine.EventSystems;
 
 public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] private Image itemImage;
-    [SerializeField] private TextMeshProUGUI itemText;
+    [SerializeField] protected Image itemImage;
+    [SerializeField] protected TextMeshProUGUI itemText;
+    [SerializeField] protected UI_StashWindows stashWindows;
 
     public InventoryItem item;
-    private UI ui;
+
+    protected UI ui;
 
     private void Start()
     {
         ui = GetComponentInParent<UI>();
+    }
+
+    public void Setup(UI_StashWindows _stashField)
+    {
+        stashWindows = _stashField;
     }
 
     public void UpdateSlot(InventoryItem _newitem)//更新物品
@@ -49,6 +56,7 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
 
     public virtual void OnPointerDown(PointerEventData eventData)
     {
+
         if (item != null)
         {
             if (Input.GetKey(KeyCode.LeftControl))
@@ -61,12 +69,22 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
             {
                 Inventory.instance.EquipItem(item.data);
             }
+
+            if (item.data.itemType == ItemType.Material && stashWindows != null)
+            {
+                stashWindows.ShowStashDescription(item.data);
+            }
         }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (item != null)
+        if (ui.itemToolTip == null)
+        {
+            return;
+        }
+
+        if (item != null && item.data as ItemData_Equipment != null)
         {
             ui.itemToolTip.ShowToolTip(item.data as ItemData_Equipment);
         }
@@ -74,7 +92,12 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (item != null)
+        if (ui.itemToolTip == null)
+        {
+            return;
+        }
+
+        if (item != null && item.data as ItemData_Equipment != null)
         {
             ui.itemToolTip.HideToolTip();
         }
