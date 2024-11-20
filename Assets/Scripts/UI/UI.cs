@@ -2,13 +2,14 @@ using UnityEngine;
 
 public class UI : MonoBehaviour
 {
-    [SerializeField] public GameObject characterUI;
-    [SerializeField] public GameObject skillTreeUI;
-    [SerializeField] public GameObject craftUI;
-    [SerializeField] public GameObject optionsUI;
+    [SerializeField] private GameObject characterUI;
+    [SerializeField] private GameObject skillTreeUI;
+    [SerializeField] private GameObject craftUI;
+    [SerializeField] private GameObject optionsUI;
 
-    [SerializeField] public UI_ItemToolTip itemToolTip;
-    [SerializeField] public UI_StatToolTip statToolTip;
+    public UI_SkillToolTip skillToolTip;
+    public UI_ItemToolTip itemToolTip;
+    public UI_StatToolTip statToolTip;
 
     private void Start()
     {
