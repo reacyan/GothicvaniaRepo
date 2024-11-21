@@ -13,9 +13,6 @@ public class Clone_Skill : Skill
     [SerializeField] private float cloneDuration;
     [SerializeField] private bool canAttack;
 
-
-    [SerializeField] private bool canCreateCloneOnDashStart;
-    [SerializeField] private bool canCreateCloneOnDashOver;
     [SerializeField] private bool canCreateCloneOnCounterAttack;
 
     [Header("CLone can duplicate")]
@@ -27,7 +24,7 @@ public class Clone_Skill : Skill
 
 
 
-    public void CreateClone(Transform _clonePosition, bool _ishitKonckback = true, Vector3 _offset = default(Vector3))
+    public void CreateClone(Transform _clonePosition, Vector3 _offset, bool _ishitKonckback = true)
     {
 
         if (crystalInsteadOfClone)
@@ -39,24 +36,9 @@ public class Clone_Skill : Skill
 
         GameObject newClone = Instantiate(clonePrefab);
 
-        newClone.GetComponent<Clone_Skill_Controller>().SetupClone(_clonePosition, cloneDuration, canAttack, _ishitKonckback, FindCloseEnemy(_clonePosition.transform), canDuplicateClone, chanceToDuplicate, player, _offset);
+        newClone.GetComponent<Clone_Skill_Controller>().SetupClone(_clonePosition, cloneDuration, canAttack, FindCloseEnemy(_clonePosition.transform), canDuplicateClone, chanceToDuplicate, player, _offset);
     }
 
-    public void CreateCloneOnDashStart()
-    {
-        if (canCreateCloneOnDashStart)
-        {
-            CreateClone(player.transform, ishitKonckback, Vector3.zero);
-        }
-    }
-
-    public void CreateCloneOnDashOver()
-    {
-        if (canCreateCloneOnDashOver)
-        {
-            CreateClone(player.transform, ishitKonckback, Vector3.zero);
-        }
-    }
 
     public void CreateCloneOnCounterAttack(Transform _enemyTransform)//生成反击clone攻击
     {
@@ -69,6 +51,6 @@ public class Clone_Skill : Skill
     private IEnumerator CreateCloneWithDelay(Transform _transform, Vector3 _offset)//延迟生成clone
     {
         yield return new WaitForSeconds(.4f);
-        CreateClone(_transform, true, _offset);
+        CreateClone(_transform, _offset);
     }
 }

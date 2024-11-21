@@ -18,7 +18,7 @@ public class Blackhole_Skill_Controller : MonoBehaviour
     private bool canShrink;//是否可以缩小
 
     private bool canCreateHotKey = true;//是否可以创建QTE按键   
-    private bool isHitKonckbback = false;//是否击退
+    private bool isHitKonckback = false;//是否击退
     private bool cloneAttackReleased;//克隆攻击释放
 
     private int amountOfAttacks;//攻击次数  
@@ -122,7 +122,7 @@ public class Blackhole_Skill_Controller : MonoBehaviour
 
             if (targets.Count > 0 && amountOfAttacks > 0 && !SkillManager.instance.clone.crystalInsteadOfClone)
             {
-                SkillManager.instance.clone.CreateClone(targets[randomIndex], isHitKonckbback, new Vector3(xOffest, 0));//创造克隆攻击
+                SkillManager.instance.clone.CreateClone(targets[randomIndex], new Vector3(xOffest, 0), isHitKonckback);//创造克隆攻击
             }
             else if (targets.Count > 0 && amountOfAttacks > 0 && SkillManager.instance.clone.crystalInsteadOfClone)
             {

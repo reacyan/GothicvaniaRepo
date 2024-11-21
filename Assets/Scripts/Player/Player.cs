@@ -154,6 +154,11 @@ public class Player : Entity
 
     public void CheckForDashInput()
     {
+        if (!skill.dash.dashUnlocked)
+        {
+            return;
+        }
+
         if (IsWallDetected())
         {
             return;

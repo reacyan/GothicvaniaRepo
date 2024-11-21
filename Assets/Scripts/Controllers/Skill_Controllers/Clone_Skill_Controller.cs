@@ -40,7 +40,7 @@ public class Clone_Skill_Controller : MonoBehaviour
         }
     }
 
-    public void SetupClone(Transform _newTransform, float _cloneDuration, bool _canAttack, bool _ishitKonckback, Transform _closestEnemy, bool canDuplicate, float _chanceToDuplicate, Player _player, Vector3 _offset = default(Vector3))
+    public void SetupClone(Transform _newTransform, float _cloneDuration, bool _canAttack, Transform _closestEnemy, bool canDuplicate, float _chanceToDuplicate, Player _player, Vector3 _offset, bool _ishitKonckback = true)
     {
         if (_canAttack)
         {
@@ -79,7 +79,7 @@ public class Clone_Skill_Controller : MonoBehaviour
                 {
                     if (Random.Range(0, 100) < chanceToDuplicate)//如果随机数小于复制克隆体的几率   
                     {
-                        SkillManager.instance.clone.CreateClone(hit.transform, ishitKonckback, new Vector3(.5f * facingDir, 0));//创建克隆体    
+                        SkillManager.instance.clone.CreateClone(hit.transform, new Vector3(.5f * facingDir, 0), ishitKonckback);//创建克隆体    
                     }
                 }
             }

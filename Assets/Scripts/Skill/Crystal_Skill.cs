@@ -56,7 +56,7 @@ public class Crystal_Skill : Skill
 
             if (cloneInsteadOfCrystal)
             {
-                SkillManager.instance.clone.CreateClone(currentCrystal.transform, true, Vector3.zero);
+                SkillManager.instance.clone.CreateClone(currentCrystal.transform, Vector3.zero);
                 Destroy(currentCrystal);
             }
             else

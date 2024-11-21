@@ -71,8 +71,13 @@ public class UI_StatSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        Vector2 mousePosition = Input.mousePosition;
+
+        float xOffset = 150;
+
         ui.statToolTip.ShowStatToolTip(statDescription);
 
+        ui.statToolTip.transform.position = new Vector2(mousePosition.x + xOffset, mousePosition.y);
     }
 
     public void OnPointerExit(PointerEventData eventData)

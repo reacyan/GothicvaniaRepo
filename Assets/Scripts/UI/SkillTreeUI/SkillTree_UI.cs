@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 
 public class SkillTree_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    [SerializeField] private int Price;
     [SerializeField] private string skillName;
     [TextArea]
     [SerializeField] private string skillDescription;
@@ -21,6 +22,11 @@ public class SkillTree_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         gameObject.name = "SkillTreeSlot_UI - " + skillName;
     }
 
+    private void Awake()
+    {
+        GetComponent<Button>().onClick.AddListener(() => UnlockSkillSlot());
+    }
+
     private void Start()
     {
         ui = GetComponentInParent<UI>();
@@ -28,8 +34,6 @@ public class SkillTree_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         skillImage = GetComponent<Image>();
 
         skillImage.color = lockedSkillColor;
-
-        GetComponent<Button>().onClick.AddListener(() => UnlockSkillSlot());
     }
 
     public void UnlockSkillSlot()
@@ -52,9 +56,12 @@ public class SkillTree_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             }
         }
 
-        unlocked = true;
-        skillImage.color = Color.white;
-        Debug.Log("Unlock skill");
+        if (PlayerManager.instance.player.GetComponent<PlayerStats>().HaveEnoughMoney(Price))
+        {
+            unlocked = true;
+            skillImage.color = Color.white;
+            Debug.Log("Unlock skill");
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)

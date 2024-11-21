@@ -3864,6 +3864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d164b1238eb7ad949a7a9e707e204aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Price: 200
   skillName: Dash -"Here l am"
   skillDescription: 
   shouldBeUnlocked:
@@ -4042,6 +4043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d164b1238eb7ad949a7a9e707e204aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Price: 0
   skillName: Vuinerabisty
   skillDescription: asfaxcxzvefsegvxvxbv
   shouldBeUnlocked:
@@ -5304,6 +5306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d164b1238eb7ad949a7a9e707e204aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Price: 0
   skillName: Aggresive mirage
   skillDescription: 
   shouldBeUnlocked:
@@ -5939,6 +5942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d164b1238eb7ad949a7a9e707e204aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Price: 0
   skillName: Dodge mirage
   skillDescription: 
   shouldBeUnlocked:
@@ -7015,6 +7019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d164b1238eb7ad949a7a9e707e204aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Price: 0
   skillName: Time mirage
   skillDescription: 
   shouldBeUnlocked: []
@@ -9223,6 +9228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d164b1238eb7ad949a7a9e707e204aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Price: 0
   skillName: Multip'e mirage
   skillDescription: 
   shouldBeUnlocked:
@@ -9535,6 +9541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d164b1238eb7ad949a7a9e707e204aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Price: 0
   skillName: Time stop
   skillDescription: dasfavcxzvczv
   shouldBeUnlocked:
@@ -10492,6 +10499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d164b1238eb7ad949a7a9e707e204aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Price: 0
   skillName: Crystal
   skillDescription: 
   shouldBeUnlocked: []
@@ -13249,6 +13257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d164b1238eb7ad949a7a9e707e204aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Price: 0
   skillName: Blackhole
   skillDescription: 
   shouldBeUnlocked:
@@ -14379,6 +14388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d164b1238eb7ad949a7a9e707e204aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Price: 0
   skillName: Bouncy sword
   skillDescription: xcbxbxbxbxbvxc
   shouldBeUnlocked:
@@ -15798,6 +15808,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d164b1238eb7ad949a7a9e707e204aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Price: 0
   skillName: Explosion
   skillDescription: 
   shouldBeUnlocked:
@@ -16156,6 +16167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d164b1238eb7ad949a7a9e707e204aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Price: 300
   skillName: Dash -"Actually here l am"
   skillDescription: 
   shouldBeUnlocked:
@@ -18003,6 +18015,7 @@ MonoBehaviour:
   skillToolTip: {fileID: 1814332493}
   itemToolTip: {fileID: 140591587}
   statToolTip: {fileID: 2009073401}
+  dashUnlockButton: {fileID: 0}
 --- !u!1 &1156478696
 GameObject:
   m_ObjectHideFlags: 0
@@ -20367,6 +20380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d164b1238eb7ad949a7a9e707e204aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Price: 0
   skillName: Dodge
   skillDescription: 
   shouldBeUnlocked:
@@ -20810,6 +20824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d164b1238eb7ad949a7a9e707e204aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Price: 100
   skillName: Dash
   skillDescription: 
   shouldBeUnlocked: []
@@ -21240,6 +21255,7 @@ MonoBehaviour:
   skillToolTip: {fileID: 0}
   itemToolTip: {fileID: 0}
   statToolTip: {fileID: 0}
+  dashUnlockButton: {fileID: 0}
   weaponOfCraft: {fileID: 1575268135}
   stashIntroductory: {fileID: 1142936177}
   craftIntroductory: {fileID: 706857085}
@@ -21985,6 +22001,7 @@ MonoBehaviour:
   ShockStrikePrefab: {fileID: 7942421999799409351, guid: c97e0904922f91841af775d6b91ddb75, type: 3}
   currentHealth: 50
   finalDamage: 0
+  currency: 1000000
 --- !u!114 &1408091963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22097,6 +22114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d164b1238eb7ad949a7a9e707e204aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Price: 0
   skillName: Crystal mirage
   skillDescription: 
   shouldBeUnlocked:
@@ -22641,6 +22659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d164b1238eb7ad949a7a9e707e204aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Price: 0
   skillName: Restore with parry
   skillDescription: 
   shouldBeUnlocked:
@@ -23476,6 +23495,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldown: 1.5
+  dashUnlocked: 0
+  dashUnlockButton: {fileID: 0}
+  cloneOnDashUnlocked: 0
+  cloneOnDashUnlockedButton: {fileID: 0}
+  cloneOnArrivalDashUnlocked: 0
+  cloneOnArrivalDashUnlockedButton: {fileID: 0}
 --- !u!114 &1553546006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23491,11 +23516,9 @@ MonoBehaviour:
   cooldown: 0
   clonePrefab: {fileID: 8630420191640041069, guid: bf95be55d61fbde41abda06ac691e453, type: 3}
   cloneDuration: 2
-  canAttack: 1
-  canCreateCloneOnDashStart: 1
-  canCreateCloneOnDashOver: 1
-  canCreateCloneOnCounterAttack: 1
-  canDuplicateClone: 1
+  canAttack: 0
+  canCreateCloneOnCounterAttack: 0
+  canDuplicateClone: 0
   chanceToDuplicate: 0
   crystalInsteadOfClone: 0
 --- !u!114 &1553546007
@@ -23571,9 +23594,9 @@ MonoBehaviour:
   cooldown: 0
   CrystalExistDuration: 1.5
   crystalPerfab: {fileID: 1764682700534959292, guid: df2052d541c7bfa49a09808d7441e6de, type: 3}
-  cloneInsteadOfCrystal: 1
-  canExplode: 1
-  canMoveToEnemy: 1
+  cloneInsteadOfCrystal: 0
+  canExplode: 0
+  canMoveToEnemy: 0
   moveSpeed: 10
   canUseMultiStacks: 0
   amountOfStacks: 3
@@ -25342,6 +25365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d164b1238eb7ad949a7a9e707e204aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Price: 0
   skillName: Sword Throw
   skillDescription: saiojdasijdsajcixzocaww
   shouldBeUnlocked: []
@@ -25577,6 +25601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d164b1238eb7ad949a7a9e707e204aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Price: 0
   skillName: Parry with a mirage
   skillDescription: 
   shouldBeUnlocked:
@@ -27320,6 +27345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d164b1238eb7ad949a7a9e707e204aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Price: 0
   skillName: Controled destruction
   skillDescription: 
   shouldBeUnlocked:
@@ -27460,6 +27486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d164b1238eb7ad949a7a9e707e204aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Price: 0
   skillName: Mirage blink
   skillDescription: 
   shouldBeUnlocked:
@@ -27734,6 +27761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d164b1238eb7ad949a7a9e707e204aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Price: 0
   skillName: Parry
   skillDescription: 
   shouldBeUnlocked: []
@@ -28421,6 +28449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d164b1238eb7ad949a7a9e707e204aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Price: 0
   skillName: Chain saw sword
   skillDescription: gdsfgsdfgdvbd
   shouldBeUnlocked:
@@ -29024,6 +29053,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d164b1238eb7ad949a7a9e707e204aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Price: 0
   skillName: Multipie distruction
   skillDescription: 
   shouldBeUnlocked:
@@ -29578,6 +29608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d164b1238eb7ad949a7a9e707e204aca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Price: 0
   skillName: Bullet sword
   skillDescription: vxcvxcvxcvcvv
   shouldBeUnlocked:

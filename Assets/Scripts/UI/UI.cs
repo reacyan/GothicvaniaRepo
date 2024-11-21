@@ -11,6 +11,8 @@ public class UI : MonoBehaviour
     public UI_ItemToolTip itemToolTip;
     public UI_StatToolTip statToolTip;
 
+    [SerializeField] private SkillTree_UI dashUnlockButton;
+
     private void Start()
     {
         SwitchTo(null);
