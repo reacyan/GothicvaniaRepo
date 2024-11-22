@@ -7,13 +7,8 @@ public class Clone_Skill : Skill
 
     [Header("Clone info")]
 
-    private bool ishitKonckback = true;
-
     [SerializeField] private GameObject clonePrefab;
     [SerializeField] private float cloneDuration;
-    [SerializeField] private bool canAttack;
-
-    [SerializeField] private bool canCreateCloneOnCounterAttack;
 
     [Header("CLone can duplicate")]
     [SerializeField] private bool canDuplicateClone;
@@ -36,19 +31,16 @@ public class Clone_Skill : Skill
 
         GameObject newClone = Instantiate(clonePrefab);
 
-        newClone.GetComponent<Clone_Skill_Controller>().SetupClone(_clonePosition, cloneDuration, canAttack, FindCloseEnemy(_clonePosition.transform), canDuplicateClone, chanceToDuplicate, player, _offset);
+        newClone.GetComponent<Clone_Skill_Controller>().SetupClone(_clonePosition, cloneDuration, FindCloseEnemy(_clonePosition.transform), canDuplicateClone, chanceToDuplicate, player, _offset, _ishitKonckback);
     }
 
 
-    public void CreateCloneOnCounterAttack(Transform _enemyTransform)//生成反击clone攻击
+    public void CreateCloneOnWithParry(Transform _enemyTransform)//生成反击clone攻击
     {
-        if (canCreateCloneOnCounterAttack)
-        {
-            StartCoroutine(CreateCloneWithDelay(_enemyTransform, new Vector3(1.5f * player.facingDir, 0)));
-        }
+        StartCoroutine(CloneDelayCorotine(_enemyTransform, new Vector3(1.5f * player.facingDir, 0)));
     }
 
-    private IEnumerator CreateCloneWithDelay(Transform _transform, Vector3 _offset)//延迟生成clone
+    private IEnumerator CloneDelayCorotine(Transform _transform, Vector3 _offset)//延迟生成clone
     {
         yield return new WaitForSeconds(.4f);
         CreateClone(_transform, _offset);

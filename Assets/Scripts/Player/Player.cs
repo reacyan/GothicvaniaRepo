@@ -97,10 +97,11 @@ public class Player : Entity
         base.Update();
 
         stateMachine.currentState.Update();
+
         CheckForDashInput();
         CheckForBlackHoleInput();
 
-        if (Input.GetKeyDown(KeyCode.T) && !isDead)
+        if (Input.GetKeyDown(KeyCode.T) && !isDead && skill.crystal.baseSkillUnlocked)
         {
             skill.crystal.CanUseSkill();
         }
@@ -154,7 +155,7 @@ public class Player : Entity
 
     public void CheckForDashInput()
     {
-        if (!skill.dash.dashUnlocked)
+        if (!skill.dash.baseSkillUnlocked)
         {
             return;
         }

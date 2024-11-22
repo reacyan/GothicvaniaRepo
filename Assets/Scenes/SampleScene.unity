@@ -22001,7 +22001,7 @@ MonoBehaviour:
   ShockStrikePrefab: {fileID: 7942421999799409351, guid: c97e0904922f91841af775d6b91ddb75, type: 3}
   currentHealth: 50
   finalDamage: 0
-  currency: 1000000
+  currency: 100
 --- !u!114 &1408091963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23448,6 +23448,7 @@ GameObject:
   - component: {fileID: 1553546007}
   - component: {fileID: 1553546008}
   - component: {fileID: 1553546009}
+  - component: {fileID: 1553546010}
   m_Layer: 0
   m_Name: SkillManager
   m_TagString: Untagged
@@ -23494,13 +23495,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f017e01305a23be4ea89c04fc8539280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseSkillUnlocked: 0
+  baseSkillUnlockButton:
+  - {fileID: 1315954228}
+  - {fileID: 125377119}
+  - {fileID: 1086908945}
+  branchSkillUnlockButton: []
   cooldown: 1.5
-  dashUnlocked: 0
-  dashUnlockButton: {fileID: 0}
-  cloneOnDashUnlocked: 0
-  cloneOnDashUnlockedButton: {fileID: 0}
-  cloneOnArrivalDashUnlocked: 0
-  cloneOnArrivalDashUnlockedButton: {fileID: 0}
 --- !u!114 &1553546006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23513,11 +23514,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b669f51634073d24ea90b6748f863754, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseSkillUnlocked: 0
+  baseSkillUnlockButton: []
+  branchSkillUnlockButton: []
   cooldown: 0
   clonePrefab: {fileID: 8630420191640041069, guid: bf95be55d61fbde41abda06ac691e453, type: 3}
   cloneDuration: 2
-  canAttack: 0
-  canCreateCloneOnCounterAttack: 0
   canDuplicateClone: 0
   chanceToDuplicate: 0
   crystalInsteadOfClone: 0
@@ -23533,6 +23535,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff7c00e04a45e684e958b6bcbcb76bee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseSkillUnlocked: 0
+  baseSkillUnlockButton: []
+  branchSkillUnlockButton: []
   cooldown: 0
   swordtype: 1
   bounceAmount: 4
@@ -23569,6 +23574,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6068a223f57ceb849963b8d8b34ad022, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseSkillUnlocked: 0
+  baseSkillUnlockButton: []
+  branchSkillUnlockButton: []
   cooldown: 0
   BlackholePrefab: {fileID: 4005887288747556887, guid: 7419bc037ea1442449e948ae083fbc09, type: 3}
   maxSize: 15
@@ -23591,14 +23599,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1437aa493b332e64e886a9f0e5410ffe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseSkillUnlocked: 0
+  baseSkillUnlockButton:
+  - {fileID: 654395148}
+  - {fileID: 1070407548}
+  - {fileID: 1890140365}
+  - {fileID: 2000047291}
+  branchSkillUnlockButton:
+  - {fileID: 1893775550}
   cooldown: 0
   CrystalExistDuration: 1.5
   crystalPerfab: {fileID: 1764682700534959292, guid: df2052d541c7bfa49a09808d7441e6de, type: 3}
-  cloneInsteadOfCrystal: 0
-  canExplode: 0
-  canMoveToEnemy: 0
   moveSpeed: 10
-  canUseMultiStacks: 0
   amountOfStacks: 3
   multiStackCooldown: 2
   useTimeWindows: 1
@@ -23606,6 +23618,26 @@ MonoBehaviour:
   - {fileID: 1764682700534959292, guid: df2052d541c7bfa49a09808d7441e6de, type: 3}
   - {fileID: 1764682700534959292, guid: df2052d541c7bfa49a09808d7441e6de, type: 3}
   - {fileID: 1764682700534959292, guid: df2052d541c7bfa49a09808d7441e6de, type: 3}
+--- !u!114 &1553546010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553546002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a46770084a416141819805ee5c385f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseSkillUnlocked: 0
+  baseSkillUnlockButton:
+  - {fileID: 1903760178}
+  - {fileID: 1464062876}
+  - {fileID: 1724130888}
+  branchSkillUnlockButton: []
+  cooldown: 0
+  restoreHealthPerentage: 0.7
 --- !u!1 &1575268135
 GameObject:
   m_ObjectHideFlags: 0

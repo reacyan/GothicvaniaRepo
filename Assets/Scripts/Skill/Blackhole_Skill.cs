@@ -47,16 +47,19 @@ public class Blackhole_Skill : Skill
 
     public bool SkillCompleted()//技能结束
     {
+        Debug.Log(currentBlackhole);
+
+        if (currentBlackhole == null)
+        {
+            return false;
+        }
+
         if (currentBlackhole.playerCanExitState)//有报错，黑洞在判断之前被销毁
         {
             currentBlackhole = null;
             return true;
         }
 
-        if (currentBlackhole == null)
-        {
-            return false;
-        }
 
         return false;
     }

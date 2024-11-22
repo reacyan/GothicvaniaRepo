@@ -6,17 +6,11 @@ using UnityEngine.UI;
 public class Dash_Skill : Skill
 {
 
-    [Header("Dash")]
-    public bool dashUnlocked;
-    [SerializeField] private SkillTree_UI dashUnlockButton;
+    // [Header("Dash")]
+    // [SerializeField] private SkillTree_UI cloneOnDashUnlockedButton;
 
-    [Header("Dash")]
-    public bool cloneOnDashUnlocked;
-    [SerializeField] private SkillTree_UI cloneOnDashUnlockedButton;
-
-    [Header("Dash")]
-    public bool cloneOnArrivalDashUnlocked;
-    [SerializeField] private SkillTree_UI cloneOnArrivalDashUnlockedButton;
+    // [Header("Dash")]
+    // [SerializeField] private SkillTree_UI cloneOnArrivalDashUnlockedButton;
 
     public override void UseSkill()
     {
@@ -27,42 +21,34 @@ public class Dash_Skill : Skill
     protected override void Start()
     {
         base.Start();
-        dashUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockDash);
-        dashUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockCloneOnDash);
-        dashUnlockButton.GetComponent<Button>().onClick.AddListener(UnlockCloneOArrivalDash);
+
+        baseSkillUnlockButton[0].GetComponent<Button>().onClick.AddListener(UnlockBaseSkill);
+
+        // cloneOnDashUnlockedButton.GetComponent<Button>().onClick.AddListener(UnlockCloneOnDash);
+        // cloneOnArrivalDashUnlockedButton.GetComponent<Button>().onClick.AddListener(UnlockCloneOArrivalDash);
     }
 
-    private void UnlockDash()
-    {
-        Debug.Log(dashUnlockButton.unlocked);
-        if (dashUnlockButton.unlocked)
-        {
-            Debug.Log("unlocked this");
 
-            dashUnlocked = true;
-        }
-    }
 
-    private void UnlockCloneOnDash()
-    {
-        if (cloneOnDashUnlockedButton.unlocked)
-        {
-            cloneOnDashUnlocked = true;
-        }
-    }
+    // private void UnlockCloneOnDash()
+    // {
+    //     if (cloneOnDashUnlockedButton.unlocked)
+    //     {
+    //         cloneOnDashUnlocked = true;
+    //     }
+    // }
 
-    private void UnlockCloneOArrivalDash()
-    {
-        if (cloneOnArrivalDashUnlockedButton.unlocked)
-        {
-            cloneOnArrivalDashUnlocked = true;
-        }
-    }
-
+    // private void UnlockCloneOArrivalDash()
+    // {
+    //     if (cloneOnArrivalDashUnlockedButton.unlocked)
+    //     {
+    //         cloneOnArrivalDashUnlocked = true;
+    //     }
+    // }
 
     public void CloneOnDash()
     {
-        if (cloneOnDashUnlockedButton.unlocked)
+        if (baseSkillUnlockButton[1].unlocked)
         {
             SkillManager.instance.clone.CreateClone(player.transform, Vector3.zero);
         }
@@ -70,7 +56,7 @@ public class Dash_Skill : Skill
 
     public void CloneOnOver()
     {
-        if (cloneOnArrivalDashUnlockedButton.unlocked)
+        if (baseSkillUnlockButton[2].unlocked)
         {
             SkillManager.instance.clone.CreateClone(player.transform, Vector3.zero);
         }

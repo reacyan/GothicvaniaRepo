@@ -40,12 +40,9 @@ public class Clone_Skill_Controller : MonoBehaviour
         }
     }
 
-    public void SetupClone(Transform _newTransform, float _cloneDuration, bool _canAttack, Transform _closestEnemy, bool canDuplicate, float _chanceToDuplicate, Player _player, Vector3 _offset, bool _ishitKonckback = true)
+    public void SetupClone(Transform _newTransform, float _cloneDuration, Transform _closestEnemy, bool canDuplicate, float _chanceToDuplicate, Player _player, Vector3 _offset, bool _ishitKonckback = true)
     {
-        if (_canAttack)
-        {
-            anim.SetInteger("AttackNumber", Random.Range(1, 4));
-        }
+        anim.SetInteger("AttackNumber", Random.Range(1, 4));
 
         player = _player;
         ishitKonckback = _ishitKonckback;

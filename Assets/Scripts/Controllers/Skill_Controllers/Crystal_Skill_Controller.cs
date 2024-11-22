@@ -8,7 +8,7 @@ public class Crystal_Skill_Controller : MonoBehaviour
 {
     private float crystalExistTimer;
     private float moveSpeed;
-    private bool canExplode;
+    private bool canExplode = true;
     private bool canGrow;
     private float growSpeed = 5;
     private bool canMove;
@@ -23,12 +23,11 @@ public class Crystal_Skill_Controller : MonoBehaviour
     private Player player;
 
 
-    public void SetupCrystal(float _crystalExistDuration, float _moveSpeed, bool _canExplode, bool _canMove, Transform _closestTarget, Player _player)
+    public void SetupCrystal(float _crystalExistDuration, float _moveSpeed, bool _canMove, Transform _closestTarget, Player _player)
     {
         player = _player;
         crystalExistTimer = _crystalExistDuration;
         moveSpeed = _moveSpeed;
-        canExplode = _canExplode;
         closestTarget = _closestTarget;
         canMove = _canMove;
     }
@@ -57,6 +56,7 @@ public class Crystal_Skill_Controller : MonoBehaviour
                 FinishCrystal();
             }
         }
+
         else
         {
             crystalExistTimer -= Time.deltaTime;//移动时不计入存在时间
@@ -96,9 +96,8 @@ public class Crystal_Skill_Controller : MonoBehaviour
     }
 
 
-    public void FinishCrystal()
+    public void FinishCrystal()//销毁水晶
     {
-
         if (canExplode)
         {
             canGrow = true;
