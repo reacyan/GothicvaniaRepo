@@ -20383,8 +20383,7 @@ MonoBehaviour:
   Price: 0
   skillName: Dodge
   skillDescription: 
-  shouldBeUnlocked:
-  - {fileID: 1893775550}
+  shouldBeUnlocked: []
   shouldBelocked: []
   lockedSkillColor: {r: 0.06750623, g: 0.38679248, b: 0.38360122, a: 1}
   unlocked: 0
@@ -23449,6 +23448,7 @@ GameObject:
   - component: {fileID: 1553546008}
   - component: {fileID: 1553546009}
   - component: {fileID: 1553546010}
+  - component: {fileID: 1553546011}
   m_Layer: 0
   m_Name: SkillManager
   m_TagString: Untagged
@@ -23536,10 +23536,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseSkillUnlocked: 0
-  baseSkillUnlockButton: []
-  branchSkillUnlockButton: []
+  baseSkillUnlockButton:
+  - {fileID: 1715560822}
+  - {fileID: 1936333859}
+  - {fileID: 2027520623}
+  - {fileID: 972590144}
+  branchSkillUnlockButton:
+  - {fileID: 604354816}
+  - {fileID: 128769793}
   cooldown: 0
-  swordtype: 1
   bounceAmount: 4
   bounceGravity: 3
   bounceSpeed: 20
@@ -23550,12 +23555,11 @@ MonoBehaviour:
   hitCooldown: 0.35
   spinDuration: 2
   spinGravity: 1
-  isForward: 0
   spinMaxTravelDistance: 8
   swordPrefab: {fileID: 8381147557090853326, guid: c66c98ef96dda594e9319af27ca9e252, type: 3}
   launchForce: {x: 30, y: 20}
   swordGravity: 1
-  freezeTimeDuration: 0.1
+  freezeTimeDuration: 0.3
   returnSpeed: 15
   maxTravelDistance: 0
   numberOfDots: 20
@@ -23638,6 +23642,24 @@ MonoBehaviour:
   branchSkillUnlockButton: []
   cooldown: 0
   restoreHealthPerentage: 0.7
+--- !u!114 &1553546011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553546002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c657304e85ae6045896b1f36dc15c77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseSkillUnlocked: 0
+  baseSkillUnlockButton:
+  - {fileID: 1249189426}
+  - {fileID: 266584298}
+  branchSkillUnlockButton: []
+  cooldown: 0
 --- !u!1 &1575268135
 GameObject:
   m_ObjectHideFlags: 0

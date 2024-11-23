@@ -49,4 +49,11 @@ public class PlayerStats : CharacterStats
         return true;
 
     }
+
+    protected override void OnEvasion()
+    {
+        base.OnEvasion();
+
+        SkillManager.instance.dodge.CreateMirageOnDodge();
+    }
 }

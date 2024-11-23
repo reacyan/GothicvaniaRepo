@@ -75,20 +75,20 @@ public class SkillTree_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
         if (mousePosition.x > Screen.width / 2)
         {
-            xOffset = -75;
+            xOffset = -Screen.width / 4;
         }
         else
         {
-            xOffset = 75;
+            xOffset = Screen.width / 4;
         }
 
         if (mousePosition.y > Screen.height / 2)
         {
-            yOffset = -75;
+            yOffset = -Screen.height / 4;
         }
         else
         {
-            yOffset = 75;
+            yOffset = Screen.height / 4;
         }
 
         ui.skillToolTip.transform.position = new Vector2(mousePosition.x + xOffset, mousePosition.y + yOffset);

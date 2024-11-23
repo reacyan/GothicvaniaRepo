@@ -397,18 +397,27 @@ public class CharacterStats : MonoBehaviour
         return totalMagicDamage;
     }
 
+    protected virtual void OnEvasion()
+    {
+
+    }
+
     private bool TargetCanAvoidAttack(CharacterStats _targetStats)   //闪避攻击
     {
-        int totalEvasion = _targetStats.evasion.GetValue() + _targetStats.agility.GetValue();
-
-        if (isShocked)
+        if (SkillManager.instance.dodge.baseSkillUnlocked)
         {
-            totalEvasion += 20;
-        }
+            int totalEvasion = _targetStats.evasion.GetValue() + _targetStats.agility.GetValue();
 
-        if (Random.Range(0, 100) < totalEvasion)
-        {
-            return true;
+            if (isShocked)
+            {
+                totalEvasion += 20;
+            }
+
+            if (Random.Range(0, 100) < totalEvasion)
+            {
+                _targetStats.OnEvasion();
+                return true;
+            }
         }
 
         return false;

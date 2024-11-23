@@ -24,7 +24,7 @@ public class PlayerGroundedState : playerstate
     {
         base.Update();
 
-        if (Input.GetKeyDown(KeyCode.Mouse1) && HasNoSword())
+        if (Input.GetKeyDown(KeyCode.Mouse1) && HasNoSword() && player.skill.sword.baseSkillUnlocked)
         {
             stateMachine.ChangeState(player.aimSword);
         }

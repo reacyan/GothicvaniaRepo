@@ -25,7 +25,7 @@ public class Sword_Skill_Controller : MonoBehaviour
 
     [Header("Bounceing info")]
     private float bounceSpeed;
-    private bool isBouncing = false;
+    private bool isBouncing;
     public int BounceAmount;
     private List<Transform> enemyTarget;
     private int targetIndex;
@@ -34,7 +34,7 @@ public class Sword_Skill_Controller : MonoBehaviour
     private float SpinmaxTravelDistance;
     private float spinTimer;
     private float spinDuration;
-    private bool wasStopped;
+    private bool wasStopped = false;
     private bool isSpinning;
     private float hitTimer;
     private float hitCooldown;
@@ -78,10 +78,10 @@ public class Sword_Skill_Controller : MonoBehaviour
 
 
     //设置投掷剑的模式参数
-    public void SetupBounce(bool _isBouncing, int _amountOfBouunce, float _bounceSpeed, float _maxTravelDistance)
+    public void SetupBounce(bool _isBouncing, int _amountOfBounce, float _bounceSpeed, float _maxTravelDistance)
     {
         isBouncing = _isBouncing;
-        BounceAmount = _amountOfBouunce;
+        BounceAmount = _amountOfBounce;
         bounceSpeed = _bounceSpeed;
         MaxTravelDistance = _maxTravelDistance;
     }
@@ -104,12 +104,10 @@ public class Sword_Skill_Controller : MonoBehaviour
 
     public void ReturnSword()
     {
-
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
         //rb.isKinematic = false;
         transform.parent = null;
         isReturning = true;
-
     }
 
     private void Update()
@@ -203,9 +201,6 @@ public class Sword_Skill_Controller : MonoBehaviour
             {
 
                 SwordSkillDamage(enemyTarget[targetIndex].GetComponent<Enemy>());
-                //enemyTarget[targetIndex].GetComponent<Enemy>().DamageEffect();
-                //player.stats.DoDamage(enemyTarget[targetIndex].GetComponent<CharacterStats>());
-                enemyTarget[targetIndex].GetComponent<Enemy>().StartCoroutine("FreezeTimerFor", freezeTimeDuartion);
 
                 targetIndex++;
                 BounceAmount--;
@@ -247,8 +242,11 @@ public class Sword_Skill_Controller : MonoBehaviour
 
     private void SwordSkillDamage(Enemy enemy)
     {
+        if (SkillManager.instance.sword.CanFreezeTimerFor())
+        {
+            enemy.StartCoroutine("FreezeTimerFor", freezeTimeDuartion);
+        }
 
-        enemy.StartCoroutine("FreezeTimerFor", freezeTimeDuartion);
         player.stats.DoDamage(enemy.GetComponent<CharacterStats>());
 
         ItemData_Equipment equipedAmulet = Inventory.instance.GetEquipment(EquipmentType.Amulet);

@@ -11,8 +11,6 @@ public class Skill : MonoBehaviour
     [SerializeField] protected List<SkillTree_UI> baseSkillUnlockButton = new List<SkillTree_UI>();
     [SerializeField] protected List<SkillTree_UI> branchSkillUnlockButton = new List<SkillTree_UI>();
 
-
-
     protected float cooldownTimer;
     [SerializeField] protected float cooldown;
 

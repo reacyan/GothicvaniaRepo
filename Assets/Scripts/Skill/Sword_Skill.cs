@@ -1,19 +1,10 @@
 using System;
 using UnityEngine;
-
-public enum SwordType
-{
-    Regular,
-    Bounce,
-    peirce,
-    Spin
-}
+using UnityEngine.UI;
 
 
 public class Sword_Skill : Skill
 {
-
-    public SwordType swordtype = SwordType.Regular;
 
     [Header("Bounce info")]
     [SerializeField] private int bounceAmount;
@@ -30,7 +21,6 @@ public class Sword_Skill : Skill
     [SerializeField] private float hitCooldown = .3f;
     [SerializeField] private float spinDuration = 2;
     [SerializeField] private float spinGravity = 1;
-    [SerializeField] private bool isForward;
     [SerializeField] private float spinMaxTravelDistance;
 
     [Header("Skill info")]
@@ -58,37 +48,42 @@ public class Sword_Skill : Skill
 
         GenereateDots();
 
+        baseSkillUnlockButton[0].GetComponent<Button>().onClick.AddListener(UnlockBaseSkill);
     }
 
     private void setupDistance()
     {
-        switch (swordtype)
+        if (baseSkillUnlockButton[1].unlocked)
         {
-            case SwordType.Bounce:
-                maxTravelDistance = bounceMaxTravelDistance;
-                break;
-            case SwordType.peirce:
-                maxTravelDistance = peirceMaxTravelDistance;
-                break;
-            case SwordType.Spin:
-                maxTravelDistance = spinMaxTravelDistance;
-                break;
+            maxTravelDistance = spinMaxTravelDistance;
+
+        }
+        else if (baseSkillUnlockButton[2].unlocked)
+        {
+            maxTravelDistance = peirceMaxTravelDistance;
+        }
+        else if (baseSkillUnlockButton[3].unlocked)
+        {
+            maxTravelDistance = bounceMaxTravelDistance;
         }
     }
 
     private void setupGravity()
     {
-        switch (swordtype)
+        if (baseSkillUnlockButton[1].unlocked)
         {
-            case SwordType.Bounce:
-                swordGravity = bounceGravity;
-                break;
-            case SwordType.peirce:
-                swordGravity = pierceGravity;
-                break;
-            case SwordType.Spin:
-                swordGravity = spinGravity;
-                break;
+            swordGravity = spinGravity;
+
+        }
+        else if (baseSkillUnlockButton[2].unlocked)
+        {
+            swordGravity = pierceGravity;
+
+        }
+        else if (baseSkillUnlockButton[3].unlocked)
+        {
+            swordGravity = bounceGravity;
+
         }
     }
 
@@ -118,24 +113,35 @@ public class Sword_Skill : Skill
         GameObject newSword = Instantiate(swordPrefab, player.transform.position, transform.rotation);
         Sword_Skill_Controller newSwordScript = newSword.GetComponent<Sword_Skill_Controller>();
 
-        switch (swordtype)
+        if (baseSkillUnlockButton[1].unlocked)
         {
-            case SwordType.Bounce:
-                newSwordScript.SetupBounce(true, bounceAmount, bounceSpeed, maxTravelDistance);
-                break;
-            case SwordType.peirce:
-                newSwordScript.SetupPierce(pierceAmount, maxTravelDistance);
-                break;
-            case SwordType.Spin:
-                newSwordScript.SetupSpin(true, maxTravelDistance, spinDuration, hitCooldown, true);
-                break;
+            newSwordScript.SetupSpin(true, maxTravelDistance, spinDuration, hitCooldown, true);
         }
+        else if (baseSkillUnlockButton[2].unlocked)
+        {
+            newSwordScript.SetupPierce(pierceAmount, maxTravelDistance);
+        }
+        else if (baseSkillUnlockButton[3].unlocked)
+        {
+            newSwordScript.SetupBounce(true, bounceAmount, bounceSpeed, maxTravelDistance);
+        }
+
 
         newSwordScript.SetupSword(finalDir, swordGravity, player, freezeTimeDuration, returnSpeed);
 
         player.AssignNewSword(newSword);
 
         DotsActive(false);
+    }
+
+    public bool CanFreezeTimerFor()
+    {
+        if (branchSkillUnlockButton[0].unlocked)
+        {
+            return true;
+        }
+
+        return false;
     }
 
 
