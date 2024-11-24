@@ -72,7 +72,7 @@ public class Clone_Skill_Controller : MonoBehaviour
             {
                 player.stats.DoDamage(hit.GetComponent<CharacterStats>());//对敌人造成伤害  
 
-                if (canDuplicateClone)//如果可以复制克隆体  
+                if (SkillManager.instance.clone.CanDuplicate())//如果可以复制克隆体  
                 {
                     if (Random.Range(0, 100) < chanceToDuplicate)//如果随机数小于复制克隆体的几率   
                     {

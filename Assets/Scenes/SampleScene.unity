@@ -5225,7 +5225,7 @@ GameObject:
   - component: {fileID: 215406089}
   - component: {fileID: 215406088}
   m_Layer: 5
-  m_Name: SkillTreeSlot_UI - Aggresive mirage
+  m_Name: SkillTreeSlot_UI - Aggressive mirage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5307,7 +5307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Price: 0
-  skillName: Aggresive mirage
+  skillName: Aggressive mirage
   skillDescription: 
   shouldBeUnlocked:
   - {fileID: 407446408}
@@ -7098,10 +7098,10 @@ RectTransform:
   - {fileID: 1788826455}
   m_Father: {fileID: 1127036217}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 680.35, y: -35}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &412268360
 MonoBehaviour:
@@ -9583,10 +9583,10 @@ RectTransform:
   - {fileID: 550646939}
   m_Father: {fileID: 1127036217}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1119.65, y: -35}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &607901081
 MonoBehaviour:
@@ -14463,10 +14463,10 @@ RectTransform:
   - {fileID: 909052095}
   m_Father: {fileID: 1127036217}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1558.95, y: -35}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &998850263
 MonoBehaviour:
@@ -17989,6 +17989,7 @@ RectTransform:
   - {fileID: 1013152061}
   - {fileID: 1317573277}
   - {fileID: 7433168}
+  - {fileID: 1276966625}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -20425,6 +20426,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1249189423}
   m_CullTransparentMesh: 1
+--- !u!1 &1276966624
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1276966625}
+  - component: {fileID: 1276966626}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1276966625
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276966624}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1155310879}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1276966626
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276966624}
+  m_CullTransparentMesh: 1
 --- !u!1 &1306632047
 GameObject:
   m_ObjectHideFlags: 0
@@ -21018,7 +21063,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1317573277
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21670,10 +21715,10 @@ RectTransform:
   - {fileID: 693446187}
   m_Father: {fileID: 1127036217}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 241.04999, y: -35}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1404619260
 MonoBehaviour:
@@ -23515,7 +23560,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseSkillUnlocked: 0
-  baseSkillUnlockButton: []
+  baseSkillUnlockButton:
+  - {fileID: 407446408}
+  - {fileID: 215406089}
+  - {fileID: 1410513764}
+  - {fileID: 566424635}
   branchSkillUnlockButton: []
   cooldown: 0
   clonePrefab: {fileID: 8630420191640041069, guid: bf95be55d61fbde41abda06ac691e453, type: 3}
@@ -23579,7 +23628,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseSkillUnlocked: 0
-  baseSkillUnlockButton: []
+  baseSkillUnlockButton:
+  - {fileID: 407446408}
+  - {fileID: 921985017}
   branchSkillUnlockButton: []
   cooldown: 0
   BlackholePrefab: {fileID: 4005887288747556887, guid: 7419bc037ea1442449e948ae083fbc09, type: 3}
@@ -26675,7 +26726,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1814332490
 RectTransform:
   m_ObjectHideFlags: 0

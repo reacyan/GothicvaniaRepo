@@ -13,6 +13,11 @@ public class UI : MonoBehaviour
 
     [SerializeField] private SkillTree_UI dashUnlockButton;
 
+    private void Awake()
+    {
+        SwitchTo(skillTreeUI);
+    }
+
     private void Start()
     {
         SwitchTo(null);

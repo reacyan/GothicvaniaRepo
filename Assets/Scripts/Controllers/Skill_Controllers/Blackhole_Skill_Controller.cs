@@ -120,14 +120,9 @@ public class Blackhole_Skill_Controller : MonoBehaviour
             }
 
 
-            if (targets.Count > 0 && amountOfAttacks > 0 && !SkillManager.instance.clone.crystalInsteadOfClone)
+            if (targets.Count > 0 && amountOfAttacks > 0)
             {
                 SkillManager.instance.clone.CreateClone(targets[randomIndex], new Vector3(xOffest, 0), isHitKonckback);//´´Ôì¿ËÂ¡¹¥»÷
-            }
-            else if (targets.Count > 0 && amountOfAttacks > 0 && SkillManager.instance.clone.crystalInsteadOfClone)
-            {
-                SkillManager.instance.crystal.CreateCrystal();
-                SkillManager.instance.crystal.CurrentCrystalChooseRandomTarget();
             }
         }
     }

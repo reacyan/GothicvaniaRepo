@@ -5,13 +5,6 @@ using UnityEngine.UI;
 
 public class Dash_Skill : Skill
 {
-
-    // [Header("Dash")]
-    // [SerializeField] private SkillTree_UI cloneOnDashUnlockedButton;
-
-    // [Header("Dash")]
-    // [SerializeField] private SkillTree_UI cloneOnArrivalDashUnlockedButton;
-
     public override void UseSkill()
     {
         base.UseSkill();
@@ -24,27 +17,7 @@ public class Dash_Skill : Skill
 
         baseSkillUnlockButton[0].GetComponent<Button>().onClick.AddListener(UnlockBaseSkill);
 
-        // cloneOnDashUnlockedButton.GetComponent<Button>().onClick.AddListener(UnlockCloneOnDash);
-        // cloneOnArrivalDashUnlockedButton.GetComponent<Button>().onClick.AddListener(UnlockCloneOArrivalDash);
     }
-
-
-
-    // private void UnlockCloneOnDash()
-    // {
-    //     if (cloneOnDashUnlockedButton.unlocked)
-    //     {
-    //         cloneOnDashUnlocked = true;
-    //     }
-    // }
-
-    // private void UnlockCloneOArrivalDash()
-    // {
-    //     if (cloneOnArrivalDashUnlockedButton.unlocked)
-    //     {
-    //         cloneOnArrivalDashUnlocked = true;
-    //     }
-    // }
 
     public void CloneOnDash()
     {

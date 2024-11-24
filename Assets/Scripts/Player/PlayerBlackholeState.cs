@@ -19,9 +19,13 @@ public class PlayerBlackholeState : playerstate
     {
         base.Enter();
         stateTimer = flyTime;
+
         player.skill.blackhole.blackholeCooldownTimer = player.skill.blackhole.blackholeCooldown;
+
         defaultGravity = player.rb.gravityScale;
+
         skillUsed = false;
+
         rb.gravityScale = 0;
     }
 

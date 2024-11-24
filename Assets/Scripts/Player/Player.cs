@@ -178,7 +178,7 @@ public class Player : Entity
 
     public void CheckForBlackHoleInput()
     {
-        if (Input.GetKeyDown(KeyCode.R) && skill.blackhole.blackholeCooldownTimer < 0 && !isDead)
+        if (Input.GetKeyDown(KeyCode.R) && skill.blackhole.blackholeCooldownTimer < 0 && !isDead && skill.blackhole.CanDuplicate())
         {
             stateMachine.ChangeState(blackhole);
         }

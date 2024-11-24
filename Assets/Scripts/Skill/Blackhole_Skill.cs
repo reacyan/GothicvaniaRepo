@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Blackhole_Skill : Skill
 {
@@ -33,6 +34,8 @@ public class Blackhole_Skill : Skill
     protected override void Start()
     {
         base.Start();
+
+        baseSkillUnlockButton[0].GetComponent<Button>().onClick.AddListener(UnlockBaseSkill);
     }
 
     protected override void Update()
@@ -67,5 +70,14 @@ public class Blackhole_Skill : Skill
     public float GetBlackholeRadius()
     {
         return maxSize / 2;
+    }
+
+    public bool CanDuplicate()
+    {
+        if (baseSkillUnlockButton[1].unlocked)
+        {
+            return true;
+        }
+        return false;
     }
 }
