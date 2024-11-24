@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class Skill : MonoBehaviour
 {
+    [SerializeField] protected Sprite skillSprite;
+    [SerializeField] protected SkillType skillType;
+
     [Header("Base unlock")]
     public bool baseSkillUnlocked;
     [SerializeField] protected List<SkillTree_UI> baseSkillUnlockButton = new List<SkillTree_UI>();

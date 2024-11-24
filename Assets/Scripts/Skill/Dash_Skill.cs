@@ -21,9 +21,19 @@ public class Dash_Skill : Skill
 
     public void CloneOnDash()
     {
+        DashCooldown();
+
         if (baseSkillUnlockButton[1].unlocked)
         {
             SkillManager.instance.clone.CreateClone(player.transform, Vector3.zero);
+        }
+    }
+
+    private void DashCooldown()
+    {
+        if (player.stats.onSkillBeUse != null)
+        {
+            player.stats.onSkillBeUse(skillSprite, skillType, cooldown);
         }
     }
 

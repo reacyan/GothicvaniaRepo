@@ -30,10 +30,12 @@ public class PlayerAimSwordState : playerstate
 
         if (Input.GetKeyUp(KeyCode.Mouse1))
         {
+            player.skill.sword.FindDirction();
+
             stateMachine.ChangeState(player.idleState);
         }
 
-        Vector2 mousePosition=Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         if (player.transform.position.x > mousePosition.x && player.facingDir == 1)
         {

@@ -16,6 +16,14 @@ public class Parry_Skill : Skill
         }
     }
 
+    public void ParryCooldown()
+    {
+        if (player.stats.onSkillBeUse != null)
+        {
+            player.stats.onSkillBeUse(skillSprite, skillType, cooldown);
+        }
+    }
+
     protected override void Start()
     {
         base.Start();

@@ -30,8 +30,11 @@ public class Player : Entity
     public float dashDir { get; private set; }
 
 
-    public SkillManager skill { get; private set; }
     public GameObject sword { get; private set; }
+    public SkillManager skill { get; private set; }
+    private PlayerStats playerstats;
+
+
 
     //状态引用
     #region States
@@ -84,6 +87,8 @@ public class Player : Entity
 
         skill = SkillManager.instance;
         stateMachine.Initialize(idleState);
+        playerstats = GetComponent<PlayerStats>();
+
 
         defaultMoveSpeed = moveSpeed;
         defaultJumpSpeed = jumpForce;

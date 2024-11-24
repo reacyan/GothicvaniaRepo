@@ -16,4 +16,12 @@ public class Dodge_Skill : Skill
     {
         SkillManager.instance.clone.CreateClone(player.transform, new Vector3(2 * player.facingDir, 0));
     }
+
+    public void DodgeCooldown()
+    {
+        if (player.stats.onSkillBeUse != null)
+        {
+            player.stats.onSkillBeUse(skillSprite, skillType, cooldown);
+        }
+    }
 }

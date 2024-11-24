@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStats : CharacterStats
 {
@@ -47,8 +46,9 @@ public class PlayerStats : CharacterStats
         currency = currency - _price;
         Debug.Log("money is enough");
         return true;
-
     }
+
+    public int GetCurrentCurrency() => currency;
 
     protected override void OnEvasion()
     {

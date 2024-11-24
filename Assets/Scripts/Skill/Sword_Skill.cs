@@ -87,13 +87,16 @@ public class Sword_Skill : Skill
         }
     }
 
+    public void SwordCooldown()
+    {
+        if (player.stats.onSkillBeUse != null)
+        {
+            player.stats.onSkillBeUse(skillSprite, skillType, cooldown);
+        }
+    }
+
     protected override void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Mouse1))
-        {
-            finalDir = new Vector2(AimDirection().normalized.x * launchForce.x, AimDirection().normalized.y * launchForce.y);
-        }
-
         if (Input.GetKey(KeyCode.Mouse1))
         {
             for (int i = 0; i < dots.Length; i++)
@@ -107,6 +110,7 @@ public class Sword_Skill : Skill
         setupDistance();
     }
 
+    public void FindDirction() => finalDir = new Vector2(AimDirection().normalized.x * launchForce.x, AimDirection().normalized.y * launchForce.y);
 
     public void CreateSword()
     {
@@ -148,7 +152,7 @@ public class Sword_Skill : Skill
     #region Aim region
 
     //Ãé×¼·½Ïò
-    public Vector2 AimDirection()
+    private Vector2 AimDirection()
     {
         Vector2 playerPosition = player.transform.position;
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);

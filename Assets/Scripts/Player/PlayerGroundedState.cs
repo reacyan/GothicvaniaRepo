@@ -24,13 +24,15 @@ public class PlayerGroundedState : playerstate
     {
         base.Update();
 
-        if (Input.GetKeyDown(KeyCode.Mouse1) && HasNoSword() && player.skill.sword.baseSkillUnlocked)
+        if (Input.GetKeyDown(KeyCode.Mouse1) && HasNoSword() && player.skill.sword.baseSkillUnlocked && player.skill.sword.CanUseSkill())
         {
+            player.skill.sword.SwordCooldown();
             stateMachine.ChangeState(player.aimSword);
         }
 
-        if (Input.GetKeyDown(KeyCode.Q) && player.skill.parry.baseSkillUnlocked)
+        if (Input.GetKeyDown(KeyCode.Q) && player.skill.parry.baseSkillUnlocked && player.skill.parry.CanUseSkill())
         {
+            player.skill.parry.ParryCooldown();
             stateMachine.ChangeState(player.CounterAttack);
         }
 

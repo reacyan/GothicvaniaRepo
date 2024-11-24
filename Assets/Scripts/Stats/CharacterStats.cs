@@ -1,7 +1,6 @@
 using System.Collections;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public enum StatType
 {
@@ -70,6 +69,8 @@ public class CharacterStats : MonoBehaviour
     public int finalDamage;
 
     public System.Action onHealthChanged;
+    public System.Action<Sprite, SkillType, float> onSkillBeUse;
+
 
     protected virtual void Start()
     {
@@ -416,6 +417,7 @@ public class CharacterStats : MonoBehaviour
             if (Random.Range(0, 100) < totalEvasion)
             {
                 _targetStats.OnEvasion();
+                SkillManager.instance.dodge.DodgeCooldown();
                 return true;
             }
         }

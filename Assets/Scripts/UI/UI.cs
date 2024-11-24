@@ -6,12 +6,11 @@ public class UI : MonoBehaviour
     [SerializeField] private GameObject skillTreeUI;
     [SerializeField] private GameObject craftUI;
     [SerializeField] private GameObject optionsUI;
+    [SerializeField] private GameObject InGame_UI;
 
     public UI_SkillToolTip skillToolTip;
     public UI_ItemToolTip itemToolTip;
     public UI_StatToolTip statToolTip;
-
-    [SerializeField] private SkillTree_UI dashUnlockButton;
 
     private void Awake()
     {
@@ -20,32 +19,33 @@ public class UI : MonoBehaviour
 
     private void Start()
     {
-        SwitchTo(null);
+        SwitchTo(InGame_UI);
 
         itemToolTip.gameObject.SetActive(false);
         statToolTip.gameObject.SetActive(false);
+        InGame_UI.gameObject.SetActive(true);
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            SwitchTo(characterUI);
+            SwitchWithKeyTo(characterUI);
         }
 
         if (Input.GetKeyDown(KeyCode.RightControl))
         {
-            SwitchTo(skillTreeUI);
+            SwitchWithKeyTo(skillTreeUI);
         }
 
         if (Input.GetKeyDown(KeyCode.LeftAlt))
         {
-            SwitchTo(craftUI);
+            SwitchWithKeyTo(craftUI);
         }
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            SwitchTo(optionsUI);
+            SwitchWithKeyTo(optionsUI);
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -54,10 +54,11 @@ public class UI : MonoBehaviour
             skillTreeUI.SetActive(false);
             craftUI.SetActive(false);
             optionsUI.SetActive(false);
+            InGame_UI.SetActive(true);
         }
     }
 
-    public virtual void SwitchTo(GameObject _menu)
+    public void SwitchTo(GameObject _menu)
     {
         for (int i = 0; i < transform.childCount; i++)
         {
@@ -75,6 +76,7 @@ public class UI : MonoBehaviour
         if (_menu != null && _menu.activeSelf)
         {
             _menu.SetActive(false);
+            InGame_UI.SetActive(true);
             return;
         }
 

@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Craft_UI : UI
+public class Craft_UI : MonoBehaviour
 {
     //需要默认打开的窗口
     [SerializeField] private GameObject weaponOfCraft;
@@ -14,10 +15,17 @@ public class Craft_UI : UI
     [SerializeField] private GameObject craftHeaderUI;
     [SerializeField] private GameObject createButtonUI;
 
-    public override void SwitchTo(GameObject _menu)
+    public void SwitchToCraftPanel(GameObject _menu)
     {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(false);
+        }
 
-        base.SwitchTo(_menu);
+        if (_menu != null)
+        {
+            _menu.SetActive(true);
+        }
 
         stashUI.SetActive(true);
         titleHeaderUI.SetActive(true);
@@ -27,12 +35,11 @@ public class Craft_UI : UI
         craftIntroductory.SetActive(true);
         createButtonUI.SetActive(true);
 
-
         Inventory.instance.EnableCraft(_menu);
     }
 
     private void Start()
     {
-        SwitchTo(weaponOfCraft);
+        SwitchToCraftPanel(weaponOfCraft);
     }
 }

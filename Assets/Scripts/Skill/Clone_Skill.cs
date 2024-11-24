@@ -27,6 +27,7 @@ public class Clone_Skill : Skill
 
     public void CreateClone(Transform _clonePosition, Vector3 _offset, bool _ishitKonckback = true)
     {
+        CloneCooldown();
         if (!baseSkillUnlockButton[0].unlocked)
         {
             return;
@@ -72,5 +73,13 @@ public class Clone_Skill : Skill
             return true;
         }
         return false;
+    }
+
+    public void CloneCooldown()
+    {
+        if (player.stats.onSkillBeUse != null)
+        {
+            player.stats.onSkillBeUse(skillSprite, skillType, cooldown);
+        }
     }
 }
