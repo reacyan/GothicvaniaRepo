@@ -97,6 +97,8 @@ public class Sword_Skill : Skill
 
     protected override void Update()
     {
+        base.Update();
+
         if (Input.GetKey(KeyCode.Mouse1))
         {
             for (int i = 0; i < dots.Length; i++)
