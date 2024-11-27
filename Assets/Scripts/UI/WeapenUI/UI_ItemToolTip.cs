@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class UI_ItemToolTip : MonoBehaviour
+public class UI_ItemToolTip : UI_ToolTip
 {
     [SerializeField] private TextMeshProUGUI itemNameText;
     [SerializeField] private TextMeshProUGUI itemTypeText;
@@ -16,6 +16,7 @@ public class UI_ItemToolTip : MonoBehaviour
         {
             return;
         }
+        AdjustPosition();
 
         itemNameText.text = item.itemName;
         itemTypeText.text = item.itemType.ToString();

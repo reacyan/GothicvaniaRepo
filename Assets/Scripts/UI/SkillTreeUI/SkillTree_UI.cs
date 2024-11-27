@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 
 public class SkillTree_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] private int Price;
+    [SerializeField] private int skillCost;
     [SerializeField] private string skillName;
     [TextArea]
     [SerializeField] private string skillDescription;
@@ -56,7 +56,7 @@ public class SkillTree_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             }
         }
 
-        if (PlayerManager.instance.player.GetComponent<PlayerStats>().HaveEnoughMoney(Price))
+        if (PlayerManager.instance.player.GetComponent<PlayerStats>().HaveEnoughMoney(skillCost))
         {
             unlocked = true;
             skillImage.color = Color.white;
@@ -66,32 +66,7 @@ public class SkillTree_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        ui.skillToolTip.ShowSkillToolTip(skillDescription, skillName);
-
-        Vector2 mousePosition = Input.mousePosition;
-
-        float xOffset = 0;
-        float yOffset = 0;
-
-        if (mousePosition.x > Screen.width / 2)
-        {
-            xOffset = -Screen.width / 4;
-        }
-        else
-        {
-            xOffset = Screen.width / 4;
-        }
-
-        if (mousePosition.y > Screen.height / 2)
-        {
-            yOffset = -Screen.height / 4;
-        }
-        else
-        {
-            yOffset = Screen.height / 4;
-        }
-
-        ui.skillToolTip.transform.position = new Vector2(mousePosition.x + xOffset, mousePosition.y + yOffset);
+        ui.skillToolTip.ShowSkillToolTip(skillDescription, skillName,skillCost);
     }
 
     public void OnPointerExit(PointerEventData eventData)
