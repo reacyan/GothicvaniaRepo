@@ -8378,6 +8378,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 447175882}
   m_CullTransparentMesh: 1
+--- !u!1 &450204690
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 450204691}
+  - component: {fileID: 450204692}
+  m_Layer: 0
+  m_Name: SaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &450204691
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450204690}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1368.5872, y: 441.10236, z: -5.89234}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &450204692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450204690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 880b1db9522a1b7488805f591bfb8724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileName: gamedata.dev
 --- !u!1 &452979548
 GameObject:
   m_ObjectHideFlags: 0
@@ -23691,7 +23736,6 @@ MonoBehaviour:
   ShockStrikePrefab: {fileID: 7942421999799409351, guid: c97e0904922f91841af775d6b91ddb75, type: 3}
   currentHealth: 50
   finalDamage: 0
-  currency: 100
 --- !u!114 &1408091963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30693,6 +30737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1408091957}
+  currency: 0
 --- !u!4 &1966223003
 Transform:
   m_ObjectHideFlags: 0
@@ -33685,6 +33730,7 @@ SceneRoots:
   - {fileID: 56901682}
   - {fileID: 1125033735}
   - {fileID: 1966223003}
+  - {fileID: 450204691}
   - {fileID: 1553546004}
   - {fileID: 4037751997002132487}
   - {fileID: 2311503168366661920}

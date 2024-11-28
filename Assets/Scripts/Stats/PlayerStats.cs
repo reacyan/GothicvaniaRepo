@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class PlayerStats : CharacterStats
 {
-    public int currency;
 
     protected override void Start()
     {
@@ -34,21 +33,6 @@ public class PlayerStats : CharacterStats
         player.Die();
         GetComponent<PlayerItemDrop>()?.GenerateDrop();
     }
-
-    public bool HaveEnoughMoney(int _price)
-    {
-        if (_price > currency)
-        {
-            Debug.Log("Not enough money");
-            return false;
-        }
-
-        currency = currency - _price;
-        Debug.Log("money is enough");
-        return true;
-    }
-
-    public int GetCurrentCurrency() => currency;
 
     protected override void OnEvasion()
     {

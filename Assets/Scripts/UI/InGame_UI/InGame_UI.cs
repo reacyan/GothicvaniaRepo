@@ -56,7 +56,7 @@ public class InGame_UI : MonoBehaviour
     {
         CheckCooldown();
 
-        currentSouls.text = PlayerManager.instance.player.GetComponent<PlayerStats>().GetCurrentCurrency().ToString("#,#");
+        currentSouls.text = PlayerManager.instance.GetCurrentCurrency().ToString("#,#");
     }
 
     private void UpdateHealthUI()

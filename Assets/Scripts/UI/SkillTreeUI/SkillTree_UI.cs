@@ -56,7 +56,7 @@ public class SkillTree_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             }
         }
 
-        if (PlayerManager.instance.player.GetComponent<PlayerStats>().HaveEnoughMoney(skillCost))
+        if (PlayerManager.instance.HaveEnoughMoney(skillCost))
         {
             unlocked = true;
             skillImage.color = Color.white;
