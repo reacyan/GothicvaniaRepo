@@ -28,7 +28,7 @@ public class InGame_UI : MonoBehaviour
     private float swordCooldown;
     private float dodgeCooldown;
 
-
+    [Header("SkillImage")]
     [SerializeField] private Image dashImage;
     [SerializeField] private Image crystalImage;
     [SerializeField] private Image parryImage;
@@ -67,7 +67,7 @@ public class InGame_UI : MonoBehaviour
 
     private void SetSkillBeUsedOf(Sprite _skillSprite, SkillType _skillType, float _cooldown)
     {
-        switch (_skillType)
+        switch (_skillType)//根据技能类型分配图片和cd
         {
             case SkillType.dash:
                 dashImage.sprite = _skillSprite;
@@ -88,7 +88,6 @@ public class InGame_UI : MonoBehaviour
                     crystalImage.fillAmount = 1;
                 }
                 beUsedImageDictionary.Add(crystalImage, crystalCooldown);
-
                 break;
             case SkillType.mirage:
                 mirageImage.sprite = _skillSprite;
@@ -99,7 +98,6 @@ public class InGame_UI : MonoBehaviour
                     mirageImage.fillAmount = 1;
                 }
                 beUsedImageDictionary.Add(mirageImage, mirageCooldown);
-
                 break;
             case SkillType.parry:
                 parryImage.sprite = _skillSprite;
@@ -137,7 +135,9 @@ public class InGame_UI : MonoBehaviour
 
     private void CheckCooldown()
     {
-        foreach (var skill in new Dictionary<Image, float>(beUsedImageDictionary))
+        Dictionary<Image,float> CooldownDictionary = new Dictionary<Image,float>();
+
+        foreach (var skill in beUsedImageDictionary)
         {
             if (skill.Key.fillAmount > 0)
             {
@@ -145,8 +145,13 @@ public class InGame_UI : MonoBehaviour
             }
             else
             {
-                beUsedImageDictionary.Remove(skill.Key);
+                CooldownDictionary.Add(skill.Key, skill.Value);
             }
+        }
+
+        foreach (var overcooldown in CooldownDictionary)
+        {
+            beUsedImageDictionary.Remove(overcooldown.Key);
         }
     }
 }

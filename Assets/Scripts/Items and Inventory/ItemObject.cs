@@ -33,11 +33,9 @@ public class ItemObject : MonoBehaviour
     {
         rb.velocity = new Vector2(0, 2);
 
-        if (Inventory.instance.CanAddItem(itemData))
-        {
-            Inventory.instance.AddItem(itemData);
-            Destroy(gameObject);
-        }
+        Inventory.instance.AddItem(itemData);
+        Destroy(gameObject);
+
     }
 
 }

@@ -65,6 +65,8 @@ public class UI : MonoBehaviour
             transform.GetChild(i).gameObject.SetActive(false);
         }
 
+        InGame_UI.SetActive(false);
+
         if (_menu != null)
         {
             _menu.SetActive(true);

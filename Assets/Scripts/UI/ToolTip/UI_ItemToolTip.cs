@@ -11,7 +11,6 @@ public class UI_ItemToolTip : UI_ToolTip
 
     public void ShowToolTip(ItemData_Equipment item)
     {
-        Debug.Log("showToolTip");
         if (item == null)
         {
             return;

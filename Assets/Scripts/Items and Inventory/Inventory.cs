@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEditor;
 
-public class Inventory : MonoBehaviour
+public class Inventory : MonoBehaviour, ISaveManager
 {
     public static Inventory instance;
 
@@ -38,12 +37,16 @@ public class Inventory : MonoBehaviour
     [SerializeField] private UI_CraftWindows craftWindows;
 
 
-
     private UI_CraftSlot[] craftItemSlot;
     private UI_ItemSlot[] inventoryItemSlot;
     private UI_ItemSlot[] stashItemSlot;
     private UI_EquipmentSlot[] equipmentSlot;
     private UI_StatSlot[] StatSlot;
+
+    [Header("Data Base")]
+    //public string[] assetNames;
+    public List<InventoryItem> loadedItems;
+    public List<ItemData_Equipment> loadedEquipment;
 
     private void Awake()
     {
@@ -81,6 +84,28 @@ public class Inventory : MonoBehaviour
 
     private void AddStartingItems()
     {
+        if (loadedEquipment.Count > 0)
+        {
+            foreach (var equip in loadedEquipment)
+            {
+                EquipItem(equip);
+            }
+
+        }
+
+        if (loadedItems.Count > 0)//载入文件存在才调用
+        {
+            foreach (InventoryItem item in loadedItems)
+            {
+                for (int i = 0; i < item.stackSize; i++)
+                {
+                    AddItem(item.data);
+                }
+            }
+
+            return;
+        }
+
         for (int i = 0; i < startingItems.Count; i++)
         {
             AddItem(startingItems[i]);
@@ -94,7 +119,7 @@ public class Inventory : MonoBehaviour
 
         ItemData_Equipment oldEquipment = null;
 
-        foreach (KeyValuePair<ItemData_Equipment, InventoryItem> item in equipmentDictionary)//遍历字典
+        foreach (var item in equipmentDictionary)//遍历字典
         {
             if (item.Key.equipmentType == newEquipment.equipmentType)//是否有相同物品
             {
@@ -148,7 +173,7 @@ public class Inventory : MonoBehaviour
 
         for (int i = 0; i < equipmentSlot.Length; i++)
         {
-            foreach (KeyValuePair<ItemData_Equipment, InventoryItem> item in equipmentDictionary)//遍历字典
+            foreach (var item in equipmentDictionary)//遍历字典
             {
                 if (item.Key.equipmentType == equipmentSlot[i].slotType)//对比字典的物品是否与装备槽位对应
                 {
@@ -257,29 +282,25 @@ public class Inventory : MonoBehaviour
             return false;
         }
 
-        if (inventory.Count >= inventoryItemSlot.Length || stash.Count >= stashItemSlot.Length)
+        if (stashDictionary.TryGetValue(_item, out InventoryItem stashItem) || inventoryDictionary.TryGetValue(_item, out InventoryItem equipmentItem))
         {
-            if (stashDictionary.TryGetValue(_item, out InventoryItem stash) || inventoryDictionary.TryGetValue(_item, out InventoryItem inventory))
-            {
-                return true;
-            }
+            return true;
+        }
 
-            if (_item.itemType == ItemType.Equipment)
-            {
-                GameObject newItemSlot = Instantiate(itemSlotPrefab, inventorySlotParent);
-                inventoryItemSlot = inventorySlotParent.GetComponentsInChildren<UI_ItemSlot>();
+        if (_item.itemType == ItemType.Equipment&& inventory.Count >= inventoryItemSlot.Length)
+        {
+            GameObject newItemSlot = Instantiate(itemSlotPrefab, inventorySlotParent);
+            inventoryItemSlot = inventorySlotParent.GetComponentsInChildren<UI_ItemSlot>();
 
-                return true;
-            }
+            return true;
+        }
+        else if (_item.itemType == ItemType.Material&& stash.Count >= stashItemSlot.Length)
+        {
+            GameObject newStashSlot = Instantiate(itemSlotPrefab, stashSlotParent);
+            newStashSlot.GetComponent<UI_ItemSlot>().Setup(stashWindows);
 
-            else if (_item.itemType == ItemType.Material)
-            {
-                GameObject newStashSlot = Instantiate(itemSlotPrefab, stashSlotParent);
-                newStashSlot.GetComponent<UI_ItemSlot>().Setup(stashWindows);
-
-                stashItemSlot = stashSlotParent.GetComponentsInChildren<UI_ItemSlot>();
-                return true;
-            }
+            stashItemSlot = stashSlotParent.GetComponentsInChildren<UI_ItemSlot>();
+            return true;
         }
 
         return true;
@@ -404,7 +425,7 @@ public class Inventory : MonoBehaviour
     {
         ItemData_Equipment equipedItem = null;
 
-        foreach (KeyValuePair<ItemData_Equipment, InventoryItem> item in equipmentDictionary)//遍历字典
+        foreach (var item in equipmentDictionary)//遍历字典
         {
             if (item.Key.equipmentType == _type)//当字典中有与_type配对的类型时
             {
@@ -452,5 +473,70 @@ public class Inventory : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public void LoadData(GameData _data)
+    {
+
+        foreach (var pair in _data.inventory)//比较文件里保存data和所有data的，相同就保存在loadedItems里
+        {
+            foreach (var item in GetItemDataBase())
+            {
+                if (item != null && item.itemId == pair.Key)
+                {
+                    InventoryItem itemToLoad = new InventoryItem(item);
+                    itemToLoad.stackSize = pair.Value;
+
+                    loadedItems.Add(itemToLoad);
+                }
+            }
+        }
+
+        foreach (var pair in _data.equipmentId)
+        {
+            foreach (var item in GetItemDataBase())
+            {
+                if (item != null && item.itemId == pair)
+                {
+                    loadedEquipment.Add(item as ItemData_Equipment);
+                }
+            }
+        }
+    }
+
+    public void SaveData(ref GameData _data)
+    {
+        _data.inventory.Clear();
+        _data.equipmentId.Clear();
+
+        foreach (var pair in inventoryDictionary)
+        {
+            _data.inventory.Add(pair.Key.itemId, pair.Value.stackSize);
+        }
+
+        foreach (var pair in stashDictionary)
+        {
+            _data.inventory.Add(pair.Key.itemId, pair.Value.stackSize);
+        }
+
+        foreach (var pair in equipmentDictionary)
+        {
+            _data.equipmentId.Add(pair.Key.itemId);
+        }
+    }
+
+
+    private List<ItemData> GetItemDataBase()//获得所有的equipmentData的IdName和data的函数
+    {
+        List<ItemData> itemDataBase = new List<ItemData>();
+        string[] assetNames = AssetDatabase.FindAssets("", new[] { "Assets/Data/items" });//拿到了所有的items的文件名IdName
+        foreach (string SOName in assetNames)
+        {
+            var SOpath = AssetDatabase.GUIDToAssetPath(SOName);//这是通过找到的文件名拿到对应的位置
+            var itemData = AssetDatabase.LoadAssetAtPath<ItemData>(SOpath);//这是实打实的通过位置转换拿到相应的数据
+            itemDataBase.Add(itemData);//将数据填到itemDataBase里
+        }
+
+        return itemDataBase;
     }
 }

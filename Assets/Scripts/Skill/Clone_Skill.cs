@@ -27,11 +27,11 @@ public class Clone_Skill : Skill
 
     public void CreateClone(Transform _clonePosition, Vector3 _offset, bool _ishitKonckback = true)
     {
-        CloneCooldown();
         if (!baseSkillUnlockButton[0].unlocked)
         {
             return;
         }
+        CloneCooldown();
 
         if (baseSkillUnlockButton[2].unlocked)
         {

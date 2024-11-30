@@ -65,15 +65,16 @@ public class UI_ItemSlot : MonoBehaviour, IPointerDownHandler, IPointerEnterHand
                 return;
             }
 
+            if (item.data.itemType == ItemType.Material)
+            {
+                stashWindows.ShowStashDescription(item.data);
+            }
+
             if (item.data.itemType == ItemType.Equipment)
             {
                 Inventory.instance.EquipItem(item.data);
             }
 
-            if (item.data.itemType == ItemType.Material && stashWindows != null)
-            {
-                stashWindows.ShowStashDescription(item.data);
-            }
         }
     }
 

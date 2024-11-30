@@ -60,9 +60,18 @@ public class FileDataHandler
             catch (Exception e)
             {
                 Debug.LogError(e);
-
             }
         }
-        return loadData; 
+        return loadData;
+    }
+
+    public void Delete()
+    {
+        string fullPath = Path.Combine(dataDirPath, dataFileName);
+
+        if (File.Exists(fullPath))
+        {
+             File.Delete(fullPath);
+        }
     }
 }

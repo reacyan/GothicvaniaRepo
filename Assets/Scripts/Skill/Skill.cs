@@ -22,6 +22,7 @@ public class Skill : MonoBehaviour
     protected virtual void Start()
     {
         player = PlayerManager.instance.player;
+        UnlockBaseSkill();
     }
 
     protected virtual void Update()
