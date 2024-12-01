@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "E:\\program\\gothicvania game\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{81153EC5-199D-056A-2585-31A5CD292206}|Assembly-CSharp.csproj|e:\\program\\gothicvania game\\assets\\scripts\\save_and_load\\savemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{81153EC5-199D-056A-2585-31A5CD292206}|Assembly-CSharp.csproj|e:\\program\\gothicvania game\\assets\\ui_mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{81153EC5-199D-056A-2585-31A5CD292206}|Assembly-CSharp.csproj|solutionrelative:assets\\ui_mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{81153EC5-199D-056A-2585-31A5CD292206}|Assembly-CSharp.csproj|E:\\program\\gothicvania game\\assets\\scripts\\save_and_load\\savemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{81153EC5-199D-056A-2585-31A5CD292206}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\save_and_load\\savemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{81153EC5-199D-056A-2585-31A5CD292206}|Assembly-CSharp.csproj|e:\\program\\gothicvania game\\assets\\scripts\\save_and_load\\filedatahandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{81153EC5-199D-056A-2585-31A5CD292206}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\save_and_load\\filedatahandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EC4661E0-2760-2A87-6EA4-40FDA36FDD2D}|Assembly-CSharp.Player.csproj|E:\\program\\gothicvania game\\assets\\scripts\\stats\\enemystats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC4661E0-2760-2A87-6EA4-40FDA36FDD2D}|Assembly-CSharp.Player.csproj|solutionrelative:assets\\scripts\\stats\\enemystats.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 208,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -30,29 +34,40 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SaveManager.cs",
-              "DocumentMoniker": "E:\\program\\gothicvania game\\Assets\\Scripts\\Save_And_Load\\SaveManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Save_And_Load\\SaveManager.cs",
-              "ToolTip": "E:\\program\\gothicvania game\\Assets\\Scripts\\Save_And_Load\\SaveManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Save_And_Load\\SaveManager.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAQwDIAAAAmAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "EnemyStats.cs",
+              "DocumentMoniker": "E:\\program\\gothicvania game\\Assets\\Scripts\\Stats\\EnemyStats.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Stats\\EnemyStats.cs",
+              "ToolTip": "E:\\program\\gothicvania game\\Assets\\Scripts\\Stats\\EnemyStats.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Stats\\EnemyStats.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAYwD8AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-30T10:37:59.775Z",
+              "WhenOpened": "2024-12-01T13:02:19.012Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UI_MainMenu.cs",
+              "DocumentMoniker": "E:\\program\\gothicvania game\\Assets\\UI_MainMenu.cs",
+              "RelativeDocumentMoniker": "Assets\\UI_MainMenu.cs",
+              "ToolTip": "E:\\program\\gothicvania game\\Assets\\UI_MainMenu.cs",
+              "RelativeToolTip": "Assets\\UI_MainMenu.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-01T12:01:56.494Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "FileDataHandler.cs",
-              "DocumentMoniker": "E:\\program\\gothicvania game\\Assets\\Scripts\\Save_And_Load\\FileDataHandler.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Save_And_Load\\FileDataHandler.cs",
-              "ToolTip": "E:\\program\\gothicvania game\\Assets\\Scripts\\Save_And_Load\\FileDataHandler.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Save_And_Load\\FileDataHandler.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAgwEkAAAAjAAAAAAAAAA==",
+              "Title": "SaveManager.cs",
+              "DocumentMoniker": "E:\\program\\gothicvania game\\Assets\\Scripts\\Save_And_Load\\SaveManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Save_And_Load\\SaveManager.cs",
+              "ToolTip": "E:\\program\\gothicvania game\\Assets\\Scripts\\Save_And_Load\\SaveManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Save_And_Load\\SaveManager.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAswFgAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-30T10:37:56.522Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-30T10:37:59.775Z"
             }
           ]
         }

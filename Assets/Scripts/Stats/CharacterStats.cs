@@ -302,7 +302,7 @@ public class CharacterStats : MonoBehaviour
         {
             DecreaseHealth(igniteDamage);
 
-            if (currentHealth <= 0)
+            if (currentHealth <= 0&&!isDie)
             {
                 Die();
             }

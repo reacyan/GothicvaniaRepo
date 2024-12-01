@@ -15,8 +15,9 @@ MonoBehaviour:
   itemType: 1
   itemName: Wooden sword
   icon: {fileID: 1025091068, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
+  itemId: 247e6b76f6a43834bbbd0aa673d6caf6
   itemDescription: fragile sword
-  dropChance: 61.2
+  dropChance: 50
   itemEffects: []
   equipmentType: 0
   itemLastTime: 0

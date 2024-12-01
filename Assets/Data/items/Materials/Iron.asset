@@ -15,5 +15,6 @@ MonoBehaviour:
   itemType: 0
   itemName: Iron
   icon: {fileID: 1025795234, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
+  itemId: dc23dd1e1511c8f40bac80c8513f2cf3
   itemDescription: Can create craft
-  dropChance: 51.8
+  dropChance: 100

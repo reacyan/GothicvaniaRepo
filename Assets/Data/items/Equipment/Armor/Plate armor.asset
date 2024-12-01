@@ -15,8 +15,9 @@ MonoBehaviour:
   itemType: 1
   itemName: Plate armor
   icon: {fileID: -1581127718, guid: a9ca9a41598dd2e44b125928045c518f, type: 3}
+  itemId: 1c64d9f5caa848f4caf56b3a5814972a
   itemDescription: Plain plate armor, standard for soldiers in the field
-  dropChance: 54.5
+  dropChance: 50
   itemEffects: []
   equipmentType: 1
   itemLastTime: 0

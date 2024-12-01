@@ -38,8 +38,6 @@ public class Crystal_Skill : Skill
             return;
         }
 
-        CrystalCooldown(cooldown);
-
         if (currentCrystal == null)
         {
             CreateCrystal();
@@ -83,7 +81,6 @@ public class Crystal_Skill : Skill
     {
         if (baseSkillUnlockButton[3].unlocked && crystalLeft.Count > 0)
         {
-            CrystalCooldown(useTimeWindows);
 
             if (crystalLeft.Count == amountOfStacks)
             {
@@ -116,6 +113,7 @@ public class Crystal_Skill : Skill
 
     private void RefilCrystal()//补充水晶
     {
+
         int amountToAdd = amountOfStacks - crystalLeft.Count;
 
         for (int i = 0; i < amountToAdd; i++)
@@ -133,14 +131,6 @@ public class Crystal_Skill : Skill
 
         cooldownTimer = multiStackCooldown;//重置cd
         RefilCrystal();
-    }
-
-    private void CrystalCooldown(float _cooldown)
-    {
-        if (player.stats.onSkillBeUse != null)
-        {
-            player.stats.onSkillBeUse(skillSprite, skillType, _cooldown);
-        }
     }
 }
 

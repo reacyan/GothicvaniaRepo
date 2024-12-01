@@ -6,10 +6,9 @@ public class ItemDrop : MonoBehaviour
 {
     [SerializeField] private ItemData[] possibleDrop;
     [SerializeField] private int possibleItemDropCount;
-    private List<ItemData> dropList = new List<ItemData>();
-
-
     [SerializeField] private GameObject DropPrefab;
+
+    private List<ItemData> dropList = new List<ItemData>();
 
     public virtual void GenerateDrop()//选取掉落物品
     {

@@ -79,16 +79,6 @@ public class InGame_UI : MonoBehaviour
                 }
                 beUsedImageDictionary.Add(dashImage, dashCooldown);
                 break;
-            case SkillType.crystal:
-                crystalImage.sprite = _skillSprite;
-                crystalCooldown = _cooldown;
-
-                if (crystalImage.fillAmount <= 0)
-                {
-                    crystalImage.fillAmount = 1;
-                }
-                beUsedImageDictionary.Add(crystalImage, crystalCooldown);
-                break;
             case SkillType.mirage:
                 mirageImage.sprite = _skillSprite;
                 mirageCooldown = _cooldown;
