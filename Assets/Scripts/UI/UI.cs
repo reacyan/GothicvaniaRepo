@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class UI : MonoBehaviour
@@ -7,6 +8,8 @@ public class UI : MonoBehaviour
     [SerializeField] private GameObject craftUI;
     [SerializeField] private GameObject optionsUI;
     [SerializeField] private GameObject InGame_UI;
+    [SerializeField] private UI_FadeScreen fadescreen;
+    [SerializeField] private GameObject dieText;
 
     public UI_SkillToolTip skillToolTip;
     public UI_ItemToolTip itemToolTip;
@@ -83,5 +86,19 @@ public class UI : MonoBehaviour
         }
 
         SwitchTo(_menu);
+    }
+
+    public void DieEffect()
+    {
+        fadescreen.FadeOut();
+
+        StartCoroutine(DelayShowDiedText(2.5f));
+    }
+
+    IEnumerator DelayShowDiedText(float _delay)
+    {
+        yield return new WaitForSeconds(_delay);
+
+        dieText.SetActive(true);
     }
 }

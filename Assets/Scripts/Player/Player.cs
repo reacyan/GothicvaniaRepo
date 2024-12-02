@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : Entity
 {
@@ -32,7 +34,7 @@ public class Player : Entity
     public GameObject sword { get; private set; }
     public SkillManager skill { get; private set; }
     private PlayerStats playerstats;
-
+    public UI ui;
 
 
     //状态引用
@@ -198,5 +200,6 @@ public class Player : Entity
         base.Die();
 
         stateMachine.ChangeState(deadState);
+        ui.DieEffect();
     }
 }
