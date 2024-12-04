@@ -52,7 +52,6 @@ public class SaveManager : MonoBehaviour
 
         if (this.gameData == null)
         {
-            Debug.Log("no data save");
             NewGame();
         }
 

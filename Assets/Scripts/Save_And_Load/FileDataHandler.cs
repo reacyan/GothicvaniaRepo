@@ -71,7 +71,7 @@ public class FileDataHandler
 
         if (File.Exists(fullPath))
         {
-             File.Delete(fullPath);
+            File.Delete(fullPath);
         }
     }
 }

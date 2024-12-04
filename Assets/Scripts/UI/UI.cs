@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UI : MonoBehaviour
 {
@@ -8,8 +9,9 @@ public class UI : MonoBehaviour
     [SerializeField] private GameObject craftUI;
     [SerializeField] private GameObject optionsUI;
     [SerializeField] private GameObject InGame_UI;
-    [SerializeField] private UI_FadeScreen fadescreen;
     [SerializeField] private GameObject dieText;
+    [SerializeField] private GameObject RestartButton;
+    [SerializeField] private UI_FadeScreen fadescreen;
 
     public UI_SkillToolTip skillToolTip;
     public UI_ItemToolTip itemToolTip;
@@ -92,13 +94,32 @@ public class UI : MonoBehaviour
     {
         fadescreen.FadeOut();
 
-        StartCoroutine(DelayShowDiedText(2.5f));
+        StartCoroutine(DelayShowDied(2.5f));
     }
 
-    IEnumerator DelayShowDiedText(float _delay)
+    IEnumerator DelayShowDied(float _delay)//死亡效果
     {
         yield return new WaitForSeconds(_delay);
 
         dieText.SetActive(true);
+
+        yield return new WaitForSeconds(_delay);
+
+        RestartButton.SetActive(true);
+    }
+
+
+    public void RestartGame()//回到复活点重启游戏
+    {
+
+        SaveManager.instance.SaveGame();
+
+        fadescreen.FadeIn();
+
+        dieText.SetActive(false);
+
+        RestartButton.SetActive(false);
+
+        GameManager.instance.RestartScene();
     }
 }

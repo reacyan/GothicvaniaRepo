@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerItemDrop : ItemDrop
 {
     [Header("Player's drop")]
+    [Range(0, 100)]
     [SerializeField] private float chanceToLooseEqiupments;
+    [Range(0, 100)]
     [SerializeField] private float chanceToLooseStashes;
 
     public override void GenerateDrop()

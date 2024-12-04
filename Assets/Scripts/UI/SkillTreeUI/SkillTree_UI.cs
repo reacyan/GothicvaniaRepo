@@ -43,11 +43,6 @@ public class SkillTree_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void UnlockSkillSlot()
     {
-        if (!UnlockPredecessorSkill())
-        {
-            return;
-        }
-
         if (PlayerManager.instance.HaveEnoughMoney(skillCost))
         {
             unlocked = true;
@@ -56,34 +51,10 @@ public class SkillTree_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         }
     }
 
-    private bool UnlockPredecessorSkill()
-    {
-        for (int i = 0; i < shouldBeUnlocked.Length; i++)
-        {
-            if (!shouldBeUnlocked[i].unlocked)
-            {
-                Debug.Log("cannot unlock skill");
-                return false;
-            }
-        }
-
-        for (int i = 0; i < shouldBelocked.Length; i++)
-        {
-            if (shouldBelocked[i].unlocked)
-            {
-                Debug.Log("cannot unlock skill");
-                return false;
-            }
-        }
-
-        return true;
-    }
-
     private void LoadedSkill()
     {
-        if (UnlockPredecessorSkill())
+        if (unlocked ==true)
         {
-            unlocked = true;
             skillImage.color = Color.white;
         }
     }
