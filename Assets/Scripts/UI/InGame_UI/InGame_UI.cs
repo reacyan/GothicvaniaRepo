@@ -18,15 +18,14 @@ public enum SkillType
 public class InGame_UI : MonoBehaviour
 {
 
-    [SerializeField] private PlayerStats myStats;
-    [SerializeField] private Slider slider;
-
     private float dashCooldown;
     private float crystalCooldown;
     private float parryCooldown;
     private float mirageCooldown;
     private float swordCooldown;
     private float dodgeCooldown;
+    [SerializeField] private float increaseRate = 500;
+    [SerializeField] private float soulsAmount;
 
     [Header("SkillImage")]
     [SerializeField] private Image dashImage;
@@ -37,7 +36,12 @@ public class InGame_UI : MonoBehaviour
     [SerializeField] private Image dodgeImage;
 
     [SerializeField] private TextMeshProUGUI currentSouls;
+
+    [SerializeField] private PlayerStats myStats;
+    [SerializeField] private Slider slider;
+
     private Dictionary<Image, float> beUsedImageDictionary;
+
 
     private void Start()
     {
@@ -56,7 +60,16 @@ public class InGame_UI : MonoBehaviour
     {
         CheckCooldown();
 
-        currentSouls.text = PlayerManager.instance.GetCurrentCurrency().ToString("#,#");
+        if(soulsAmount< PlayerManager.instance.GetCurrentCurrency())
+        {
+            soulsAmount += Time.deltaTime*increaseRate;
+        }
+        else
+        {
+            soulsAmount = PlayerManager.instance.GetCurrentCurrency();
+        }
+
+        currentSouls.text = ((int)soulsAmount).ToString();
     }
 
     private void UpdateHealthUI()
@@ -123,7 +136,7 @@ public class InGame_UI : MonoBehaviour
     }
 
 
-    private void CheckCooldown()
+    private void CheckCooldown()//¼ì²â¼¼ÄÜcd
     {
         Dictionary<Image,float> CooldownDictionary = new Dictionary<Image,float>();
 

@@ -6039,6 +6039,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6908641979253139254, guid: 416220ceb79316d4f94e54ac01393107, type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7914310033720237714, guid: 416220ceb79316d4f94e54ac01393107, type: 3}
       propertyPath: m_Name
       value: DarkScreen
@@ -19924,7 +19928,7 @@ GameObject:
   - component: {fileID: 1146969626}
   - component: {fileID: 1146969625}
   m_Layer: 5
-  m_Name: Scroll View
+  m_Name: Inventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22784,8 +22788,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3d3135823879014589c1768f2d8dd0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myStats: {fileID: 1408091962}
-  slider: {fileID: 1144891676}
+  increaseRate: 500
+  soulsAmount: 0
   dashImage: {fileID: 2088747582}
   crystalImage: {fileID: 0}
   parryImage: {fileID: 778469580}
@@ -22793,6 +22797,8 @@ MonoBehaviour:
   swordImage: {fileID: 70226976}
   dodgeImage: {fileID: 2098235629}
   currentSouls: {fileID: 713831988}
+  myStats: {fileID: 1408091962}
+  slider: {fileID: 1144891676}
 --- !u!1 &1300869287
 GameObject:
   m_ObjectHideFlags: 0
@@ -23470,6 +23476,18 @@ PrefabInstance:
     - target: {fileID: 4179795417169721274, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571769980766518855, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
+      propertyPath: level
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571769980766518855, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
+      propertyPath: dropCurrency
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571769980766518855, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
+      propertyPath: percentageModifier
+      value: 0.343
       objectReference: {fileID: 0}
     - target: {fileID: 8262884987296968524, guid: 7feb246f657a89f419cbe920e073045d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -31402,8 +31420,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec8e475548bdf9949b39890e6a54e53f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1408091957}
   currency: 1000
+  LossingCurrency: 0
+  DiePosition: {x: 0, y: 0}
+  player: {fileID: 1408091957}
+  LossingPrefab: {fileID: 3837692667751546623, guid: 4084eda6675ed784780d2660cd60b189, type: 3}
 --- !u!4 &1966223003
 Transform:
   m_ObjectHideFlags: 0

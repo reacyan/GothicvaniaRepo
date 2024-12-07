@@ -44,5 +44,7 @@ public class PlayerItemDrop : ItemDrop
         {
             inventory.RemoveItem(itemToRemove[i].data);
         }
+
+        PlayerManager.instance.SetDropCurrency();
     }
 }

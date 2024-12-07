@@ -43,6 +43,22 @@ public class SkillTree_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void UnlockSkillSlot()
     {
+        foreach (var unlocked in shouldBeUnlocked)
+        {
+            if (!unlocked.unlocked)
+            {
+                return;
+            }
+        }
+
+        foreach (var locked in shouldBelocked)
+        {
+            if (locked.unlocked)
+            {
+                return;
+            }
+        }
+
         if (PlayerManager.instance.HaveEnoughMoney(skillCost))
         {
             unlocked = true;

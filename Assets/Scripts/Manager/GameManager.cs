@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour,ISaveManager
                     {
                         point.ActivateCheckPoint();
 
-                        if (point.Id == _data.rebornPointId)
+                        if (point.Id == _data.rebornPointId&&_data.rebornPointId!=null)
                         {
                             point.SetRebornPoint();
                             PlayerManager.instance.player.transform.position=RebornPoint.transform.position;
@@ -64,13 +64,28 @@ public class GameManager : MonoBehaviour,ISaveManager
     {
         _data.checkPoint.Clear();
 
-        _data.rebornPointId = RebornPoint.Id;
-
-        Debug.Log(_data.checkPoint.Count);
+        if (RebornPoint != null)
+        {
+            _data.rebornPointId = RebornPoint.Id;
+        }
 
         foreach (var point in checkPoints)
         {
             _data.checkPoint.Add(point.Id, point.activtionStatus);
+        }
+
+        Debug.Log(_data.checkPoint.Count);
+    }
+
+    public void PauseGame(bool _pause)
+    {
+        if (_pause)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
         }
     }
 }

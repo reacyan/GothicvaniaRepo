@@ -103,6 +103,11 @@ public class Player : Entity
 
         stateMachine.currentState.Update();
 
+        if (Time.timeScale == 0)
+        {
+            return;
+        }
+
         CheckForDashInput();
         CheckForBlackHoleInput();
 
@@ -198,8 +203,11 @@ public class Player : Entity
     public override void Die()
     {
         base.Die();
-
+        
         stateMachine.ChangeState(deadState);
+
+        PlayerManager.instance.DiePosition = this.transform.position;
+
         ui.DieEffect();
     }
 }

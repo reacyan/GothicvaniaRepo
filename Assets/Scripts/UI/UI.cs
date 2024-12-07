@@ -55,11 +55,7 @@ public class UI : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            characterUI.SetActive(false);
-            skillTreeUI.SetActive(false);
-            craftUI.SetActive(false);
-            optionsUI.SetActive(false);
-            InGame_UI.SetActive(true);
+            SwitchWithKeyTo(InGame_UI);
         }
     }
 
@@ -75,6 +71,20 @@ public class UI : MonoBehaviour
         if (_menu != null)
         {
             _menu.SetActive(true);
+        }
+
+
+        if (GameManager.instance != null)
+        {
+            Debug.Log(_menu);
+            if (_menu== InGame_UI)
+            {
+                GameManager.instance.PauseGame(false);
+            }
+            else
+            {
+                GameManager.instance.PauseGame(true);
+            }
         }
     }
 

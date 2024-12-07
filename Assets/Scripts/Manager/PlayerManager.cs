@@ -5,8 +5,13 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour,ISaveManager
 {
     public static PlayerManager instance;
-    public Player player;
+
     public int currency;
+    public int LossingCurrency;
+
+    public Vector2 DiePosition=Vector2.zero;
+    public Player player;
+    public GameObject LossingPrefab;
 
     private void Awake()
     {
@@ -36,13 +41,41 @@ public class PlayerManager : MonoBehaviour,ISaveManager
 
     public int GetCurrentCurrency() => currency;
 
+    public void SetDropCurrency()
+    {
+        Debug.Log("Drop Currency");
+        LossingCurrency = currency;
+        currency = 0;
+    }
+
+    public void collectLossingCurrency()
+    {
+        Debug.Log("Pick up");
+        currency += LossingCurrency;
+    }
+
     public void LoadData(GameData _data)
     {
         currency = _data.currency;
+        LossingCurrency = _data.Lossing;
+
+        if (_data.PlayerDiePosition != Vector2.zero)
+        {
+            Debug.Log("Drop Currency");
+            GameObject DropLossing = Instantiate(LossingPrefab);
+            DropLossing.transform.position = _data.PlayerDiePosition;//生成的位置不确定，如果不在地面死亡，掉落物将会掉落在空中，后面将修改这个bug，
+        }
     }
 
     public void SaveData(ref GameData _data)
     {
+        _data.PlayerDiePosition = Vector2.zero;
+        _data.Lossing = this.LossingCurrency;
         _data.currency = this.currency;
+
+        if (DiePosition != Vector2.zero)
+        {
+            _data.PlayerDiePosition = DiePosition;
+        }
     }
 }

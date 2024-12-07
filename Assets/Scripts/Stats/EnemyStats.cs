@@ -10,6 +10,8 @@ public class EnemyStats : CharacterStats
 
     private Enemy enemy;
 
+    public Stat dropCurrency;
+
     [Header("level details")]
     [SerializeField] private int level = 1;
 
@@ -18,6 +20,7 @@ public class EnemyStats : CharacterStats
 
     protected override void Start()
     {
+        dropCurrency.SetDefaultValue(50);
         ApplyLevelModifiers();
         base.Start();
 
@@ -41,6 +44,7 @@ public class EnemyStats : CharacterStats
         modify(armor);
         modify(evasion);
         modify(magicResistance);
+        modify(dropCurrency);
     }
 
     public override void TakeDamage(int _damage)//受到伤害
@@ -58,11 +62,11 @@ public class EnemyStats : CharacterStats
         }
     }
 
-
     protected override void Die()
     {
         base.Die();
         enemy.Die();
+        PlayerManager.instance.currency += dropCurrency.GetValue();
         myDropSystem.GenerateDrop();
     }
 }
