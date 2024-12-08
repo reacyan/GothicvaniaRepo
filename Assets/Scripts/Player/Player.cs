@@ -11,7 +11,8 @@ public class Player : Entity
     public Transform skillCheck;
     public float skillCheckRadius;
 
-    public bool isDead = false;
+    public bool isDead;
+
     [Header("Attack details")]
     public Vector2[] attackmovement;
     public float counterAttackDuration = .2f;
@@ -29,11 +30,11 @@ public class Player : Entity
     public float dashDuration;
     public float defaultDashSpeed;
     public float dashDir { get; private set; }
+    public PlayerFX fx;
 
 
     public GameObject sword { get; private set; }
     public SkillManager skill { get; private set; }
-    private PlayerStats playerstats;
     public UI ui;
 
 
@@ -86,10 +87,10 @@ public class Player : Entity
     {
         base.Start();
 
+        fx = GetComponent<PlayerFX>();
+
         skill = SkillManager.instance;
         stateMachine.Initialize(idleState);
-        playerstats = GetComponent<PlayerStats>();
-
 
         defaultMoveSpeed = moveSpeed;
         defaultJumpSpeed = jumpForce;

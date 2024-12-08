@@ -70,7 +70,7 @@ public class Clone_Skill_Controller : MonoBehaviour
         {
             if (hit.GetComponent<Enemy>() != null)//如果击中的物体是敌人
             {
-                player.stats.DoDamage(hit.GetComponent<CharacterStats>());//对敌人造成伤害  
+                player.stats.DoDamage(hit.GetComponent<CharacterStats>(),PlayerManager.instance.GetKonckDir(hit.GetComponent<CharacterStats>().transform,transform));//对敌人造成伤害  
 
                 if (SkillManager.instance.clone.CanDuplicate())//如果可以复制克隆体  
                 {

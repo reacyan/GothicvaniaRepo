@@ -9,9 +9,9 @@ public class PlayerStats : CharacterStats
         base.Start();
     }
 
-    public override void TakeDamage(int _damage)
+    public override void TakeDamage(int _damage, int _AttackDir, bool _ishitKonckbback = true)
     {
-        base.TakeDamage(_damage);
+        base.TakeDamage(_damage, _AttackDir, _ishitKonckbback);
     }
 
     public override void DecreaseHealth(int _damage)
@@ -26,9 +26,9 @@ public class PlayerStats : CharacterStats
         }
     }
 
-    protected override void Die()
+    protected override void DieStats()
     {
-        base.Die();
+        base.DieStats();
 
         player.Die();
 

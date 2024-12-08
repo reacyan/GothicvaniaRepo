@@ -47,9 +47,9 @@ public class EnemyStats : CharacterStats
         modify(dropCurrency);
     }
 
-    public override void TakeDamage(int _damage)//受到伤害
+    public override void TakeDamage(int _damage, int _AttackDir, bool _ishitKonckbback = true)
     {
-        base.TakeDamage(_damage);
+        base.TakeDamage(_damage, _AttackDir, _ishitKonckbback);
     }
 
     public void modify(Stat _stat)//修改属性
@@ -62,9 +62,9 @@ public class EnemyStats : CharacterStats
         }
     }
 
-    protected override void Die()
+    protected override void DieStats()
     {
-        base.Die();
+        base.DieStats();
         enemy.Die();
         PlayerManager.instance.currency += dropCurrency.GetValue();
         myDropSystem.GenerateDrop();

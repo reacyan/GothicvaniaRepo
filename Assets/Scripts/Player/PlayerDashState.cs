@@ -14,12 +14,16 @@ public class PlayerDashState : playerstate
 
         player.skill.dash.CloneOnDash();
 
+        player.stats.MakeInvincible(true);
+
         stateTimer = player.dashDuration;
     }
 
     public override void Exit()
     {
         base.Exit();
+
+        player.stats.MakeInvincible(false);
 
         player.skill.dash.CloneOnOver();
         player.SetVelocity(0, rb.velocity.y);

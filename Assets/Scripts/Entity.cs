@@ -8,7 +8,6 @@ public class Entity : MonoBehaviour
     #region Components
     public Animator anim { get; private set; }
     public Rigidbody2D rb { get; private set; }
-    public EntityFX fx { get; private set; }
     public SpriteRenderer sr { get; private set; }
     public CharacterStats stats { get; private set; }
     public CapsuleCollider2D cd { get; private set; }
@@ -47,19 +46,25 @@ public class Entity : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         sr = GetComponentInChildren<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
-        fx = GetComponent<EntityFX>();
         stats = GetComponent<CharacterStats>();
         cd = GetComponent<CapsuleCollider2D>();
     }
 
-    public virtual void DamageImpact(bool _ishitKonckbback = true) => StartCoroutine("HitKnockback", _ishitKonckbback);
-
-    protected virtual IEnumerator HitKnockback(bool _ishitKonckbback)
+    public virtual void DamageImpact(int _konckDir, bool _ishitKonckback = true)
     {
-        if (_ishitKonckbback)//ÊÇ·ñ»÷ÍË
+
+        StartCoroutine(HitKnockback(_ishitKonckback, _konckDir));
+    }
+
+
+    protected virtual IEnumerator HitKnockback(bool _ishitKonckback,int _konckDir)
+    {
+        int konckDir = _konckDir;
+
+        if (_ishitKonckback)//ÊÇ·ñ»÷ÍË
         {
             isKnocked = true;
-            rb.velocity = new Vector2(knockbackDirection.x * -facingDir, knockbackDirection.y);
+            rb.velocity = new Vector2(knockbackDirection.x * konckDir, knockbackDirection.y);
         }
 
         yield return new WaitForSeconds(knockbackDuration);

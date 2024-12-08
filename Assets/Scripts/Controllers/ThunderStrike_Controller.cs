@@ -58,8 +58,10 @@ public class ShockStrike_Controller : MonoBehaviour
 
     private void DamageAndSelfDestroy()
     {
+        int attackDir = PlayerManager.instance.GetKonckDir(targetStats.transform, transform);
+
         targetStats.ApplyShock(true);
-        targetStats.TakeDamage(damage);
+        targetStats.TakeDamage(damage, attackDir);
         Destroy(gameObject, .4f);
     }
 }

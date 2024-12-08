@@ -5,7 +5,6 @@ using UnityEngine;
 public class Enemy_Skeleton : Enemy
 {
 
-
     #region States
     public SkeletonIdleState idleState { get; private set; }
     public SkeletonMoveState moveState { get; private set; }
@@ -14,7 +13,6 @@ public class Enemy_Skeleton : Enemy
     public SkeletonStunnedState stunnedState { get; private set; }
     public SkeletonDeadState deadState { get; private set; }
     #endregion
-
 
     protected override void Awake()
     {
@@ -59,6 +57,8 @@ public class Enemy_Skeleton : Enemy
     public override void Die()
     {
         base.Die();
+
+        Debug.Log("die");
 
         stateMachine.ChangeState(deadState);
     }

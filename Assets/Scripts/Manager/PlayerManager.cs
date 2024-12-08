@@ -53,6 +53,20 @@ public class PlayerManager : MonoBehaviour,ISaveManager
         Debug.Log("Pick up");
         currency += LossingCurrency;
     }
+    public int GetKonckDir(Transform _targetSource, Transform _attackSource)
+    {
+        int dir = 0;
+
+        if (_attackSource.position.x > _targetSource.transform.position.x)
+        {
+            dir = -1;
+        }
+        else
+        {
+            dir = 1;
+        }
+        return dir;
+    }
 
     public void LoadData(GameData _data)
     {

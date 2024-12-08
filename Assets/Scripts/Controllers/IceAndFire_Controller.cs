@@ -45,7 +45,7 @@ public class IceAndFire_Controller : ThunderBoom_Controller
 
         if (enemy != null)
         {
-            player.DoDamage(enemy);
+            player.DoDamage(enemy,PlayerManager.instance.GetKonckDir(enemy.transform,transform));
 
             Destroy(gameObject, .15f);
         }

@@ -183,7 +183,7 @@ public class Sword_Skill_Controller : MonoBehaviour
                     {
                         if (hit.GetComponent<Enemy>() != null)
                         {
-                            player.stats.DoDamage(hit.GetComponent<CharacterStats>());
+                            player.stats.DoDamage(hit.GetComponent<CharacterStats>(),PlayerManager.instance.GetKonckDir(hit.GetComponent<CharacterStats>().transform,transform));
                         }
                     }
                 }
@@ -247,7 +247,7 @@ public class Sword_Skill_Controller : MonoBehaviour
             enemy.StartCoroutine("FreezeTimerFor", freezeTimeDuartion);
         }
 
-        player.stats.DoDamage(enemy.GetComponent<CharacterStats>());
+        player.stats.DoDamage(enemy.GetComponent<CharacterStats>(), PlayerManager.instance.GetKonckDir(enemy.GetComponent<CharacterStats>().transform, transform));
 
         ItemData_Equipment equipedAmulet = Inventory.instance.GetEquipment(EquipmentType.Amulet);
 

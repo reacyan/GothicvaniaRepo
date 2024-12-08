@@ -21,7 +21,7 @@ public class Enemy_SkeletonAnimationTrigger : MonoBehaviour
             {
                 PlayerStats _target = hit.GetComponent<PlayerStats>();
 
-                enemy.stats.DoDamage(_target);
+                enemy.stats.DoDamage(_target,PlayerManager.instance.GetKonckDir(_target.transform,transform));
             }
         }
     }

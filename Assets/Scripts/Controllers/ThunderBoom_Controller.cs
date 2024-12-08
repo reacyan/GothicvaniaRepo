@@ -5,16 +5,14 @@ using UnityEngine;
 public class ThunderBoom_Controller : MonoBehaviour
 {
 
-    protected virtual void OnTriggerEnter2D(Collider2D other)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerStats playerStats = PlayerManager.instance.player.GetComponent<PlayerStats>();
-        if (other.GetComponent<Enemy>() != null)
+        if (collision.GetComponent<Enemy>() != null)
         {
-            EnemyStats enemyTarget = other.GetComponent<EnemyStats>();
+            EnemyStats enemyTarget = collision.GetComponent<EnemyStats>();
 
-            playerStats.DoMagicDamage(enemyTarget);
+            playerStats.DoMagicDamage(enemyTarget, PlayerManager.instance.GetKonckDir(enemyTarget.transform, transform));
         }
     }
-
-
 }

@@ -24,7 +24,9 @@ public class CharacterStats : MonoBehaviour
 {
     private EntityFX fx;
     public Player player;
-    public bool isDie = false;
+    public bool isDie { get; private set; }
+    public bool isInvincible { get; private set; }
+
 
     [Header("Major stats")]
     public Stat strength;// 1 point increase damage by 1 and crit.power by 1%
@@ -153,16 +155,24 @@ public class CharacterStats : MonoBehaviour
 
 
 
-    protected virtual void Die()  //死亡调用
+    protected virtual void DieStats()  //死亡调用
     {
-        isIgnited = false;
-        isChilled = false;
-        isShocked = false;
-        isDie = true;
+        if (!isDie)
+        {
+            isIgnited = false;
+            isChilled = false;
+            isShocked = false;
+            isDie = true;
+        }
     }
 
-    public virtual void DoDamage(CharacterStats _targetStats)  //伤害计算
+    public virtual void DoDamage(CharacterStats _targetStats,int _KonckDir)  //伤害计算
     {
+        if (isInvincible)
+        {
+            return;
+        }
+
         if (TargetCanAvoidAttack(_targetStats))
         {
             return;
@@ -177,12 +187,12 @@ public class CharacterStats : MonoBehaviour
 
         totalDamage = CheckTargetArmor(_targetStats, totalDamage);
         //_targetStats.TakeDamage(totalDamage);
-        DoMagicDamage(_targetStats, totalDamage);
+        DoMagicDamage(_targetStats, _KonckDir);
     }
 
 
     #region Magical damage and ailments
-    public virtual void DoMagicDamage(CharacterStats _targetStats, int _totalDamage = 0)  //造成魔法伤害
+    public virtual void DoMagicDamage(CharacterStats _targetStats,int _KonckDir, int _totalDamage = 0)  //造成魔法伤害
     {
         //获取数值
         int _fireDamage = fireDamage.GetValue();
@@ -194,7 +204,9 @@ public class CharacterStats : MonoBehaviour
 
         totalMagicDamage = CheckTargetResistance(_targetStats, totalMagicDamage);
 
-        _targetStats.TakeDamage(totalMagicDamage + _totalDamage);
+
+
+        _targetStats.TakeDamage(totalMagicDamage + _totalDamage, _KonckDir);
 
         if (Mathf.Max(_fireDamage, _iceDamage, _lightingDamage) <= 0)
         {
@@ -304,7 +316,7 @@ public class CharacterStats : MonoBehaviour
 
             if (currentHealth <= 0&&!isDie)
             {
-                Die();
+                DieStats();
             }
 
             igniteDamageTiemer = igniteDamageCooldown;
@@ -362,18 +374,19 @@ public class CharacterStats : MonoBehaviour
 
 
     #region Stat calculations
-    public virtual void TakeDamage(int _damage) //造成伤害
+    public virtual void TakeDamage(int _damage,int _AttackDir ,bool _ishitKonckbback = true) //造成伤害
     {
         finalDamage = _damage;
 
         DecreaseHealth(finalDamage);
 
-        GetComponent<Entity>().DamageImpact();
+        GetComponent<Entity>().DamageImpact(_AttackDir,_ishitKonckbback);
+
         fx.StartCoroutine("FlashFX");
 
         if (currentHealth <= 0 && !isDie)
         {
-            Die();
+            DieStats();
         }
     }
 
@@ -450,6 +463,7 @@ public class CharacterStats : MonoBehaviour
 
     #endregion
 
+    public void MakeInvincible(bool _isInvincible) => isInvincible = _isInvincible;
 
     public Stat GetStat(StatType buffType)
     {

@@ -22,6 +22,10 @@ public class Enemy : Entity
     [Header("Attack info")]
     public float attackDistance;
     public float attackCooldown;
+
+    public EntityFX fx { get; private set; }
+
+
     [HideInInspector] public float lastTimeAttacked;
 
     public EnemyStateMachine stateMachine { get; private set; }
@@ -34,6 +38,13 @@ public class Enemy : Entity
         stateMachine = new EnemyStateMachine();
 
         defaultMoveSpeed = moveSpeed;
+    }
+
+    protected override void Start()
+    {
+        base.Start();
+
+        fx = GetComponent<EntityFX>();
     }
 
     protected override void Update()
