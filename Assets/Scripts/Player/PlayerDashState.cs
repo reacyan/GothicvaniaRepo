@@ -44,5 +44,7 @@ public class PlayerDashState : playerstate
         {
             stateMachine.ChangeState(player.idleState);
         }
+
+        player.fx.CreateShadow();
     }
 }

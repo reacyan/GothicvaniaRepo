@@ -25251,7 +25251,7 @@ MonoBehaviour:
   swordReturnImpact: 5
   defaultMoveSpeed: 0
   defaultJumpSpeed: 0
-  dashSpeed: 24
+  dashSpeed: 32
   dashDuration: 0.2
   defaultDashSpeed: 0
   fx: {fileID: 0}
@@ -25447,6 +25447,9 @@ MonoBehaviour:
   igniteFx: {fileID: 734179640614847219, guid: fd16e11f16bf9224bbbbecf046b630b7, type: 3}
   childFX: {fileID: 6020551310773569157, guid: 40687b3d941e18843a9c54716d60e905, type: 3}
   shockFX: {fileID: 3484172345372279875, guid: 2b98d281205e62e4f81c9df36154c4a2, type: 3}
+  afterImage: {fileID: 3487615449846807786, guid: 2a150adb2951f5c40b16e271a7c5f984, type: 3}
+  colorLooseRate: 2
+  colorCooldown: 0
 --- !u!1 &1410513761
 GameObject:
   m_ObjectHideFlags: 0
@@ -35578,6 +35581,18 @@ PrefabInstance:
     - target: {fileID: 3330543455529087706, guid: 10b2eeedb0689eb40862e38fec4ce5d6, type: 3}
       propertyPath: m_Name
       value: Snow
+      objectReference: {fileID: 0}
+    - target: {fileID: 5029145465241448870, guid: 10b2eeedb0689eb40862e38fec4ce5d6, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 87.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 5029145465241448870, guid: 10b2eeedb0689eb40862e38fec4ce5d6, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 4.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5029145465241448870, guid: 10b2eeedb0689eb40862e38fec4ce5d6, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.a
+      value: 0.078431375
       objectReference: {fileID: 0}
     - target: {fileID: 7762443902545816308, guid: 10b2eeedb0689eb40862e38fec4ce5d6, type: 3}
       propertyPath: m_LocalPosition.x
