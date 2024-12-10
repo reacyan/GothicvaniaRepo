@@ -44,7 +44,7 @@ public class Inventory : MonoBehaviour, ISaveManager
     private UI_StatSlot[] StatSlot;
 
     [Header("Data Base")]
-    //public string[] assetNames;
+    public List<ItemData> itemDataBase;
     public List<InventoryItem> loadedItems;
     public List<ItemData_Equipment> loadedEquipment;
 
@@ -480,7 +480,7 @@ public class Inventory : MonoBehaviour, ISaveManager
 
         foreach (var pair in _data.inventory)//比较文件里保存data和所有data的，相同就保存在loadedItems里
         {
-            foreach (var item in GetItemDataBase())
+            foreach (var item in itemDataBase)
             {
                 if (item != null && item.itemId == pair.Key)
                 {
@@ -494,7 +494,7 @@ public class Inventory : MonoBehaviour, ISaveManager
 
         foreach (var pair in _data.equipmentId)
         {
-            foreach (var item in GetItemDataBase())
+            foreach (var item in itemDataBase)
             {
                 if (item != null && item.itemId == pair)
                 {
@@ -525,6 +525,11 @@ public class Inventory : MonoBehaviour, ISaveManager
         }
     }
 
+    
+#if UNITY_EDITOR
+
+    [ContextMenu("fill item data base")]
+    public void FillItemDataBase() => itemDataBase = new List<ItemData>(GetItemDataBase()); 
 
     private List<ItemData> GetItemDataBase()//获得所有的equipmentData的IdName和data的函数
     {
@@ -539,4 +544,6 @@ public class Inventory : MonoBehaviour, ISaveManager
 
         return itemDataBase;
     }
+
+#endif
 }
