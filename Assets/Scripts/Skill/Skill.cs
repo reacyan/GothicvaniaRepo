@@ -33,8 +33,6 @@ public class Skill : MonoBehaviour
     {
         if (baseSkillUnlockButton[0].unlocked)
         {
-            Debug.Log("unlocked this");
-
             baseSkillUnlocked = true;
         }
     }

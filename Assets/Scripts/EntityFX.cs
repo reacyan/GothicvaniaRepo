@@ -6,7 +6,8 @@ using UnityEngine.Rendering;
 
 public class EntityFX : MonoBehaviour
 {
-    private SpriteRenderer sr;
+    protected Player player;
+    protected SpriteRenderer sr;
 
     [Header("Flash FX")]
     [SerializeField] private float flashDuration;
@@ -24,9 +25,10 @@ public class EntityFX : MonoBehaviour
     [SerializeField] private ParticleSystem shockFX;
 
 
-    private void Start()
+    protected virtual void Start()
     {
         sr = GetComponentInChildren<SpriteRenderer>();
+        player = PlayerManager.instance.player;
         originalMat = sr.material;
     }
 

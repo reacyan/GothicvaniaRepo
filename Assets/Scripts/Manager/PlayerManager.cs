@@ -35,7 +35,6 @@ public class PlayerManager : MonoBehaviour,ISaveManager
         }
 
         currency = currency - _price;
-        Debug.Log("money is enough");
         return true;
     }
 

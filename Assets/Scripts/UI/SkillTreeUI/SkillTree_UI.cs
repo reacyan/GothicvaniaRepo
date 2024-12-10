@@ -63,7 +63,6 @@ public class SkillTree_UI : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         {
             unlocked = true;
             skillImage.color = Color.white;
-            Debug.Log("Unlock skill");
         }
     }
 

@@ -76,7 +76,6 @@ public class UI : MonoBehaviour
 
         if (GameManager.instance != null)
         {
-            Debug.Log(_menu);
             if (_menu== InGame_UI)
             {
                 GameManager.instance.PauseGame(false);
